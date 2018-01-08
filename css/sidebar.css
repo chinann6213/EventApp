@@ -1,0 +1,9 @@
+body { margin: 0; font-family: 'Catamaran', sans-serif; font-size: 16px; }
+p { margin: 0; }
+#nav-sidebar { height: 100%; padding: 1rem 0; position: fixed; left: 0; background: #fff; box-shadow: 0px 0px 4px 0px #ddd; max-width: 240px; width: 100%; }
+#user-login-details { height: 240px; text-align: center; border-bottom: 1px solid #ddd; }
+.main-item { line-height: 100%; font-size: 1.125rem; }
+.main-item p { padding: 1rem; padding-bottom: 1rem; }
+.main-item p span { vertical-align: top; }
+.sub-item { font-size: 1rem; padding: 0.875rem 0.875rem 0.875rem 3rem;  }
+.icon { margin-right: 1rem; width: 1rem; height: 1rem; }
