@@ -2,6 +2,7 @@
   include_once 'header.php';
 ?>
 
+<<<<<<< HEAD
 <main>
   <section class="index-banner">
     <div class="vertical-center">
@@ -21,6 +22,18 @@
     </section>
   </div>
 </main>
+=======
+<html>
+  <head>
+    <!-- CSS -->
+  </head>
+  <body>
+    <!-- JS -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
+>>>>>>> dd853634251421429a374a0e1699853523284d56
 
 <?php
   include_once 'footer.php';
