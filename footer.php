@@ -2,7 +2,6 @@
   <ul class="footer-links-main">
     <li><p>Use EventApp</p></li>
     <li><a href="index.html">Home</a></li>
-    <li><a href="#">Browse Event</a></li>
     <li><a href="#">Create Event</a></li>
     <li><a href="#">My Event</a></li>
   </ul>
