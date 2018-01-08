@@ -1,3 +1,31 @@
 #create-event { margin-left: 240px; }
-#ce-header { height: 72px; background: #f7f7f7; }
+#ce-header { margin-bottom: 1.5rem; box-shadow: 0px 0px 8px -2px #000; height: 72px; background: #f7f7f7; }
 #ce-header p { padding: 0 2rem; font-size: 2rem; font-weight: bold; color: #673AB7; line-height: 72px; }
+#ce-container { padding: 0 2rem; }
+
+/* material input */
+.form-input { padding: 1rem 0 0 0; position: relative; }
+.input-lbl { font-weight: bold; display: block; font-size: 1rem; transform: translateY(20px); color: #7E57C2; transition: all 0.5s; }
+.event-input { position: relative; background: transparent; width: 100%; border: none; outline: none; padding: 0.5rem 0; font-size: 1rem; }
+.form-input::after, .form-input::before { content: ""; position: absolute; display: block; width: 100%; height: 2px; background-color: #7E57C2; bottom: 0; left: 0; transition: all 0.5s; }
+.form-input::after { background-color: #000; transform: scaleX(0); }
+.input-active .input-lbl { color: #000; }
+.input-active::after { transform: scaleX(1); }
+.input-complete .input-lbl { font-size: 16px; transform: translateY(0); }
+
+/* others */
+.tell-event-detail { margin-top: 1.5rem; color: #7E57C2; font-weight: bold; }
+
+/* summernote */
+.note-btn-primary { background: #673AB7; }
+.note-btn-primary:hover, .note-btn-primary:focus, .note-btn-primary.focus { background: #000; }
+.note-editor.note-frame .note-placeholder { padding: 1rem; }
+.note-editor.note-frame .note-editing-area .note-editable { padding: 1rem; }
+.note-editor.note-frame .note-statusbar { display: none; }
+.note-editor.note-frame { border-color: #673AB7; }
+.note-toolbar { border-color: #673AB7; }
+.note-tooltip.top .note-tooltip-arrow { border-top-color: #673AB7; }
+.note-tooltip.bottom .note-tooltip-arrow { border-bottom-color: #673AB7; }
+.note-tooltip.left .note-tooltip-arrow { border-left-color: #673AB7; }
+.note-tooltip.right .note-tooltip-arrow { border-right-color: #673AB7; }
+.note-tooltip-content { background: #673AB7; }

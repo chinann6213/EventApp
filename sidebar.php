@@ -21,3 +21,4 @@
       <div class="main-item" id="gallery"><p><img class="icon" src="open-iconic/svg/image.svg"><span>Gallery</span></p></div>
       <div class="main-item" id="about-us"><p><img class="icon" src="open-iconic/svg/info.svg"><span>About Us</span></p></div>
     </div>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
