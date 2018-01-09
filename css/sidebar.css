@@ -1,7 +1,7 @@
 body { margin: 0; font-family: 'Catamaran', sans-serif; font-size: 16px; }
 p { margin: 0 0 0 0; }
 a { text-decoration: none; color: #000; }
-#nav-sidebar { height: 100%; padding: 1rem 0; position: fixed; left: 0; background: #fff; box-shadow: 0px 0px 4px 0px #ddd; max-width: 240px; width: 100%; }
+#nav-sidebar { height: 100%; padding: 1rem 0; position: fixed; z-index: 1; left: 0; background: #fff; box-shadow: 0px 0px 4px 0px #ddd; max-width: 240px; width: 100%; }
 #user-login-details { height: 240px; text-align: center; border-bottom: 1px solid #ddd; }
 .main-item { cursor: pointer; line-height: 100%; font-size: 1.125rem; }
 .main-item p { padding: 1rem; margin: 0; }

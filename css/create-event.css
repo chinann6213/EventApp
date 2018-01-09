@@ -1,7 +1,6 @@
 html{ overflow-y: scroll;}
-body {overflow: hidden;}
-#create-event { margin-left: 236px; }
-#ce-header { margin-bottom: 1.5rem; box-shadow: 0px 0px 8px -2px #000; height: 72px; background: #f7f7f7; }
+#create-event { margin-left: 240px; }
+#ce-header { position: relative; margin-bottom: 1.5rem; box-shadow: 0px 0px 8px -2px #000; height: 72px; background: #f7f7f7; }
 #ce-header p { padding: 0 2rem; font-size: 2rem; font-weight: bold; color: #673AB7; line-height: 72px; }
 #ce-container { padding: 0 2rem; padding-bottom: 2rem; }
 
@@ -19,13 +18,14 @@ body {overflow: hidden;}
 .tell-event-detail { margin-top: 1.5rem; color: #7E57C2; font-weight: bold; }
 
 /* summernote */
+/* .note-editor { overflow: scroll; } */
 .note-btn-primary { background: #673AB7; }
 .note-btn-primary:hover, .note-btn-primary:focus, .note-btn-primary.focus { background: #000; }
 .note-editor.note-frame .note-placeholder { padding: 1rem; }
 .note-editor.note-frame .note-editing-area .note-editable { padding: 1rem; }
 .note-editor.note-frame .note-statusbar { display: none; }
 .note-editor.note-frame { border-color: #673AB7; }
-.note-toolbar { border-color: #673AB7; }
+.note-toolbar { border-color: #673AB7; position: relative !important; width: 100% !important; }
 .note-tooltip.top .note-tooltip-arrow { border-top-color: #673AB7; }
 .note-tooltip.bottom .note-tooltip-arrow { border-bottom-color: #673AB7; }
 .note-tooltip.left .note-tooltip-arrow { border-left-color: #673AB7; }
@@ -35,7 +35,7 @@ body {overflow: hidden;}
 
 /* CALENDAR */
 .date-txt { padding: 0 1rem;  }
-.event-date { width: 100%; display: inline-block; user-select: none; position: relative; border-radius: 2px; padding: 0.75rem; border: 1px solid #000; max-width: 268px; cursor: pointer;  }
+.event-date { margin-right: 1rem; width: 100%; display: inline-block; user-select: none; position: relative; border-radius: 2px; padding: 0.75rem; border: 1px solid #000; max-width: 268px; cursor: pointer;  }
 .event-date:hover { box-shadow: 0px 0px 4px 0px #673AB7; border-color: #673AB7; }
 .event-date svg { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); }
 .calendar { width: 100%; top: 100%; left: -1px; position: absolute; z-index: 1; display: none; }
@@ -70,7 +70,7 @@ body {overflow: hidden;}
 /* Image card */
 #temp-upload {  }
 .temp-img { float: left; width: 30%; height: 100%; position: relative; overflow: hidden; }
-.temp-img img { position: absolute; top: 0; bottom: 0; margin: auto; width: auto; height: auto; }
+.temp-img img { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); margin: auto; width: auto; height: auto; }
 .temp-img-card { margin: 0 0 2rem 0; float: left; display: block; height: 200px; width: calc(50% - 1rem - 2px); box-shadow: 0px 0px 4px 0px #673AB7; }
 .temp-img-details { width: calc(70% - 2rem); padding: 0 1rem; float: left; height: 200px; }
 .divider { width: 2rem; float: left; height: 200px; }
@@ -82,15 +82,15 @@ body {overflow: hidden;}
 /* button */
 button { border: none; outline: none; cursor: pointer; }
 button:hover { box-shadow: 0px 0px 4px 0px #673AB7; }
-#create-event-button { margin-top: 2rem; font-size: 1rem; width: 128px; height: 48px; padding: 0.5rem 1rem; background: #673AB7; color: #fff; }
+#create-event-button { position: absolute; top: 50%; transform: translateY(-50%); right: 2rem; font-size: 1rem; width: 154px; height: 48px; padding: 0.5rem 1rem; background: #673AB7; color: #fff; }
 .time { position: relative; text-align: center; margin-right: 1rem; width: 60px; height: 124px; float: left; }
 #time-am-pm { position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 60px; height: 60px; background: #673AB7; border-radius: 2px; color: #fff; font-size: 1rem; }
 .time input { outline: none; border: none; margin: 1rem 0; width: 60px; height: 60px; text-align: center; font-size: 1rem; }
 .time input:focus { outline: none; border: none; }
 .time svg { cursor: pointer; outline: none;}
 /* modal */
-.modal-mask { background: rgba(0,0,0,0.8); position: fixed; left: 0; top: 0; width: 100%; height: 100%; }
-.modal-medium { padding: 1.5rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 720px; background: #fff; }
+.modal-mask { z-index: 2; background: rgba(0,0,0,0.8); position: fixed; left: 0; top: 0; width: 100%; height: 100%; }
+.modal-medium { z-index: 3; padding: 1.5rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 720px; background: #fff; }
 .modal-header p { color: #673AB7; line-height: 100%; font-size: 2rem; font-weight: bold; }
 .modal-body { margin: 1rem 0 2rem 0; }
 .modal-footer button { line-height: 40px; float: right; background: #673AB7; width: 100px; height: 40px; font-size: 1rem; color: #fff; }
