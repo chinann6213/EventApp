@@ -22,6 +22,31 @@
       <div id="to-calendar" class="calendar"></div>
     </div>
 
+    <p class="tell-event-detail">Pick a starting time for your event here: </p>
+    <div id="time-picker" onselectstart='return false;' >
+      <div class="hour time">
+        <svg class="minus-time" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
+          <path d="M4 0l-4 4 1.5 1.5 2.5-2.5 2.5 2.5 1.5-1.5-4-4z" transform="translate(0 1)" />
+        </svg>
+        <input id="hour" onClick="this.setSelectionRange(0, this.value.length)" type="text" min="1" max="12" value="09" />
+        <svg class="add-time" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
+          <path d="M1.5 0l-1.5 1.5 4 4 4-4-1.5-1.5-2.5 2.5-2.5-2.5z" transform="translate(0 1)" />
+        </svg>
+      </div>
+      <div class="minute time">
+        <svg class="minus-time" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
+          <path d="M4 0l-4 4 1.5 1.5 2.5-2.5 2.5 2.5 1.5-1.5-4-4z" transform="translate(0 1)" />
+        </svg>
+        <input id="minute" onClick="this.setSelectionRange(0, this.value.length)" type="text" min="0" max="59" value="00" />
+        <svg class="add-time" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
+          <path d="M1.5 0l-1.5 1.5 4 4 4-4-1.5-1.5-2.5 2.5-2.5-2.5z" transform="translate(0 1)" />
+        </svg>
+      </div>
+      <div class="time"><button id="time-am-pm">AM</button></div>
+    </div>
+
+    <div style="clear:both;"></div>
+
     <div class="form-input" id="event-title">
       <label for="title" class="input-lbl">Enter Your Event Title Here... </label>
       <input type="text" class="event-input" id="title" />

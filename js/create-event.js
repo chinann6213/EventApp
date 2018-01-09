@@ -192,4 +192,78 @@ $(document).ready(function() {
     $(".modal").hide();
     $(".modal-mask").hide();
   })
+
+  // time
+  $("#time-am-pm").click(function() {
+    if ($(this).html() == "AM") {
+      $(this).html("PM");
+    } else {
+      $(this).html("AM");
+    }
+  })
+
+  $(".time #hour").on("change", function() {
+    if (parseInt($(this).val()) < 10) $(this).val('0'+$(this).val())
+    if (parseInt($(this).val()) < 1 || parseInt($(this).val()) > 12 || $(this).val().length > 2) {
+      alert("Error: value for hour must between 1 and 12.");
+      $(this).val("01")
+    }
+  })
+
+  $(".time #minute").on("change", function() {
+    if (parseInt($(this).val()) < 10) $(this).val('0'+$(this).val())
+    if (parseInt($(this).val()) < 1 || parseInt($(this).val()) > 59 || $(this).val().length > 2) {
+      alert("Error: value for hour must between 00 and 59.");
+      $(this).val("00")
+    }
+  })
+
+  $(".hour .minus-time").click(function() {
+    var hour = $(this).parent().find("input");
+    if (parseInt(hour.val()) > 1) {
+      var minus_hour = parseInt(hour.val()) - 1;
+      if (minus_hour < 10) hour.val("0"+minus_hour)
+      else hour.val(minus_hour)
+    }
+    else if (parseInt(hour.val()) == 1) {
+      hour.val("12");
+    }
+  })
+
+  $(".hour .add-time").click(function() {
+    var hour = $(this).parent().find("input");
+    if (parseInt(hour.val()) < 12) {
+      var add_hour = parseInt(hour.val()) + 1;
+      if (add_hour < 10) hour.val("0"+add_hour)
+      else hour.val(add_hour)
+    }
+    else if (parseInt(hour.val()) == 12) {
+      hour.val("01")
+    }
+  })
+
+  $(".minute .minus-time").click(function() {
+    var minute = $(this).parent().find("input");
+    if (parseInt(minute.val()) > 0) {
+      var minus_hour = parseInt(minute.val()) - 1;
+      if (minus_hour < 10) minute.val("0"+minus_hour)
+      else minute.val(minus_hour)
+    }
+    else if (parseInt(minute.val()) == 0) {
+      minute.val("59");
+    }
+  })
+
+  $(".minute .add-time").click(function() {
+    var minute = $(this).parent().find("input");
+    if (parseInt(minute.val()) < 59) {
+      var add_hour = parseInt(minute.val()) + 1;
+      if (add_hour < 10) minute.val("0"+add_hour)
+      else minute.val(add_hour)
+    }
+    else if (parseInt(minute.val()) == 59) {
+      minute.val("00")
+    }
+  })
+
 })
