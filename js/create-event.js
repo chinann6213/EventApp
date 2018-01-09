@@ -116,14 +116,19 @@ $(document).ready(function() {
             else if (data[i]['img_width'] < data[i]['img_height']) dim = 'style="width: 100%;"';
             else dim = 'style="height: 100%;"';
 
-            $("#temp-upload").append('<div class="temp-img-card"><div class="temp-img"><img '+dim+' src="'+ data[i]['img_src'] +'" /></div><div class="temp-img-details"><div class="form-input"><label for="title" class="input-lbl">Image Alt </label><input type="text" class="event-input" /></div><div class="form-input"><label for="title" class="input-lbl">Image Caption </label><input type="text" class="event-input" /></div></div></div>');
-            if (i % 2 == 0) {
-              $("#temp-upload").append('<div class="divider"></div>');
-            }
+            $("#temp-upload").append('<div class="temp-img-card"><div class="temp-img"><img '+dim+' src="'+ data[i]['img_src'] +'" /></div><div class="temp-img-details"><div class="form-input"><label for="title" class="input-lbl">Image Alt </label><input type="text" class="event-input" /></div><div class="form-input"><label for="title" class="input-lbl">Image Caption </label><input type="text" class="event-input" /></div><button class="delete-img">Delete</button></div></div>');
+            // if (i % 2 == 0) {
+            //   $("#temp-upload").append('<div class="divider"></div>');
+            // }
           }
         }
       }
     });
+  })
+
+  // delete img
+  $(document).on("click", ".delete-img", function() {
+    $(this).parent().parent().remove();
   })
 
   // google location service

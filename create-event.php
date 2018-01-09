@@ -39,6 +39,7 @@
             <path d="M1.5 0l-1.5 1.5 4 4 4-4-1.5-1.5-2.5 2.5-2.5-2.5z" transform="translate(0 1)" />
           </svg>
         </div>
+        <div class="time colon">:</div>
         <div class="minute time">
           <svg class="minus-time" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
             <path d="M4 0l-4 4 1.5 1.5 2.5-2.5 2.5 2.5 1.5-1.5-4-4z" transform="translate(0 1)" />
