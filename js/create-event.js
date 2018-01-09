@@ -89,4 +89,26 @@ $(document).ready(function() {
     }
   })
 
+  // upload Images
+  $(document).on("change", "#image-uploader", function() {
+    var fd = new FormData();
+    for (var x = 0; x < this.files.length; x++) {
+      console.log(this.files[x]);
+      fd.append( 'image[]', this.files[x] );
+    }
+    $.ajax({
+      url: 'ajax/upload_images.php',
+      data: fd,
+      processData: false,
+      contentType: false,
+      type: 'POST',
+      success: function(data){
+        console.log(data)
+        var data = JSON.parse(data);
+        // for (var i = 0; i < data.length; i ++){
+        //   $("#image-slider").append('<div class="img-cont"><img width="100%" src="' + data[i] + '"/></div>');
+        // }
+      }
+    });
+  })
 })

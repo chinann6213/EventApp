@@ -1,7 +1,7 @@
 #create-event { margin-left: 236px; }
 #ce-header { margin-bottom: 1.5rem; box-shadow: 0px 0px 8px -2px #000; height: 72px; background: #f7f7f7; }
 #ce-header p { padding: 0 2rem; font-size: 2rem; font-weight: bold; color: #673AB7; line-height: 72px; }
-#ce-container { padding: 0 2rem; }
+#ce-container { padding: 0 2rem; padding-bottom: 2rem; }
 
 /* material input */
 .form-input { padding: 1rem 0 0 0; position: relative; }
@@ -56,3 +56,19 @@
 .ui-datepicker-calendar .ui-state-default { display: block; outline: none; width: 36px; height: 36px; text-decoration: none; color: #000; }
 .ui-datepicker-calendar .ui-state-active { color: #fff; width: 36px; height: 36px; border: none; background: #673AB7; border-radius: 100%; line-height: 36px; }
 .ui-datepicker-other-month .ui-state-default { color: #fff; width: 36px; height: 36px; }
+
+/* Image Uploader */
+.uploader-wrapper { display: block; height: 32px; width: 80px; }
+#upload-img { user-select: none; cursor: pointer; padding: 0.5rem 1rem; width: 80px; height: 32px; line-height: 32px; display: block; text-align: center; background: #673AB7; color: #fff; }
+#upload-img:hover { box-shadow: 0px 0px 4px 0px #673AB7; }
+#image-uploader { display: none; }
+#image-form { display: none; }
+#dummyframe { display: none; }
+
+/* Image card */
+#temp-upload {  }
+.temp-img { float: left; width: 30%; height: 100%; position: relative; overflow: hidden; }
+.temp-img img { position: absolute; top: 0; bottom: 0; margin: auto; width: 100%; height: auto; }
+.temp-img-card { margin: 0 0 2rem 0; float: left; display: block; height: 200px; width: calc(50% - 1rem - 2px); box-shadow: 0px 0px 4px 0px #673AB7; }
+.temp-img-details { width: calc(70% - 2rem); padding: 0 1rem; float: left; height: 200px; }
+.divider { width: 2rem; float: left; height: 200px; }

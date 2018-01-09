@@ -31,10 +31,62 @@
     <div id="summernote"></div>
 
     <p class="tell-event-detail">Add supporting images for your event here... </p>
-    <button>Add Images</button>
 
-    <p class="tell-event-detail">Set your event location here... </p>
-    
+    <div id="temp-upload">
+      <div class="temp-img-card">
+        <div class="temp-img"><img src="images/chinann6213/moon-3031977_1920.jpg" /></div>
+        <div class="temp-img-details">
+          <div class="form-input">
+            <label for="title" class="input-lbl">Image Alt </label>
+            <input type="text" class="event-input" />
+          </div>
+          <div class="form-input">
+            <label for="title" class="input-lbl">Image Caption </label>
+            <input type="text" class="event-input" />
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="temp-img-card">
+        <div class="temp-img"><img src="images/chinann6213/moon-3031977_1920.jpg" /></div>
+        <div class="temp-img-details">
+          <div class="form-input">
+            <label for="title" class="input-lbl">Image Alt </label>
+            <input type="text" class="event-input" />
+          </div>
+          <div class="form-input">
+            <label for="title" class="input-lbl">Image Caption </label>
+            <input type="text" class="event-input" />
+          </div>
+        </div>
+      </div>
+
+      <div class="temp-img-card">
+        <div class="temp-img"><img src="images/chinann6213/moon-3031977_1920.jpg" /></div>
+        <div class="temp-img-details">
+          <div class="form-input">
+            <label for="title" class="input-lbl">Image Alt </label>
+            <input type="text" class="event-input" />
+          </div>
+          <div class="form-input">
+            <label for="title" class="input-lbl">Image Caption </label>
+            <input type="text" class="event-input" />
+          </div>
+        </div>
+      </div>
+      <!-- <div style="clear:both;"></div> -->
+    </div>
+
+    <div style="clear:both;"></div>
+    <div class="uploader-wrapper"><label id="upload-img" for="image-uploader">Add Images</label></div>
+    <iframe style="display:none;" width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+    <form id="image-form" action="ajax/upload_images.php" method="POST" target="dummyframe" enctype="multipart/form-data">
+      <input id="image-uploader" name="image[]" type="file" accept="image/*" multiple />
+    </form>
+
+    <!-- <p class="tell-event-detail">Set your event location here... </p>
+    <p>write something herer</p> -->
   </div>
 </div>
 
