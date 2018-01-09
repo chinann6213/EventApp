@@ -5,13 +5,15 @@ if(isset($_FILES['image'])){
   $target_dir = "../images/".$user."/";
 
   $total_images = count($_FILES['image']['name']);
-  $image_preview = [];
-  $errors = [];
+  $image_preview = array();
+  $errors = array();
+
   for ($i = 0; $i < $total_images; $i ++) {
     $isImage = false;
     $validate = getimagesize($_FILES["image"]["tmp_name"][$i]);
     if($validate !== false) {
       $isImage = true;
+      list($width, $height, $type, $attr) = getimagesize($_FILES["image"]["tmp_name"][$i]);
     }
 
     if ($isImage === true) {
@@ -41,9 +43,15 @@ if(isset($_FILES['image'])){
 
       if(empty($errors)==true){
         if (move_uploaded_file($file_tmp, $target_dir.$file_name)) {
-          $image_preview[]=$target_dir.$file_name;
+          $uploaded = array(
+            'img_src' => 'images/chinann6213/'.$file_name,
+            'img_width' => $width,
+            'img_height' => $height
+          );
+          array_push($image_preview, $uploaded);
         }
       }else{
+        array_unshift($errors, "error");
         echo json_encode($errors);
         exit();
       }

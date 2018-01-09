@@ -32,51 +32,7 @@
 
     <p class="tell-event-detail">Add supporting images for your event here... </p>
 
-    <div id="temp-upload">
-      <div class="temp-img-card">
-        <div class="temp-img"><img src="images/chinann6213/moon-3031977_1920.jpg" /></div>
-        <div class="temp-img-details">
-          <div class="form-input">
-            <label for="title" class="input-lbl">Image Alt </label>
-            <input type="text" class="event-input" />
-          </div>
-          <div class="form-input">
-            <label for="title" class="input-lbl">Image Caption </label>
-            <input type="text" class="event-input" />
-          </div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-      <div class="temp-img-card">
-        <div class="temp-img"><img src="images/chinann6213/moon-3031977_1920.jpg" /></div>
-        <div class="temp-img-details">
-          <div class="form-input">
-            <label for="title" class="input-lbl">Image Alt </label>
-            <input type="text" class="event-input" />
-          </div>
-          <div class="form-input">
-            <label for="title" class="input-lbl">Image Caption </label>
-            <input type="text" class="event-input" />
-          </div>
-        </div>
-      </div>
-
-      <div class="temp-img-card">
-        <div class="temp-img"><img src="images/chinann6213/moon-3031977_1920.jpg" /></div>
-        <div class="temp-img-details">
-          <div class="form-input">
-            <label for="title" class="input-lbl">Image Alt </label>
-            <input type="text" class="event-input" />
-          </div>
-          <div class="form-input">
-            <label for="title" class="input-lbl">Image Caption </label>
-            <input type="text" class="event-input" />
-          </div>
-        </div>
-      </div>
-      <!-- <div style="clear:both;"></div> -->
-    </div>
+    <div id="temp-upload"></div>
 
     <div style="clear:both;"></div>
     <div class="uploader-wrapper"><label id="upload-img" for="image-uploader">Add Images</label></div>
@@ -85,15 +41,26 @@
       <input id="image-uploader" name="image[]" type="file" accept="image/*" multiple />
     </form>
 
-    <!-- <p class="tell-event-detail">Set your event location here... </p>
-    <p>write something herer</p> -->
+    <p class="tell-event-detail">Set your event location here... </p>
+    <input type="text" class="event-input" id="location" placeholder="Enter your event location" />
+    <div id="map"></div>
+
+    <div><button id="create-event-button">Create Event</button></div>
   </div>
+</div>
+
+<div class="modal-mask"></div>
+<div id="inform-created-modal" class="modal modal-medium">
+  <div class="modal-header"><p>Event Created.</p></div>
+  <div class="modal-body"><p>Please proceed to <strong><a>Manage Event</a></strong> if you need to do any changes to the event created. Thank you.</p></div>
+  <div class="modal-footer"><button class="modal-close">Close</button></div>
 </div>
 
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDNih61ibtoFGiQCdQhlNrC_zdMdZtcIk&libraries=places"></script>
 <script type="text/javascript" src="js/create-event.js"></script>
 </body>
 </html>
