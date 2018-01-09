@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // sidebar css effect
   $(".main-item").removeClass("active");
   $("#manage-event svg").removeClass("fill-svg");
   $("#manage-event").addClass("active");
@@ -8,6 +9,7 @@ $(document).ready(function() {
   $("#create").addClass("active");
   $(".manage-event").slideDown();
 
+  // materialized text input
   $(document).on("focus", ".event-input", function(){
     $(this).parent().addClass("input-active input-complete");
   });
@@ -18,6 +20,7 @@ $(document).ready(function() {
       $(this).parent().removeClass("input-active");
   })
 
+  // event content editor
   $('#summernote').summernote({
     placeholder: 'Write your event details here...',
     height: 300,
