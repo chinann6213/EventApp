@@ -258,6 +258,10 @@ header nav ul li a {
   margin: 30px auto;
 }
 
+.index-event-list {
+  padding-bottom: 25px;
+}
+
 .index-event-list h1 {
   font-family: Catamaran;
   font-size: 38px;
@@ -283,7 +287,8 @@ header nav ul li a {
 .column {
   float: left;
   width: calc(50% - 40px);
-  padding-right: 20px;
+  padding: 0 10px;
+  position: relative;
 }
 
 #event-card {
@@ -310,9 +315,22 @@ header nav ul li a {
   font-size: 14px;
   color: #111;
   text-transform: uppercase;
+  position: absolute;
+  bottom: 88px;
+}
+
+#event-card h3 {
+  font-family: Catamaran;
+  font-size: 14px;
+  color: #111;
+  text-transform: uppercase;
+  position: absolute;
+  font-weight: 900;
+  bottom: 70px;
 }
 
 #event-card button {
+  position: absolute;
   font-size: 16px;
   font-family: Catamaran;
   margin: 0 auto;
@@ -322,15 +340,35 @@ header nav ul li a {
   margin-top: 15px;
   text-decoration: none;
   display: block;
-  padding: 6px 6px;
+  padding: 6px 8px;
   box-shadow: 1.5px 5px 10px #888888;
   text-transform: uppercase;
   border: 1.5px solid #283593;
+  bottom: 14px;
+  left: calc(50% - 40px);
 }
 
 #event-card button:hover {
   background-color: #3F51B5;
   box-shadow: 2px 7px 12px #888888;
+}
+
+.see-more-btn {
+  border: 1.5px solid #273583;
+  padding: 12px 12px;
+  display: block;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #5C6BC0;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.see-more-btn:hover {
+  color: #fff;
+  background-color: #3F51B5;
 }
 
 
