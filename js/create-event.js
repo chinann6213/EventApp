@@ -67,7 +67,6 @@ $(document).ready(function() {
     selected = new Date(selected)
     selected = moment().year(selected.getFullYear()).month(selected.getMonth()).date(selected.getDate());
     var setSelected = selected.format('MMMM D, YYYY')
-    console.log(today.format('MMMM D, YYYY'))
     $("#from-date").html(setSelected);
     $(this).slideUp(100);
     $("#to-calendar").slideDown(100);
@@ -77,7 +76,6 @@ $(document).ready(function() {
     selected = new Date(selected)
     selected = moment().year(selected.getFullYear()).month(selected.getMonth()).date(selected.getDate());
     var setSelected = selected.format('MMMM D, YYYY')
-    console.log(today.format('MMMM D, YYYY'))
     $("#to-date").html(setSelected);
     $(this).slideUp(100);
   })
@@ -116,10 +114,7 @@ $(document).ready(function() {
             else if (data[i]['img_width'] < data[i]['img_height']) dim = 'style="width: 100%;"';
             else dim = 'style="height: 100%;"';
 
-            $("#temp-upload").append('<div class="temp-img-card"><div class="temp-img"><img '+dim+' src="'+ data[i]['img_src'] +'" /></div><div class="temp-img-details"><div class="form-input"><label for="title" class="input-lbl">Image Alt </label><input type="text" class="event-input" /></div><div class="form-input"><label for="title" class="input-lbl">Image Caption </label><input type="text" class="event-input" /></div><button class="delete-img">Delete</button></div></div>');
-            // if (i % 2 == 0) {
-            //   $("#temp-upload").append('<div class="divider"></div>');
-            // }
+            $("#temp-upload").append('<div class="temp-img-card"><div class="temp-img"><img '+dim+' src="'+ data[i]['img_src'] +'" /></div><div class="temp-img-details"><div class="form-input"><label class="input-lbl">Image Alt </label><input type="text" class="event-input img-alt" /></div><div class="form-input"><label class="input-lbl">Image Caption </label><input type="text" class="event-input img-cap" /></div><button class="delete-img">Delete</button></div></div>');
           }
         }
       }
@@ -132,6 +127,7 @@ $(document).ready(function() {
   })
 
   // google location service
+  var lat, lng;
   function initialize() {
     var mapOptions = {
       center: {lat: 4.2105, lng: 101.9758},
@@ -180,6 +176,10 @@ $(document).ready(function() {
         placeId: place.place_id,
         location: place.geometry.location
       }));
+
+      lat = place.geometry.location.lat();
+      lng = place.geometry.location.lng();
+
       marker.setVisible(true);
 
       infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
@@ -271,4 +271,42 @@ $(document).ready(function() {
     }
   })
 
+  // CREATE EVENT
+  $("#create-event-button").click(function() {
+    var start_date = $('#from-calendar').datepicker("getDate");
+    var start_date = $.datepicker.formatDate('dd-mm-yy', new Date(start_date));
+    var end_date = $('#to-calendar').datepicker("getDate");
+    var end_date = $.datepicker.formatDate('dd-mm-yy', new Date(end_date));
+    var time = $("#hour").val() + ":" + $("#minute").val() + $("#time-am-pm").html()
+    var title = $("#title").val()
+    var content = $('#summernote').summernote('code');
+    var event_images = [];
+    $(".temp-img-card").each(function() {
+      var img_src = $(this).find('img').attr('src');
+      var img_alt = $(this).find('input.img-alt').val();
+      var img_cap = $(this).find('input.img-cap').val();
+      var supporting_images = {
+        "img_src": img_src,
+        "img_alt": img_alt,
+        "img_cap": img_cap
+      }
+      event_images.push(supporting_images);
+    })
+    var latitude = lat;
+    var longitude = lng;
+
+    $.post("ajax/save_event.php", {
+      action: "create",
+      start_date: start_date,
+      end_date: end_date,
+      time: time,
+      title: title,
+      content: content,
+      images: event_images,
+      lat: latitude,
+      lng: longitude
+    }, function(response) {
+
+    })
+  })
 })
