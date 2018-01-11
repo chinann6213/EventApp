@@ -21,9 +21,9 @@
         </a>
       </div>
       <div class="manage-event">
-        <div class="sub-item" id="create">Create Event</div>
-        <div class="sub-item" id="manage">Manage Event</div>
-        <div class="sub-item" id="category">Categories</div>
+        <div class="sub-item" id="create"><a href="create-event.php">Create Event</a></div>
+        <div class="sub-item" id="manage"><a href="manage-event.php">Manage Event</a></div>
+        <div class="sub-item" id="category"><a href="category.php">Categories</a></div>
       </div>
       <div class="main-item" id="gallery">
         <a>
