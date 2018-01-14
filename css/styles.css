@@ -321,7 +321,7 @@ input.search-bar input::-webkit-input-placeholder {
   color: #111;
   text-transform: uppercase;
   position: absolute;
-  bottom: 88px;
+  bottom: 90px;
 }
 
 #event-card h3 {
@@ -331,7 +331,8 @@ input.search-bar input::-webkit-input-placeholder {
   text-transform: uppercase;
   position: absolute;
   font-weight: 900;
-  bottom: 70px;
+  bottom: 75px;
+
 }
 
 #event-card button {
