@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include_once 'header.php';
 ?>
 <main>
@@ -6,7 +7,7 @@
 		<h1>Sign in to see more events</h1>
 	</div>
 	<div id="register-box">
-		<form action="/" method="post">
+		<form action="db1.php" method="post">
 			<p>
 				<label>Username:
 					<input type="text" name="username">
@@ -20,6 +21,13 @@
 			<button type="submit">Log In</button>
 			<button type="submit">Sign Up</button>
 		</form>
+<?php
+	if(isset($_SESSION['username'])){
+		echo $_SESSION['username'];
+	}else{
+		echo "Not logged in!";
+	}
+?>
 	</div>
 </main>
 <?php

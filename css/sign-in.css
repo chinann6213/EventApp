@@ -11,6 +11,7 @@
 }
 
 #register-box {
+  text-align:center;
   border:1px solid #b5b1b1;
   border-radius: 20px;
   box-shadow: 0px 4px 8px 0 rgba(0,0,0,0.2);
@@ -18,56 +19,58 @@
   padding: 20px 20px;
   height: 300px;
   display: block;
-  margin:10px 400px 30px 400px;
+  margin:auto;
+  width:50%;
 }
 
 #register-box p{
-	font-family: Catamaran;
-	color:#858b96;
-	text-transform: uppercase;
-    font-weight: bold;
-    margin-left:170px;
-    margin-top:20px;
-  	margin-bottom:20px;
+  font-family: Catamaran;
+  color:#858b96;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top:3%;
+    
 }
 
 #register-box input{
-	margin-top:5px;
-	display:block;
-	border:2px solid #673AB7;
-	background:none;
-	background-image:none;
-	font-size:14px;
-	font-weight: bold;
-	font-family: Catamaran;
-    width:60%;
-    height:60%;
-    padding:5px 10px;
-    color:#673AB7;
-    transition:border-color .25s ease, box-shadow .25s ease;
+  margin:auto;
+  margin-top:5px;
+  display:block;
+  border:2px solid #673AB7;
+  background:none;
+  background-image:none;
+  font-size:14px;
+  font-weight: bold;
+  font-family: Catamaran;
+  width:47%;
+  padding:5px 10px;
+  color:#673AB7;
+  transition:border-color .25s ease, box-shadow .25s ease;
+
 }
 
 #register-box input:focus{
-	background-color:#bebdc1;
+  background-color:#bebdc1;
 }
 
 #register-box button{
-	margin-top:20px;
-	margin-left:90px;
-	width:30%;
-	border:0;
-	outline:none;
-    border-radius:0;
-	padding:15px 0;
-	font-family: Catamaran;
-	font-size:1rem;
-	font-weight:bold;
-	text-transform:uppercase;
-	background:#673AB7;
-	color:#ffffff;
-	float:left;
+  margin:auto;
+  width:30%;
+  border:0;
+  outline:none;
+  border-radius:0;
+  padding:15px 0;
+  font-family: Catamaran;
+  font-size:1rem;
+  font-weight:bold;
+  text-transform:uppercase;
+  background:#673AB7;
+  color:#ffffff;
+  float:left;
+  margin-left:12%;
+  margin-top:3%;
 }
 
 #register-box button:hover{
-	background:#32087c;
+  background:#32087c;
 }
