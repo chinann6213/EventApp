@@ -12,7 +12,8 @@
   if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
   }
-
+  abc.com/?event-id=200
+  $_GET['event-id']
   if ($_POST['action']) {
     if ($_POST['action'] == "create") {
       $start_date = date("Y-m-d", strtotime($_POST['start_date']));

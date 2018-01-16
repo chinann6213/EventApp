@@ -66,6 +66,11 @@
     </div>
 
     <div>
+        <p class="tell-event-detail">Set the maximum number of participants here...</p>
+        <input type="number" id="participant" value=30 />
+    </div>
+
+    <div>
       <p class="tell-event-detail">Add supporting images for your event here... </p>
       <div id="temp-upload"></div>
       <div style="clear:both;"></div>
