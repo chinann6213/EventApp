@@ -3,8 +3,9 @@ include_once 'header.php';
 ?>
 
 <main>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
   <div class="container">
     <section class="">
       <div class="row">
@@ -40,72 +41,211 @@ include_once 'header.php';
             <h1>Organiser: </h1>
             The Avengers (if any)
           </div>
-          <!-- images here-->
 
-          <!-- Check if General User or Admin -->
-          <?php if(True): ?>
-            <button type="submit" value="Register">Register</button>
-          <?php endif; ?>
+          <!-- supporting images here-->  
+          <?php
+          if (true) {
+            echo '<div id="event-img">';
+            echo '<img src="../img/banner-browse-event.jpg">';
+            // echo '<img src="../img/if_twitter_six_107069.png">';
+            echo '</div>';
+          } 
+          ?>
+
+          <!-- Check if tickets left -->
+          <?php
+          if (true) {
+            echo '<button id="regBtn" type="submit" value="Register">Register</button>';
+
+            echo '<div id="regModal" class="modal">';
+            echo '<div class="modal-content">';
+            echo '<span class="close">&times;</span>';
+            echo '<h3>Register information</h3>';
+            echo '<br>';
+            echo '<form method="post" action="#">';
+            echo '<div class="info-form">';
+            echo '<input type="hidden" name="eventID" value="eventID"/>';
+            echo '<label>Name: <input type="text" name="name" autofocus required/></label>';
+            echo '<br><br>';
+            echo '<label>E-mail Address: <input type="text" name="email" required/></label>';
+            echo '<br><br>';
+            echo '<label>Contact Number: <input type="tel" name="phone" pattern="^\d{3}-\d{7}$" required/></label>';
+            echo '<br><br>';
+            echo '<input type="submit" value="Submit" id="reg-btn">';
+            echo '</div>';
+            echo '</form>';
+            echo '</div>';
+            echo '</div>';
+          } 
+          else {
+            echo '<div id="no-ticket">Sold Out!</div>';
+          } 
+          ?>
         </div>
       </div>
 
     </section>
   </div>
+
+
+
+
 </main>
 <style type="text/css">
 
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.info-form label {
+  padding: 10px 0px;
+}
+
+#reg-btn {
+  font-size: 100%;
+  font-family: Catamaran;
+  margin: 0 auto;
+  background-color: #5C6BC0;
+  color: #fff;
+  font-weight: 400;
+  text-decoration: none;
+  display: block;
+  border: 1.5px solid #283593;
+}
+
 #event-view {
-  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
-  /*transition: 0.3s;*/
   padding: 20px 20px;
   display: block;
   background-color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: Catamaran;
+  font-size: 16px;
 }
 
-#event-view hr {
-  /*background-color: red;*/
+#event-view h1 {
+  font-family: Catamaran;
+  font-size: 18px;
+  color: #111;
+  text-transform: uppercase;
+  padding: 30px 0px 10px 0px;
 }
-/*
 
-/*#event-card:hover {
-  box-shadow: 0 10px 18px 0 rgba(0,0,0,0.2);
-  }*/
+#event-view h3 {
+  font-family: Catamaran;
+  font-size: 18px;
+  color: #111;
+  text-transform: uppercase;
+  padding: 10px 0px 10px 0px;
+}
 
-  #event-view h1 {
-    font-family: Catamaran;
-    /*color: #3F51B5;*/
-    font-size: 18px;
-    color: #111;
-    text-transform: uppercase;
-    padding: 30px 0px 10px 0px;
-  }
+#event-view button {
+  font-size: 16px;
+  font-family: Catamaran;
+  margin: 0 auto;
+  background-color: #5C6BC0;
+  color: #fff;
+  font-weight: 400;
+  margin-top: 15px;
+  text-decoration: none;
+  display: block;
+  padding: 6px 8px;
+  box-shadow: 1.5px 5px 10px #888888;
+  text-transform: uppercase;
+  border: 1.5px solid #283593;
+  bottom: 14px;
+  left: calc(50% - 40px);
+}
 
-  #event-view button {
-    /*position: absolute;*/
-    font-size: 16px;
-    font-family: Catamaran;
-    margin: 0 auto;
-    background-color: #5C6BC0;
-    color: #fff;
-    font-weight: 400;
-    margin-top: 15px;
-    text-decoration: none;
-    display: block;
-    padding: 6px 8px;
-    box-shadow: 1.5px 5px 10px #888888;
-    text-transform: uppercase;
-    border: 1.5px solid #283593;
-    bottom: 14px;
-    left: calc(50% - 40px);
-  }
+#event-view button:hover {
+  background-color: #3F51B5;
+  box-shadow: 2px 7px 12px #888888;
+}
 
-  #event-view button:hover {
-    background-color: #3F51B5;
-    box-shadow: 2px 7px 12px #888888;
-  }
+#no-ticket {
+  font-size: 16px;
+  font-family: Catamaran;
+  margin: 0 auto;
+  color: red;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 30px;
+  text-decoration: none;
+  display: block;
+  padding: 6px 8px;
+  border: 1.5px solid red;
+  bottom: 14px;
+  left: calc(50% - 40px);
+  width: 10%
+}
+
+#event-img img {
+  max-width: 960px;
+  min-width: 500px;
+  margin: 30px auto 15px auto; 
+  display: block;
+}
 
 </style>
+
+<script type="text/javascript">
+// Get the modal
+var modal = document.getElementById('regModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("regBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 
 
 <?php

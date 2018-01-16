@@ -23,6 +23,9 @@
     </nav>
   </header>
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<<<<<<< HEAD
   <style type="text/css">
     header { background-color: black; z-index: 9999; }
   </style>
+=======
+>>>>>>> 063bf74e11156732b4ee34be843e8ca7f31f7613

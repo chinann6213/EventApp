@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include_once 'header.php';
 ?>
 <main>
@@ -8,7 +9,7 @@
 	</div>
 	<div id="container">
 		<h1>fill your information</h1>
-		<form action="/" method="post">
+		<form action="db.php" method="post">
 			<div id="wrap">
 				<p>
 					<label>First Name:
@@ -58,7 +59,7 @@
 					</label>
 				</p>
 			</div>
-			<button type="submit">Get Started</button>
+				<button type="submit">Get Started</button>
 		</form>
 	</div>
 </main>
