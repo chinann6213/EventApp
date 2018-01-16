@@ -4,6 +4,10 @@
 #me-container { padding: 0rem; padding-bottom: 2rem; }
 
 /* Table Formatting */
-table { text-align: left; }
-#check-table { width: 10%; }
-#event-detail { width: 58%; }
+table { text-align: left; width: 100%; }
+thead tr { height: 48px; border-bottom: 1px solid #ddd; }
+th, td { padding: 0 0.5rem; }
+th { border-bottom: 1px solid #ddd; line-height: 48px; }
+#check-table { width: 10%; padding-left: 32px; }
+#event-detail, .event-detail { width: 58%; }
+.select { padding-left: 32px; width: 10%; }
