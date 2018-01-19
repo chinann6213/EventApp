@@ -12,9 +12,10 @@ td { vertical-align: top; padding: 1rem; border-bottom: 1px solid #ddd; }
 #check-table { width: 5%; padding-left: 32px; }
 #event-detail p { line-height: 99%; }
 #event-detail, .event-detail { width: 58%; }
+#event-location { width: 14%; }
 .select { padding-left: 32px; width: 5%; }
-td h4 { line-height: 1.4; margin: 0 0 1rem 0; }
-td h4:hover { color: #673AB7; text-decoration: underline; cursor: pointer;}
+td h4 { color: #673AB7; line-height: 1.4; margin: 0 0 1rem 0; }
+td h4:hover { text-decoration: underline; cursor: pointer;}
 td p { line-height: 1.5; font-size: 0.875rem; }
 td button { outline: none; border: none; background: #fff; }
 td button.edit { color: #673AB7; }

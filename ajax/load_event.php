@@ -22,7 +22,7 @@ if ($result) {
         $e = array(
             "event_id" => $data['event_id'],
             "event_title" => $data['event_title'],
-            "event_content" => strip_tags($data['event_content']),
+            "event_content" => shorten_string(strip_tags($data['event_content']), 50),
             "event_start_date" => $data['event_start_date'],
             "event_end_date" => $data['event_end_date'],
             "event_created_time" => $data['event_created_date'],
@@ -33,6 +33,21 @@ if ($result) {
     echo json_encode($event);
 } else {
     echo mysqli_error($conn);
+}
+
+function shorten_string($string, $wordsreturned)
+
+{
+    $retval = $string;
+    $array = explode(' ', $string);
+    if (count($array)<= $wordsreturned) {
+        $retval = $string;
+    }
+    else {
+        array_splice($array, $wordsreturned);
+        $retval = implode(' ', $array).' ...';
+    }
+    return $retval;
 }
 
  ?>
