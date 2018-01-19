@@ -15,11 +15,13 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-if (isset($_GET['event_id'])){
+if (isset($_GET['event_id']) and isset($_GET['id'])){
   $event_id = $_GET['event_id'];
-  $sql = "SELECT * FROM event WHERE event_id = '$event_id'";
+  $ticket_id = $_GET['ticket_id'];
+  $sql = "SELECT * FROM registered_user, event WHERE event.event_id = '$event_id' AND registered_user.id = '$ticket_id'";
   $results = mysqli_query($conn, $sql);
   while($event_data = mysqli_fetch_assoc($results)) {
+    // print $event_data;
     $event_title = $event_data['event_title'];
     $event_content = $event_data['event_content'];
     $event_start_date = $event_data['event_start_date'];
@@ -100,12 +102,11 @@ if (isset($_GET['event_id'])){
        echo '<label for="phone" class="input-lbl">Contact Number </label>';
        echo '<input type="tel" class="event-input" id="phone" pattern="^\d{3}-\d{7}$" required/></label>';
        echo '</div>';
-       echo '</form>';
        echo '<br><br>';
        echo '<div class="modal-footer">';
        echo '<button class="modal-close">Close</button>';
        echo '<button id="reg-submit">Submit</button>';
-
+       echo '</form>';
        echo '</div>';
        echo '</div>';
        echo '</div>';
@@ -125,11 +126,10 @@ if (isset($_GET['event_id'])){
   var mylat = "<?php echo $event_latitude?>";
   var mylng = "<?php echo $event_longitude?>";
 </script>
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js/view-event.js"></script>
-<script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script>
+<!-- <script type="text/javascript" src="js/view-event.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script> -->
+<!-- <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script> -->
+<!-- <script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script> -->
 
 
 <?php

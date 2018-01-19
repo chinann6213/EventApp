@@ -53,5 +53,25 @@ $(document).ready(function() {
     $(this).parent().removeClass("input-active");
   })
 
+  $('#reg-form').validate();
+
+  // Register
+  $("#reg-submit").click(function() {
+    var id = event_id;
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var phone = $("#phone").val();
+    $.post("ajax/register.php", {
+      action: "create",     
+      id: id,
+      name: name,
+      email: email,
+      phone: phone,
+    }, function(response) {
+      // redirect to ticket page
+    })
+
+  })
+
 })
 
