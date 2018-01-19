@@ -282,7 +282,7 @@ $(document).ready(function() {
     var title = $("#title").val()
     var content = $('#summernote').summernote('code');
     var event_images = [];
-    var location = $("#location").val();
+    var event_location = $("#location").val();
     var participant = $("#participant").val();
 
     $(".temp-img-card").each(function() {
@@ -309,7 +309,7 @@ $(document).ready(function() {
       images: event_images,
       lat: latitude,
       lng: longitude,
-      location: location,
+      location: event_location,
       participant: participant
     }, function(response) {
 
