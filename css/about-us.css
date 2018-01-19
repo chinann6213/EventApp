@@ -1,0 +1,21 @@
+#about-us-wrapper { margin-left: 240px; }
+#au-header { position: relative; margin-bottom: 0em; box-shadow: 0px 0px 4px -2px #000; height: 72px; background: #f7f7f7; }
+#au-header p { padding: 0 2rem; font-size: 2rem; font-weight: bold; color: #673AB7; line-height: 72px; }
+#au-container { margin: 0 2rem; margin-top: 1.5rem; }
+/* material input */
+.form-input { padding: 1rem 0 0 0; position: relative; }
+.input-lbl { font-weight: bold; display: block; font-size: 1rem; transform: translateY(20px); color: #7E57C2; transition: all 0.5s; }
+.event-input { position: relative; background: transparent; width: 100%; border: none; outline: none; padding: 0.5rem 0; font-size: 1rem; }
+.form-input::after, .form-input::before { content: ""; position: absolute; display: block; width: 100%; height: 2px; background-color: #7E57C2; bottom: 0; left: 0; transition: all 0.5s; }
+.form-input::after { background-color: #000; transform: scaleX(0); }
+.input-active .input-lbl { color: #000; }
+.input-active::after { transform: scaleX(1); }
+.input-complete .input-lbl { font-size: 16px; transform: translateY(0); }
+
+/* submit button */
+form input[type="submit"] { margin: 1rem 0; border: none; background: #673Ab7; color: #fff; padding: 0.7rem 1rem; width: 148px; font-size: 1rem; cursor: pointer; }
+
+#logo-upload { max-width: 240px; height: 160px; border: 1px solid #673Ab7; text-align: center; }
+#logo-upload input { display: none; }
+#logo-upload p, #logo-upload span { font-size: 1rem; margin: 1rem; }
+#logo-upload span { cursor: pointer; color: #fff; padding: 0.6rem 2rem; font-size: 1rem; background: #673Ab7; }
