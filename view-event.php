@@ -28,6 +28,7 @@ if (isset($_GET['event_id'])){
     $event_longitude = $event_data['event_longitude'];
     $event_latitude = $event_data['event_latitude'];
     $event_location = $event_data['location'];
+    $event_ticket = $event_data['participant'];
   }
 
 } 
@@ -42,7 +43,6 @@ if (isset($_GET['event_id'])){
       <div id="event-title">
         <h1><?php echo $event_title; ?></h1>
         <p id="event-datetime"></p>
-        <!-- <br><i>tag (if any)</i> -->
       </div>
 
       <hr>
@@ -78,12 +78,13 @@ if (isset($_GET['event_id'])){
 
       <!-- Check if tickets left -->
       <?php
-      if (true) {
+      if ($event_ticket > 0) {
        echo '<button id="regBtn" value="Register">Register</button>';
        echo '<div class="modal-mask"></div>';
        echo '<div id="reg-modal" class="modal modal-medium">';
        echo '<div class="modal-header"><p>Register Information</p></div>';
        echo '<div class="modal-body">';
+       //hidden input for event_id
        echo '<div class="form-input" id="reg-info">';
        echo '<label for="name" class="input-lbl">Name </label>';
        echo '<input type="text" class="event-input" id="name" required/>';
