@@ -29,14 +29,31 @@ if (isset($_GET['event_id'])){
     $event_latitude = $event_data['event_latitude'];
     $event_location = $event_data['location'];
     $event_ticket = $event_data['participant'];
+    $event_organiser_id = $event_data['organizer_id'];
   }
 
+  $sql2 = "SELECT * FROM gallery WHERE event_id = '$event_id'";
+  $results2 = mysqli_query($conn, $sql2);
+  $img_srcs = array();
+  while($gallery_data = mysqli_fetch_assoc($results2)) {
+    $img_srcs[] = $gallery_data['img_src'];
+  }
+
+  $sql3 = "SELECT * FROM organizer WHERE id = '$event_organiser_id'";
+  $results3 = mysqli_query($conn, $sql3);
+  while($organiser_data = mysqli_fetch_assoc($results3)) {
+    $event_organiser_name = $organiser_data['name'];
+    $event_organiser_contact = $organiser_data['contact'];
+    $event_organiser_email = $organiser_data['email'];
+  }
 } 
 
 ?>
 
+
 <link rel="stylesheet" href="css/view-event.css">
 <main>
+
   <div class="container">
     <div id="event-view">
 
@@ -54,58 +71,59 @@ if (isset($_GET['event_id'])){
 
       <div id="event-location">
         <h1>Organised by: </h1>
-        The Avengers (if any)
+        <span><?php echo $event_organiser_name; ?></span> 
+        <span><?php echo $event_organiser_contact; ?></span> 
+        <span><?php echo $event_organiser_email; ?></span> 
       </div>
 
       <div id="event-location">
         <h1>Where: </h1>
-        <strong><?php echo $event_location; ?></strong><br>
+        <?php echo $event_location; ?><br>
         <!-- Jalan Multimedia, Multimedia University, 63100 Cyberjaya, Selangor, Malaysia -->
       </div>
 
       <div id="googleMap"></div> 
 
       <!-- supporting images here-->  
-      <?php
-      if (true) {
+      <?php 
+      if (isset($img_srcs)){
         echo '<div id="event-img">';
-        echo '<span><img src="../img/banner-browse-event.jpg"></span>';
-        echo '<span><<img src="../img/if_twitter_six_107069.png"></span>';
-        
+        foreach ($img_srcs as $key => $value) {
+          echo '<span><img src="' .$img_srcs[$key]. '"/></span>';
+        }
         echo '</div>';
-      } 
+      }
       ?>
 
       <!-- Check if tickets left -->
       <?php
-      if (true) {
-      // if ($event_ticket > 0) {
+      if ($event_ticket > 0) {
        echo '<button id="regBtn" value="Register">Register</button>';
        echo '<div class="modal-mask"></div>';
        echo '<div id="reg-modal" class="modal modal-medium">';
        echo '<div class="modal-header"><p>Register Information</p></div>';
        echo '<div class="modal-body">';
-       echo '<div class="form-input" id="reg-info">';
-       echo '<form id="reg-form">';
 
+       // echo '<form id="form">';
        echo '<input type="hidden" id="event_id"/>';
+       echo '<div class="form-input" id="reg-info">';       
        echo '<label for="name" class="input-lbl">Name </label>';
-       echo '<input type="text" class="event-input" id="name" required/>';
+       echo '<input type="text" class="event-input" id="name" required>';
        echo '</div>';
        echo '<div class="form-input" id="reg-info">';
        echo '<label for="email" class="input-lbl">E-mail Address </label>';
-       echo '<input type="text" class="event-input" id="email" required/>';
+       echo '<input type="email" class="event-input" id="email" required/>';
        echo '</div>';
        echo '<div class="form-input" id="reg-info">';
        echo '<label for="phone" class="input-lbl">Contact Number </label>';
        echo '<input type="tel" class="event-input" id="phone" pattern="^\d{3}-\d{7}$" required/></label>';
        echo '</div>';
-       echo '</form>';
+      
        echo '<br><br>';
        echo '<div class="modal-footer">';
        echo '<button class="modal-close">Close</button>';
        echo '<button id="reg-submit">Submit</button>';
-
+       // echo '</form>';
        echo '</div>';
        echo '</div>';
        echo '</div>';
@@ -127,11 +145,11 @@ if (isset($_GET['event_id'])){
 </script>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/view-event.js"></script>
 <script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script>
 
 
 <?php
+// print phpinfo(); 
 include_once 'footer.php';
 ?>
