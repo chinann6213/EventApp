@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `event_meta_title` text NOT NULL,
   `event_meta_description` text NOT NULL,
   `event_featured_img` text NOT NULL,
-  PRIMARY KEY (`evnet_id`)
+  PRIMARY KEY (`event_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 

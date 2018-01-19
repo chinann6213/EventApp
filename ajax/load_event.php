@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$user = "chinann6213@gmail.com"; // $_SESSION['user'];
+$user = "ganqitze@gmail.com"; // $_SESSION['user'];
 
 $servername = "localhost";
 $username   = "root";
@@ -19,21 +19,44 @@ $results = mysqli_query($conn, $sql);
 while($event_data = mysqli_fetch_assoc($results)) {
     $event_title = $event_data['event_title'];
     $event_content = $event_data['event_content'];
-    $event_
+    $event_start_date = $event_data['event_start_date'];
+    $event_start_time = $event_data['event_start_time'];
+    $event_end_date = $event_data['event_end_date'];
+    $event_longitude = $event_data['event_longitude'];
+    $event_latitude = $event_data['event_latitude'];
 }
 
 
 ?>
 
 <html>
-    <head>
-        
-    </head>
-    <body>
-        <h1><?php echo $event_title; ?></h1>
+<head>
+    <link rel="stylesheet" href="css/view-event.css">
+    <script type="text/javascript" src="js/view-event.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="event-view">
+            <div id="event-name">
+                <h1><?php echo $event_title; ?></h1>
+                <?php echo $event_start_date.' at '.$event_start_time.' - '.$event_end_date; ?>
+                <!-- Monday, 29 October 2018 at 09:00 - Friday, 2 November 2018 at 17:00 -->
+                <!-- <br><i>tag (if any)</i> -->
+            </div>
 
-        <div id="event-content">
-            <?php echo $event_content; ?>
+            <hr>
+
+            <div id="event-detail">
+                <h1>Event Details: </h1>
+                <?php echo $event_content; ?>
+            </div>
+
+
+
+
         </div>
-    </body>
+    </div>
+
+</body>
 </html>
