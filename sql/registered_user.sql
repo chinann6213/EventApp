@@ -30,12 +30,12 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `registered_user`;
 CREATE TABLE IF NOT EXISTS `registered_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ticket_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `contact` varchar(100) NOT NULL,
   `event_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`ticket_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 

@@ -15,121 +15,44 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-if (isset($_GET['event_id']) and isset($_GET['id'])){
+if (isset($_GET['event_id']) and isset($_GET['ticket_id'])){
   $event_id = $_GET['event_id'];
   $ticket_id = $_GET['ticket_id'];
-  $sql = "SELECT * FROM registered_user, event WHERE event.event_id = '$event_id' AND registered_user.id = '$ticket_id'";
+  $sql = "SELECT * FROM registered_user, event WHERE event.event_id = '$event_id' AND registered_user.ticket_id = '$ticket_id'";
   $results = mysqli_query($conn, $sql);
-  while($event_data = mysqli_fetch_assoc($results)) {
-    // print $event_data;
-    $event_title = $event_data['event_title'];
-    $event_content = $event_data['event_content'];
-    $event_start_date = $event_data['event_start_date'];
-    $event_start_time = $event_data['event_start_time'];
-    $event_end_date = $event_data['event_end_date'];
-    $event_longitude = $event_data['event_longitude'];
-    $event_latitude = $event_data['event_latitude'];
-    $event_location = $event_data['location'];
-    $event_ticket = $event_data['participant'];
+  while($data = mysqli_fetch_assoc($results)) {
+    $event_title = $data['event_title'];
+    $user_name = $data['name'];
+    
   }
 
 } 
 
 ?>
 
-<link rel="stylesheet" href="css/view-event.css">
+<link rel="stylesheet" href="css/ticket.css">
 <main>
   <div class="container">
-    <div id="event-view">
+    <div id="ticket-card">
+      <p>Holla <label><?php echo $user_name; ?></label></p>
+      <p>Ref #: <label><?php echo $ticket_id; ?></label> </p>
+      <p>Thank you for registering <label><?php echo $event_title; ?></label>.</p> 
+      <p>
+         Event details:
+        <ul>
+          <li>Organised by</li>
+          <li>Where</li>
+          <li>When</li>
+        </ul>
+                
+      </p>
 
-      <div id="event-title">
-        <h1><?php echo $event_title; ?></h1>
-        <p id="event-datetime"></p>
-      </div>
-
-      <hr>
-
-      <div id="event-detail">
-        <h1>Event Details: </h1>
-        <span><?php echo $event_content; ?></span>        
-      </div>
-
-      <div id="event-location">
-        <h1>Organised by: </h1>
-        The Avengers (if any)
-      </div>
-
-      <div id="event-location">
-        <h1>Where: </h1>
-        <strong><?php echo $event_location; ?></strong><br>
-        <!-- Jalan Multimedia, Multimedia University, 63100 Cyberjaya, Selangor, Malaysia -->
-      </div>
-
-      <div id="googleMap"></div> 
-
-      <!-- supporting images here-->  
-      <?php
-      if (true) {
-        echo '<div id="event-img">';
-        echo '<span><img src="../img/banner-browse-event.jpg"></span>';
-        echo '<span><<img src="../img/if_twitter_six_107069.png"></span>';
-        
-        echo '</div>';
-      } 
-      ?>
-
-      <!-- Check if tickets left -->
-      <?php
-      if (true) {
-      // if ($event_ticket > 0) {
-       echo '<button id="regBtn" value="Register">Register</button>';
-       echo '<div class="modal-mask"></div>';
-       echo '<div id="reg-modal" class="modal modal-medium">';
-       echo '<div class="modal-header"><p>Register Information</p></div>';
-       echo '<div class="modal-body">';
-       echo '<div class="form-input" id="reg-info">';
-       echo '<form id="reg-form">';
-
-       echo '<input type="hidden" id="event_id"/>';
-       echo '<label for="name" class="input-lbl">Name </label>';
-       echo '<input type="text" class="event-input" id="name" required/>';
-       echo '</div>';
-       echo '<div class="form-input" id="reg-info">';
-       echo '<label for="email" class="input-lbl">E-mail Address </label>';
-       echo '<input type="text" class="event-input" id="email" required/>';
-       echo '</div>';
-       echo '<div class="form-input" id="reg-info">';
-       echo '<label for="phone" class="input-lbl">Contact Number </label>';
-       echo '<input type="tel" class="event-input" id="phone" pattern="^\d{3}-\d{7}$" required/></label>';
-       echo '</div>';
-       echo '<br><br>';
-       echo '<div class="modal-footer">';
-       echo '<button class="modal-close">Close</button>';
-       echo '<button id="reg-submit">Submit</button>';
-       echo '</form>';
-       echo '</div>';
-       echo '</div>';
-       echo '</div>';
-     } 
-     else {
-      echo '<div id="no-ticket">Sold Out!</div>';
-    } 
-    ?>
-
+      <p>Please print the ticket and display upon entering the event.</p>
+      <p>See you there!</p>
+    </div>
   </div>
 </main>
-<script>
-  var event_id = "<?php echo $event_id?>";
-  var startdate = "<?php echo $event_start_date?>";
-  var starttime = "<?php echo $event_start_time?>";
-  var enddate = "<?php echo $event_end_date?>";  
-  var mylat = "<?php echo $event_latitude?>";
-  var mylng = "<?php echo $event_longitude?>";
-</script>
-<!-- <script type="text/javascript" src="js/view-event.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script> -->
-<!-- <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script> -->
-<!-- <script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script> -->
+
 
 
 <?php
