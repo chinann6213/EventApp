@@ -1,5 +1,37 @@
 <?php
 include_once 'header.php';
+
+session_start();
+
+$user = "ganqitze@gmail.com"; // $_SESSION['user'];
+
+$servername = "localhost";
+$username   = "root";
+$password   = "";
+$dbname     = "event_app";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+if (isset($_GET['event_id'])){
+  $event_id = $_GET['event_id'];
+  $sql = "SELECT * FROM event WHERE event_id = '$event_id'";
+  $results = mysqli_query($conn, $sql);
+  while($event_data = mysqli_fetch_assoc($results)) {
+    $event_title = $event_data['event_title'];
+    $event_content = $event_data['event_content'];
+    $event_start_date = $event_data['event_start_date'];
+    $event_start_time = $event_data['event_start_time'];
+    $event_end_date = $event_data['event_end_date'];
+    $event_longitude = $event_data['event_longitude'];
+    $event_latitude = $event_data['event_latitude'];
+    $event_location = $event_data['location'];
+  }
+
+} 
+
 ?>
 
 <link rel="stylesheet" href="css/view-event.css">
@@ -7,39 +39,38 @@ include_once 'header.php';
   <div class="container">
     <div id="event-view">
 
-      <div id="event-name">
-        <h1>LELONG.MY: CLASS 101 - NOW EVERYBODY CAN SELL ONLINE! (ENGLISH)</h1> Monday, 29 October 2018 at 09:00 - Friday, 2 November 2018 at 17:00
-        <br><i>tag (if any)</i>
+      <div id="event-title">
+        <h1><?php echo $event_title; ?></h1>
+        <p id="event-datetime"></p>
+        <!-- <br><i>tag (if any)</i> -->
       </div>
 
       <hr>
 
       <div id="event-detail">
         <h1>Event Details: </h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel enim at tellus euismod convallis. Pellentesque bibendum tortor ut magna aliquam, a mattis ante consectetur. Nulla venenatis, arcu in feugiat finibus, arcu arcu finibus felis, sit amet ornare ligula leo id sem. Proin a diam porttitor, tincidunt tortor eget, imperdiet turpis. Nunc sit amet lacus tellus. Nulla maximus tellus nec nulla iaculis accumsan. Maecenas nec nulla lacus.</p>
+        <span><?php echo $event_content; ?></span>        
+      </div>
 
-        <p>Mauris ac eros sit amet ipsum eleifend mattis vel quis ex. Etiam mollis sed ligula vitae fermentum. Maecenas velit leo, semper in interdum et, tincidunt a metus. Sed dignissim sit amet augue sed consequat. Praesent pretium mi ut purus pulvinar aliquam. Duis finibus suscipit porttitor. Donec ipsum nisi, lobortis nec ex interdum, aliquam posuere ipsum. Nam a faucibus urna, vel gravida enim. Pellentesque vel nibh ac tortor congue accumsan laoreet sit amet ex. Morbi dictum laoreet purus quis scelerisque. Maecenas lobortis, orci id posuere sollicitudin, augue tortor ultricies leo, sit amet pellentesque ex erat vel quam. Donec rhoncus mi velit, eget semper enim dictum et. Ut id placerat mauris. Vestibulum bibendum nibh vel quam porta, vitae porttitor ex congue.</p>
+      <div id="event-location">
+        <h1>Organised by: </h1>
+        The Avengers (if any)
       </div>
 
       <div id="event-location">
         <h1>Where: </h1>
-        <strong>MMU Cyberjaya Tennis Courts</strong><br>
-        Jalan Multimedia, Multimedia University, 63100 Cyberjaya, Selangor, Malaysia
+        <strong><?php echo $event_location; ?></strong><br>
+        <!-- Jalan Multimedia, Multimedia University, 63100 Cyberjaya, Selangor, Malaysia -->
       </div>
 
-      <div id="googleMap"></div>
-
-      <div id="event-location">
-        <h1>Organiser: </h1>
-        The Avengers (if any)
-      </div>
+      <div id="googleMap"></div> 
 
       <!-- supporting images here-->  
       <?php
       if (true) {
         echo '<div id="event-img">';
-        echo '<div><img src="../img/banner-browse-event.jpg"></div>';
-        echo '<div><<img src="../img/if_twitter_six_107069.png"></div>';
+        echo '<span><img src="../img/banner-browse-event.jpg"></span>';
+        echo '<span><<img src="../img/if_twitter_six_107069.png"></span>';
         
         echo '</div>';
       } 
@@ -81,9 +112,17 @@ include_once 'header.php';
 
   </div>
 </main>
-
+<script>
+  var startdate = "<?php echo $event_start_date?>";
+  var starttime = "<?php echo $event_start_time?>";
+  var enddate = "<?php echo $event_end_date?>";  
+  var mylat = "<?php echo $event_latitude?>";
+  var mylng = "<?php echo $event_longitude?>";
+</script>
 <script type="text/javascript" src="js/view-event.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script>
 
 
 <?php

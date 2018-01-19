@@ -1,17 +1,26 @@
-$(document).ready(function() {
-  function initMap() {
-    var myLatLng = {lat: 41.508742, lng: 0.120850};
-    var mapProp = new google.maps.Map(document.getElementById("googleMap"), {
-      center: myLatLng,
-      zoom: 5,
-      scrollwheel: false
-    });
-    var marker = new google.maps.Marker({
-      position: myLatLng,
-      map: mapProp
-    });
-  }
 
+function initMap() {
+  var myLatLng = {lat: parseFloat(mylat), lng: parseFloat(mylng)};
+  var mapProp = new google.maps.Map(document.getElementById("googleMap"), {
+    center: myLatLng,
+    zoom: 15,
+    scrollwheel: false
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: mapProp
+  });
+}
+
+
+$(document).ready(function() {
+  var datetime = moment(startdate).format("dddd, MMMM Do YYYY") + " at " + starttime + " - " + moment(enddate).format("dddd, MMMM Do YYYY");
+  $("#event-datetime").html(function(){
+    return datetime;
+  });
+
+  google.maps.event.addDomListener(window, 'load', initMap);
   // When the user clicks on the button, open the modal 
   $("#regBtn").click(function() {
     $(".modal").css("display", "block");
@@ -45,3 +54,4 @@ $(document).ready(function() {
   })
 
 })
+
