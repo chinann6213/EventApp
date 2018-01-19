@@ -39,6 +39,15 @@ $(document).ready(function() {
     lineHeight: '20px'
   });
   $('.note-editable').css('font-size','18px');
+  $('#summernote').summernote('code', e_content);
+
+  // assign event Location
+  $("#title").val(e_title);
+  $("#title").parent().addClass("input-active input-complete");
+  $("#location").val(e_loc);
+  $("#participant").val(e_part);
+
+
 
   // EVENT CALENDAR
   $('#from-calendar').datepicker({
@@ -55,13 +64,16 @@ $(document).ready(function() {
     dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   });
 
-  var today = $('#from-calendar').datepicker("getDate");
-  today = new Date(today)
-  today = moment().year(today.getFullYear()).month(today.getMonth()).date(today.getDate());
-  var setToday = today.format('MMMM D, YYYY')
 
-  $("#from-date").html(setToday);
-  $("#to-date").html(setToday);
+  e_sdate = new Date(e_sdate)
+  e_sdate = moment().year(e_sdate.getFullYear()).month(e_sdate.getMonth()).date(e_sdate.getDate());
+  var set_e_sdate = e_sdate.format('MMMM D, YYYY')
+  $("#from-date").html(set_e_sdate);
+
+  e_edate = new Date(e_edate)
+  e_edate = moment().year(e_edate.getFullYear()).month(e_edate.getMonth()).date(e_edate.getDate());
+  var set_e_edate = e_edate.format('MMMM D, YYYY')
+  $("#to-date").html(set_e_edate);
 
   $(document).on("change", "#from-calendar", function() {
     var selected = $('#from-calendar').datepicker("getDate");
@@ -91,6 +103,28 @@ $(document).ready(function() {
     }
   })
 
+  // load images
+  var imgarr = e_imgarr;//JSON.parse();
+  var i = 0;
+  function appendImg(i) {
+      var img = new Image();
+      img.src = imgarr[i]['src'];
+
+      img.onload = function() {
+          if (this.width > this.height) dim = 'style="height: 100%;"';
+          else if (this.width > this.height) dim = 'style="width: 100%;"';
+          else dim = 'style="height: 100%;"';
+          $("#temp-upload").append('<div class="temp-img-card"><div class="temp-img"><img '+dim+' src="'+ img.src +'" /></div><div class="temp-img-details"><div class="form-input"><label class="input-lbl">Image Alt </label><input type="text" class="event-input img-alt" /></div><div class="form-input"><label class="input-lbl">Image Caption </label><input type="text" class="event-input img-cap" /></div><button class="delete-img">Delete</button></div></div>');
+          if (i < imgarr.length - 1) {
+              i ++;
+              appendImg(i);
+          }
+      }
+  }
+  if(imgarr.length > 0) {
+      appendImg(i);
+  }
+
   // upload Images
   $(document).on("change", "#image-uploader", function() {
     var dim;
@@ -111,8 +145,8 @@ $(document).ready(function() {
         }
         else {
           for (var i = 0; i < data.length; i ++){
-            if (data[i]['img_width'] < data[i]['img_height']) dim = 'style="height: 100%;"';
-            else if (data[i]['img_width'] > data[i]['img_height']) dim = 'style="width: 100%;"';
+            if (data[i]['img_width'] > data[i]['img_height']) dim = 'style="height: 100%;"';
+            else if (data[i]['img_width'] < data[i]['img_height']) dim = 'style="width: 100%;"';
             else dim = 'style="height: 100%;"';
 
             $("#temp-upload").append('<div class="temp-img-card"><div class="temp-img"><img '+dim+' src="'+ data[i]['img_src'] +'" /></div><div class="temp-img-details"><div class="form-input"><label class="input-lbl">Image Alt </label><input type="text" class="event-input img-alt" /></div><div class="form-input"><label class="input-lbl">Image Caption </label><input type="text" class="event-input img-cap" /></div><button class="delete-img">Delete</button></div></div>');
@@ -128,11 +162,11 @@ $(document).ready(function() {
   })
 
   // google location service
-  var lat, lng;
+  var lat, lng, autocomplete;
   function initialize() {
     var mapOptions = {
-      center: {lat: 4.2105, lng: 101.9758},
-      zoom: 8,
+      center: {lat: parseFloat(e_lat), lng: parseFloat(e_long)},
+      zoom: 17,
       scrollwheel: false
     };
     var map = new google.maps.Map(document.getElementById('map'),
@@ -143,15 +177,22 @@ $(document).ready(function() {
 
     // Create the autocomplete helper, and associate it with
     // an HTML text input box.
-    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
 
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-    var infowindow = new google.maps.InfoWindow();
+    var infowindow = new google.maps.InfoWindow({
+        content: e_loc
+    });
     var marker = new google.maps.Marker({
+      position: {lat: parseFloat(e_lat), lng: parseFloat(e_long)},
       map: map
     });
+    lat = parseFloat(e_lat);
+    lng = parseFloat(e_long);
+    marker.setMap(map);
+
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.open(map, marker);
     });
@@ -207,6 +248,12 @@ $(document).ready(function() {
       $(this).html("AM");
     }
   })
+
+  // assign edit start time
+  var time_edit = e_stime.split(":");
+  $(".time #hour").val(time_edit[0]);
+  $(".time #minute").val(time_edit[1].slice(0,2));
+  $("#time-am-pm").html("").html(time_edit[1].slice(2,4));
 
   $(".time #hour").on("change", function() {
     if (parseInt($(this).val()) < 10) $(this).val('0'+$(this).val())
@@ -272,8 +319,10 @@ $(document).ready(function() {
     }
   })
 
+
+
   // CREATE EVENT
-  $("#create-event-button").click(function() {
+  $("#save-event-button").click(function() {
     var start_date = $('#from-calendar').datepicker("getDate");
     var start_date = $.datepicker.formatDate('dd-mm-yy', new Date(start_date));
     var end_date = $('#to-calendar').datepicker("getDate");
@@ -300,7 +349,8 @@ $(document).ready(function() {
     var longitude = lng;
 
     $.post("ajax/save_event.php", {
-      action: "create",
+      action: "update",
+      event_id: e_id,
       start_date: start_date,
       end_date: end_date,
       time: time,
@@ -312,7 +362,7 @@ $(document).ready(function() {
       location: event_location,
       participant: participant
     }, function(response) {
-        alert(response);
+
     })
   })
 })

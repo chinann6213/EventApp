@@ -12,3 +12,5 @@ a { text-decoration: none; color: #000; }
 .active { background: #f7f7f7; }
 .manage-event { display: none; }
 .fill-svg { fill: #673AB7; }
+#slide-in { float: right; margin-right: 1rem; margin-bottom: 1rem; display: none; cursor: pointer; }
+#menu { display: none; margin-right: 1rem; cursor: pointer; }

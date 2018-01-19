@@ -4,11 +4,15 @@
 
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="css/sidebar.css">
   </head>
   <body>
     <div id="nav-sidebar">
+        <svg id="slide-in" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
+          <path d="M3 0v1h4v5h-4v1h5v-7h-5zm-1 2l-2 1.5 2 1.5v-1h4v-1h-4v-1z" />
+        </svg>
       <div id="user-login-details" class="main-item">Hi, Batman</div>
       <div class="main-item" id="manage-event">
         <a href="create-event.php">
@@ -23,17 +27,6 @@
       <div class="manage-event">
         <div class="sub-item" id="create"><a href="create-event.php">Create Event</a></div>
         <div class="sub-item" id="manage"><a href="manage-event.php">Manage Event</a></div>
-        <div class="sub-item" id="category"><a href="category.php">Categories</a></div>
-      </div>
-      <div class="main-item" id="gallery">
-        <a>
-          <p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
-              <path d="M0 0v8h8v-8h-8zm1 1h6v3l-1-1-1 1 2 2v1h-1l-4-4-1 1v-3z" />
-            </svg>
-            <span>Gallery</span>
-          </p>
-        </a>
       </div>
       <div class="main-item" id="about-us">
         <a href="about-us.php">

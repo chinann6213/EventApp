@@ -50,8 +50,9 @@ $(document).ready(function() {
 
         reader.onload = function(e) {
           $('#preview-logo').attr('src', e.target.result);
-          $("#logo-upload label").hide();
+          $("#logo-upload div").hide();
           $("#rem-logo").show();
+          $('#preview-logo').show();
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -64,11 +65,13 @@ $(document).ready(function() {
 
      $("#rem-logo").click(function() {
          $(this).parent().find('img').removeAttr("src");
-         $("#logo-upload label").show();
+         $("#org-logo").val("")
+         $("#logo-upload div").show();
+         $("#rem-logo").hide();
+         $('#preview-logo').hide();
      })
 
      $("#save-info").click(function() {
-         alert(123)
          var name = $("#organizer-name").val();
          var contact = $("#organizer-contact").val();
          var email = $("#organizer-email").val();
@@ -80,7 +83,7 @@ $(document).ready(function() {
              email: email,
              logo: logo
          }, function(response) {
-             alert("Info Updated.")
+             alert(response)
          })
      })
 })
