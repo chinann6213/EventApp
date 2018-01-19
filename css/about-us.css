@@ -13,9 +13,21 @@
 .input-complete .input-lbl { font-size: 16px; transform: translateY(0); }
 
 /* submit button */
-form input[type="submit"] { margin: 1rem 0; border: none; background: #673Ab7; color: #fff; padding: 0.7rem 1rem; width: 148px; font-size: 1rem; cursor: pointer; }
+input[type="submit"] { margin: 1rem 0; border: none; background: #673Ab7; color: #fff; padding: 0.7rem 1rem; width: 148px; font-size: 1rem; cursor: pointer; }
 
-#logo-upload { max-width: 240px; height: 160px; border: 1px solid #673Ab7; text-align: center; }
+#logo-upload { position: relative; max-width: 240px; height: 160px; border: 1px solid #673Ab7; text-align: center; }
 #logo-upload input { display: none; }
 #logo-upload p, #logo-upload span { font-size: 1rem; margin: 1rem; }
 #logo-upload span { cursor: pointer; color: #fff; padding: 0.6rem 2rem; font-size: 1rem; background: #673Ab7; }
+#logo-upload img {max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;}
+#rem-logo { display: none; float: right; margin-right: 8px; }
+#rem-logo:hover { cursor: pointer; color: #673AB7; }
