@@ -10,8 +10,8 @@
 
 /*Get it from https://codepen.io/dudleystorey/pen/Kgofa*/
 #event-img { padding-top: 30px; font-size: 0; display: -ms-flexbox; -ms-flex-wrap: wrap; -ms-flex-direction: column; -webkit-flex-flow: row wrap; flex-flow: row wrap; display: -webkit-box; display: flex; }
-#event-img span { -webkit-box-flex: auto; -ms-flex: auto; flex: auto; width: 200px; }
-#event-img span img { width: 100%; height: auto; }
+#event-img span { -webkit-box-flex: auto; -ms-flex: auto; flex: auto; width: 200px;}
+#event-img span img { width: 100%; height: auto; max-height: 400px;}
 @media screen and (max-width: 400px) {
   #event-img span { margin: 0; }
   #event-img { padding: 0; }  
