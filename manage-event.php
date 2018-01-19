@@ -18,7 +18,7 @@
                 <th id="event-action"><p>Action</p></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="event-body">
             <tr>
                 <td class="select"><label><input id="item-1" class="styled-checkbox" type="checkbox" /><label for="item-1"></label></label></td>
                 <td class="event-detail">
