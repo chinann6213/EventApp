@@ -38,7 +38,8 @@ $(document).ready(function() {
     ],
     lineHeight: '20px'
   });
-
+  $('.note-editable').css('font-size','18px');
+  
   // EVENT CALENDAR
   $('#from-calendar').datepicker({
     inline: true,

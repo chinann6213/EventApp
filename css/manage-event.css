@@ -1,13 +1,65 @@
 #event-manager { margin-left: 240px; }
-#me-header { position: relative; margin-bottom: 0em; box-shadow: 0px 0px 8px -2px #000; height: 72px; background: #f7f7f7; }
+#me-header { position: relative; margin-bottom: 0em; box-shadow: 0px 0px 4px -2px #000; height: 72px; background: #f7f7f7; }
 #me-header p { padding: 0 2rem; font-size: 2rem; font-weight: bold; color: #673AB7; line-height: 72px; }
 #me-container { padding: 0rem; padding-bottom: 2rem; }
 
 /* Table Formatting */
 table { text-align: left; width: 100%; }
 thead tr { height: 48px; border-bottom: 1px solid #ddd; }
-th, td { padding: 0 0.5rem; }
-th { border-bottom: 1px solid #ddd; line-height: 48px; }
-#check-table { width: 10%; padding-left: 32px; }
+th, td { padding: 0 1rem; }
+th { border-bottom: 1px solid #ddd; }
+td { vertical-align: top; padding: 1rem; border-bottom: 1px solid #ddd; }
+#check-table { width: 5%; padding-left: 32px; }
+#event-detail p { line-height: 99%; }
 #event-detail, .event-detail { width: 58%; }
-.select { padding-left: 32px; width: 10%; }
+.select { padding-left: 32px; width: 5%; }
+td h4 { line-height: 1.4; margin: 0 0 1rem 0; }
+td h4:hover { color: #673AB7; text-decoration: underline; cursor: pointer;}
+td p { line-height: 1.5; font-size: 0.875rem; }
+td button { outline: none; border: none; background: #fff; }
+td button.edit { color: #673AB7; }
+td button.delete { color: red; }
+td button:hover { text-decoration: underline; cursor: pointer; }
+.event-date { font-size: 12px; color: #888; margin-bottom: .5rem; }
+#search { padding: .8rem 1rem; position: absolute; right: 2rem; top: 14px; outline: none; border-radius: 2rem; border: none; font-size: 1rem; }
+#search:focus { box-shadow: 0px 0px 4px 0px #673AB7; }
+
+/* checkbox */
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+.styled-checkbox + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+.styled-checkbox + label:before {
+  content: '';
+  margin-right: 10px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: white;
+  border: 1px solid #000;
+}
+.styled-checkbox:hover + label:before {
+  background: #673AB7;
+}
+.styled-checkbox:checked + label:before {
+  background: #673AB7;
+}
+
+.styled-checkbox:checked + label:after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  background: white;
+  width: 2px;
+  height: 2px;
+  -webkit-box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+          box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
