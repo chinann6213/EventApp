@@ -13,6 +13,13 @@ function initMap() {
   });
 }
 
+function inputValidation(name, email, phone) {
+  var name_bool = [name.length > 0 ? true : false]
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  var regex2 = /^\d{3}-\d{7}$/;
+  return name_bool, regex.test(email), regex2.test(phone) 
+}
+
 
 $(document).ready(function() {
   var datetime = moment(startdate).format("dddd, MMMM Do YYYY") + " at " + starttime + " - " + moment(enddate).format("dddd, MMMM Do YYYY");
@@ -53,7 +60,6 @@ $(document).ready(function() {
     $(this).parent().removeClass("input-active");
   })
 
-  $('#reg-form').validate();
 
   // Register
   $("#reg-submit").click(function() {
@@ -61,16 +67,23 @@ $(document).ready(function() {
     var name = $("#name").val();
     var email = $("#email").val();
     var phone = $("#phone").val();
-    $.post("ajax/register.php", {
-      action: "create",     
-      id: id,
-      name: name,
-      email: email,
-      phone: phone,
-    }, function(response) {
+    if(inputValidation(name, email, phone)) {
+      $.post("ajax/register.php", {
+        action: "create",     
+        id: id,
+        name: name,
+        email: email,
+        phone: phone,
+      }, function(response) {
       // redirect to ticket page
+      var ticket_id = response;
+      alert(response);
+      location.href = "../ticket.php?event_id="+event_id+"&ticket_id="+ticket_id;
     })
+    }
 
+
+    
   })
 
 })
