@@ -12,7 +12,7 @@
   if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
   }
- 
+
   if ($_POST['action']) {
     if ($_POST['action'] == "create") {
       $start_date = date("Y-m-d", strtotime($_POST['start_date']));
@@ -23,10 +23,12 @@
       $images = $_POST['images'];
       $lat = round($_POST['lat'], 4);
       $lng = round($_POST['lng'], 4);
+      $location = $_POST['location'];
+      $participant = $_POST['participant'];
       $meta_title = $title;
       $meta_desc = $content;//substr($content, 0, 50) + "...";
       $featured_img = $images[0]['img_src'];
-      $sql = "INSERT INTO event (event_title, event_content, event_start_date, event_end_date, event_start_time, event_longitude, event_latitude, event_author, event_meta_title, event_meta_description, event_featured_img) VALUES ('$title', '$content', '$start_date', '$end_date', '$time', '$lng', '$lat', '$user', '$meta_title', '$meta_desc', '$featured_img')";
+      $sql = "INSERT INTO event (event_title, event_content, event_start_date, event_end_date, event_start_time, event_longitude, event_latitude, location, event_author, event_meta_title, event_meta_description, event_featured_img, participant) VALUES ('$title', '$content', '$start_date', '$end_date', '$time', '$lng', '$lat', '$user', '$meta_title', '$meta_desc', '$featured_img', '$participant')";
       if (mysqli_query($conn, $sql)) {
         $img = "";
         for ($i = 0; $i < count($images); $i ++) {

@@ -39,7 +39,7 @@ $(document).ready(function() {
     lineHeight: '20px'
   });
   $('.note-editable').css('font-size','18px');
-  
+
   // EVENT CALENDAR
   $('#from-calendar').datepicker({
     inline: true,
@@ -282,6 +282,9 @@ $(document).ready(function() {
     var title = $("#title").val()
     var content = $('#summernote').summernote('code');
     var event_images = [];
+    var location = $("#location").val();
+    var participant = $("#participant").val();
+
     $(".temp-img-card").each(function() {
       var img_src = $(this).find('img').attr('src');
       var img_alt = $(this).find('input.img-alt').val();
@@ -305,7 +308,9 @@ $(document).ready(function() {
       content: content,
       images: event_images,
       lat: latitude,
-      lng: longitude
+      lng: longitude,
+      location: location,
+      participant: participant
     }, function(response) {
 
     })
