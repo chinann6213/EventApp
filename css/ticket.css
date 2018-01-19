@@ -1,6 +1,8 @@
 #ticket-card { padding: 20px 20px; display: block; background-color: white; font-family: Catamaran; font-size: 16px; } 
 #ticket-card p { font-family: Catamaran; font-size: 18px; color: #111; padding: 20px 0px 10px 0px; } 
-#ticket-card label { font-family: Catamaran; font-size: 18px; color: #111; text-transform: uppercase; padding: 30px 0px 10px 0px; } 
+#ticket-card label { font-family: Catamaran; font-size: 18px; color: #5C6BC0; text-transform: uppercase; padding: 30px 0px 10px 0px; } 
 #ticket-card ul { padding-left: 40px; } 
+#ticket-card li { padding: 10px 0px 5px 0px; } 
+#ticket-card span { padding: 0px 10px 10px 0px; color: #5C6BC0;} 
 
 
