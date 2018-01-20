@@ -31,6 +31,16 @@ $(document).ready(function() {
     return datetime;
   });
 
+  var category = event_categories.split(',');
+  console.log(category);
+  $("#event-categories").html(function() {
+    var categories = "";
+    for (var i = 0; i < category.length; i++) {
+      categories += '<span id="event-category">#' + category[i] + '</span>';
+    }
+    return categories;
+  })  
+
   google.maps.event.addDomListener(window, 'load', initMap);
   // When the user clicks on the button, open the modal 
   $("#regBtn").click(function() {

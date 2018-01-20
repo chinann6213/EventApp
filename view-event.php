@@ -1,13 +1,12 @@
 <?php
 include_once 'header.php';
-
 session_start();
 
 $user = "ganqitze@gmail.com"; // $_SESSION['user'];
 
 $servername = "localhost";
 $username   = "root";
-$password   = "971127";
+$password   = "";
 $dbname     = "event_app";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -30,13 +29,18 @@ if (isset($_GET['event_id'])){
     $event_location = $event_data['location'];
     $event_ticket = $event_data['participant'];
     $event_organiser_id = $event_data['organizer_id'];
+    $event_categories = $event_data['event_category'];
   }
 
   $sql2 = "SELECT * FROM gallery WHERE event_id = '$event_id'";
   $results2 = mysqli_query($conn, $sql2);
   $img_srcs = array();
+  $img_alts = array();
+  $img_caps = array();
   while($gallery_data = mysqli_fetch_assoc($results2)) {
     $img_srcs[] = $gallery_data['img_src'];
+    $img_alts[] = $gallery_data['img_alt'];
+    $img_caps[] = $gallery_data['img_cap'];
   }
 
   $sql3 = "SELECT * FROM organizer WHERE id = '$event_organiser_id'";
@@ -61,6 +65,7 @@ if (isset($_GET['event_id'])){
       <div id="event-title">
         <h1><?php echo $event_title; ?></h1>
         <p id="event-datetime"></p>
+        <p id="event-categories"></p>
       </div>
 
       <hr>
@@ -72,15 +77,9 @@ if (isset($_GET['event_id'])){
 
       <div id="event-organiser">
         <h1>Organised by: </h1>
-<<<<<<< HEAD
-        <span><?php echo $event_organiser_name; ?></span>
-        <span><?php echo $event_organiser_contact; ?></span>
-        <span><?php echo $event_organiser_email; ?></span>
-=======
-        <i class="material-icons">contacts</i><?php echo $event_organiser_name; ?><p>
-        <i class="material-icons">contact_mail</i><?php echo $event_organiser_contact; ?><p>
-        <i class="material-icons">contact_phone</i><?php echo $event_organiser_email; ?><p> 
->>>>>>> origin/master
+        <p><i class="material-icons">contacts</i><?php echo $event_organiser_name; ?></p>
+        <p><i class="material-icons">contact_mail</i><?php echo $event_organiser_contact; ?></p>
+        <p><i class="material-icons">contact_phone</i><?php echo $event_organiser_email; ?></p> 
       </div>
 
       <div id="event-location">
@@ -95,7 +94,10 @@ if (isset($_GET['event_id'])){
       if (isset($img_srcs)){
         echo '<div id="event-img">';
         foreach ($img_srcs as $key => $value) {
-          echo '<span><img src="' .$img_srcs[$key]. '"/></span>';
+          echo '<span><figure>';
+          echo '<img src="' .$img_srcs[$key]. '" alt="' .$img_alts[$key]. '"/>';
+          // echo '<figcaption style="font-size: 16px;">' .$img_caps[$key]. '</figcaption>';
+          echo '</figure></span>';
         }
         echo '</div>';
       }
@@ -143,6 +145,7 @@ if (isset($_GET['event_id'])){
 </main>
 <script>
   var event_id = "<?php echo $event_id?>";
+  var event_categories = "<?php echo $event_categories?>";
   var startdate = "<?php echo $event_start_date?>";
   var starttime = "<?php echo $event_start_time?>";
   var enddate = "<?php echo $event_end_date?>";
@@ -153,7 +156,6 @@ if (isset($_GET['event_id'])){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
 <script type="text/javascript" src="js/view-event.js"></script>
 <script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script>
-
 
 <?php
 // print phpinfo();
