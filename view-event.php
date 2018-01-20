@@ -43,8 +43,8 @@ if (isset($_GET['event_id'])){
   $results3 = mysqli_query($conn, $sql3);
   while($organiser_data = mysqli_fetch_assoc($results3)) {
     $event_organiser_name = $organiser_data['name'];
-    $event_organiser_contact = $organiser_data['contact'];
     $event_organiser_email = $organiser_data['email'];
+    $event_organiser_contact = $organiser_data['contact'];    
   }
 } 
 
@@ -52,6 +52,7 @@ if (isset($_GET['event_id'])){
 
 
 <link rel="stylesheet" href="css/view-event.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <main>
 
   <div class="container">
@@ -69,17 +70,16 @@ if (isset($_GET['event_id'])){
         <span><?php echo $event_content; ?></span>        
       </div>
 
-      <div id="event-location">
+      <div id="event-organiser">
         <h1>Organised by: </h1>
-        <span><?php echo $event_organiser_name; ?></span> 
-        <span><?php echo $event_organiser_contact; ?></span> 
-        <span><?php echo $event_organiser_email; ?></span> 
+        <i class="material-icons">contacts</i><?php echo $event_organiser_name; ?><p>
+        <i class="material-icons">contact_mail</i><?php echo $event_organiser_contact; ?><p>
+        <i class="material-icons">contact_phone</i><?php echo $event_organiser_email; ?><p> 
       </div>
 
       <div id="event-location">
         <h1>Where: </h1>
-        <?php echo $event_location; ?><br>
-        <!-- Jalan Multimedia, Multimedia University, 63100 Cyberjaya, Selangor, Malaysia -->
+        <p><?php echo $event_location; ?></p>
       </div>
 
       <div id="googleMap"></div> 
