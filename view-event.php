@@ -7,7 +7,7 @@ $user = "ganqitze@gmail.com"; // $_SESSION['user'];
 
 $servername = "localhost";
 $username   = "root";
-$password   = "";
+$password   = "971127";
 $dbname     = "event_app";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -46,7 +46,7 @@ if (isset($_GET['event_id'])){
     $event_organiser_contact = $organiser_data['contact'];
     $event_organiser_email = $organiser_data['email'];
   }
-} 
+}
 
 ?>
 
@@ -66,14 +66,14 @@ if (isset($_GET['event_id'])){
 
       <div id="event-detail">
         <h1>Event Details: </h1>
-        <span><?php echo $event_content; ?></span>        
+        <span><?php echo $event_content; ?></span>
       </div>
 
       <div id="event-location">
         <h1>Organised by: </h1>
-        <span><?php echo $event_organiser_name; ?></span> 
-        <span><?php echo $event_organiser_contact; ?></span> 
-        <span><?php echo $event_organiser_email; ?></span> 
+        <span><?php echo $event_organiser_name; ?></span>
+        <span><?php echo $event_organiser_contact; ?></span>
+        <span><?php echo $event_organiser_email; ?></span>
       </div>
 
       <div id="event-location">
@@ -82,10 +82,10 @@ if (isset($_GET['event_id'])){
         <!-- Jalan Multimedia, Multimedia University, 63100 Cyberjaya, Selangor, Malaysia -->
       </div>
 
-      <div id="googleMap"></div> 
+      <div id="googleMap"></div>
 
-      <!-- supporting images here-->  
-      <?php 
+      <!-- supporting images here-->
+      <?php
       if (isset($img_srcs)){
         echo '<div id="event-img">';
         foreach ($img_srcs as $key => $value) {
@@ -106,7 +106,7 @@ if (isset($_GET['event_id'])){
 
        // echo '<form id="form">';
        echo '<input type="hidden" id="event_id"/>';
-       echo '<div class="form-input" id="reg-info">';       
+       echo '<div class="form-input" id="reg-info">';
        echo '<label for="name" class="input-lbl">Name </label>';
        echo '<input type="text" class="event-input" id="name" required>';
        echo '</div>';
@@ -118,7 +118,7 @@ if (isset($_GET['event_id'])){
        echo '<label for="phone" class="input-lbl">Contact Number </label>';
        echo '<input type="tel" class="event-input" id="phone" pattern="^\d{3}-\d{7}$" required/></label>';
        echo '</div>';
-      
+
        echo '<br><br>';
        echo '<div class="modal-footer">';
        echo '<button class="modal-close">Close</button>';
@@ -127,10 +127,10 @@ if (isset($_GET['event_id'])){
        echo '</div>';
        echo '</div>';
        echo '</div>';
-     } 
+     }
      else {
       echo '<div id="no-ticket">Sold Out!</div>';
-    } 
+    }
     ?>
 
   </div>
@@ -139,7 +139,7 @@ if (isset($_GET['event_id'])){
   var event_id = "<?php echo $event_id?>";
   var startdate = "<?php echo $event_start_date?>";
   var starttime = "<?php echo $event_start_time?>";
-  var enddate = "<?php echo $event_end_date?>";  
+  var enddate = "<?php echo $event_end_date?>";
   var mylat = "<?php echo $event_latitude?>";
   var mylng = "<?php echo $event_longitude?>";
 </script>
@@ -150,6 +150,6 @@ if (isset($_GET['event_id'])){
 
 
 <?php
-// print phpinfo(); 
+// print phpinfo();
 include_once 'footer.php';
 ?>

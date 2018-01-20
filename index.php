@@ -2,7 +2,7 @@
   include_once 'header.php';
   require_once('sql/mysqli_connect.php');
 
-  $query = "SELECT event_title, event_content, event_start_date, event_end_date
+  $query = "SELECT event_id, event_title, event_content, event_start_date, event_end_date
   FROM event ORDER BY event_id DESC LIMIT 8";
 
   $response = @mysqli_query($dbc, $query);
@@ -11,13 +11,15 @@
 
   // store the result of query into a two dimensional array
   while ($row = mysqli_fetch_assoc($response)){
-    $event = array("title" => $row['event_title'],
-                    "content" => substr($row['event_content'], 0, 55) . '...', // cut the string to avoid lengthy description on main page.
+    $event = array("eventid" => $row['event_id'],
+                    "title" => $row['event_title'],
+                    "content" => substr(strip_tags($row['event_content']), 0, 55) . '...', // cut the string to avoid lengthy description on main page.
                     "startdate" => $row['event_start_date'],
                     "enddate" => $row['event_end_date']);
 
     $events[] = $event;
   }
+
 ?>
 
 <main>
@@ -41,7 +43,7 @@
           echo '<h1>' . $event['title'] . '</h1>';
           echo '<h2>' . $event['content'] . '</h2>';
           echo '<h3> Date: ' . $event['startdate'] . ' - ' . $event['enddate']. '</h3>';
-          echo '<button type="submit" value="Register">Register</button>';
+          echo '<a href="view-event.php?event_id=' . $event['eventid'] .  '"><button type="submit" value="Register">Register</button></a>';
           echo '</div> </div>';
 
           if(($loopCount % 2) != 0){

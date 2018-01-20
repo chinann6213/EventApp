@@ -9,12 +9,12 @@
   <div class="container">
     <section class="index-event-list">
       <h1>Events</h1>
-      
+
       <?php
         require_once('sql/mysqli_connect.php');
         $result_per_page = 10;
 
-        $query = 'SELECT event_title, event_content, event_start_date, event_end_date FROM event';
+        $query = 'SELECT event_id, event_title, event_content, event_start_date, event_end_date FROM event';
         $response = mysqli_query($dbc, $query);
         $number_of_results = mysqli_num_rows($response);
 
@@ -28,12 +28,13 @@
 
         $this_page_first_result = ($page-1) * $result_per_page;
 
-        $query = 'SELECT event_title, event_content, event_start_date, event_end_date FROM event LIMIT ' . $this_page_first_result . ',' . $result_per_page;
+        $query = 'SELECT event_id, event_title, event_content, event_start_date, event_end_date FROM event LIMIT ' . $this_page_first_result . ',' . $result_per_page;
         $response = mysqli_query($dbc, $query);
 
         while ($row = mysqli_fetch_assoc($response)){
-          $event = array("title" => $row['event_title'],
-                          "content" => substr($row['event_content'], 0, 55) . '...', // cut the string to avoid lengthy description on main page.
+          $event = array("eventid" => $row['event_id'],
+                          "title" => $row['event_title'],
+                          "content" => substr(strip_tags($row['event_content']), 0, 55) . '...', // cut the string to avoid lengthy description on main page.
                           "startdate" => $row['event_start_date'],
                           "enddate" => $row['event_end_date']);
 
@@ -52,7 +53,7 @@
           echo '<h1>' . $event['title'] . '</h1>';
           echo '<h2>' . $event['content'] . '</h2>';
           echo '<h3> Date: ' . $event['startdate'] . ' - ' . $event['enddate']. '</h3>';
-          echo '<button type="submit" value="Register">Register</button>';
+          echo '<a href="view-event.php?event_id=' . $event['eventid'] .  '"><button type="submit" value="Register">Register</button></a>';
           echo '</div> </div>';
 
           if(($loopCount % 2) != 0){
