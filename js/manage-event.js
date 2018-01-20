@@ -33,7 +33,6 @@ $(document).ready(function() {
 
   // select all
   document.getElementById("select-all").onclick  = function() {
-      alert(123)
       var x = document.getElementById("event-body").childNodes;
       for (var i = 0; i < x.length; i ++) {
           x[i].childNodes[0].getElementsByTagName("input")[0].checked = true
