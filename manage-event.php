@@ -13,7 +13,7 @@
     <input id="search" type="text" placeholder="search your event" />
   </div>
   <div id="me-container">
-      <table cellspacing="0">
+      <table id="table" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col" id="check-table"><input id="select-all" class="styled-checkbox" type="checkbox" /><label for="select-all"></label></th>

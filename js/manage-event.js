@@ -29,6 +29,11 @@ $(document).ready(function() {
          table_item += '</tr>'
      }
      $("#event-body").html("").append(table_item);
+     var x = document.getElementById("event-body").childNodes;
+     for (var i = 0; i < x.length; i ++) {
+         x[i].childNodes[0].getElementsByTagName("input")[0].checked = true
+         console.log(x[i].childNodes[0].getElementsByTagName("input")[0])
+     }
   })
 
   // edit event
@@ -42,4 +47,8 @@ $(document).ready(function() {
     } else {
         // window width is less than 500px
     }
+
+
+
+
 })
