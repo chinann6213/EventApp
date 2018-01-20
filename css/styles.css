@@ -169,7 +169,7 @@ header nav ul li a {
 
 @media only screen and (max-width: 1000px){
   header {
-    height: 100px;
+    height: 64px;
     width: 100%;
   }
 
@@ -183,6 +183,10 @@ header nav ul li a {
 
   header nav ul li a {
     display: none;
+  }
+
+  main {
+    padding-top: 64px;
   }
 }
 
