@@ -35,4 +35,11 @@ $(document).ready(function() {
   $(document).on("click", ".edit", function() {
       location.href = "edit-event.php?event_id=" + $(this).attr("value");
   })
+
+    const mq = window.matchMedia( "(max-width: 320px)" );
+    if (mq.matches) {
+        $("#me-container").prepend($("#search"))
+    } else {
+        // window width is less than 500px
+    }
 })

@@ -54,15 +54,7 @@ td button:hover { text-decoration: underline; cursor: pointer; }
 }
 
 
-@media only screen and (max-width: 768px) {
-    #nav-sidebar { display: none; }
-    #event-manager { margin-left: 0; }
-}
-@media only screen and (max-width: 480px) {
-    #nav-sidebar { display: none; }
-    #event-manager { margin-left: 0; }
-    #me-container { padding: 0 16px 32px 16px; }
-}
+
 table {
   border: 1px solid #ccc;
   border-collapse: collapse;
@@ -150,6 +142,24 @@ table th {
     border-bottom: 0;
   }
 }
+@media only screen and (max-width: 768px) {
+    #nav-sidebar { display: none; }
+    #event-manager { margin-left: 0; }
+    #menu { display: initial; }
+    #slide-in { display: initial; }
+}
+@media only screen and (max-width: 480px) {
+    #nav-sidebar { display: none; }
+    #event-manager { margin-left: 0; }
+    #me-container { padding: 0 16px 32px 16px; }
+    #menu { margin-right: 0rem; }
+    #me-container, #me-header p { padding: 0 16px; }
+    #search { right: 1rem; width: 174px; }
+}
+@media only screen and (max-width: 420px) {
+    #search { width: 130px; font-size: 12px;}
+    #me-header p { font-size: 28px; }
+}
 @media only screen and (max-width: 320px) {
     .e_t {
         text-overflow: ellipsis;
@@ -157,4 +167,7 @@ table th {
         white-space: nowrap;
         clear: both;
     }
+    #search { width: 130px; font-size: 12px; position: inherit; margin-bottom: 0.5rem; height: 24px; }
+    #me-header { margin-bottom: 0.5rem; }
+    #me-header p { font-size: 24px; }
 }
