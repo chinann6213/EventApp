@@ -48,7 +48,29 @@ $(document).ready(function() {
         // window width is less than 500px
     }
 
+    // search table
+    function searchTable() {
 
+      var input, filter, table, tr, td, i;
+      input = document.getElementById("search");
+      filter = input.value.toUpperCase();
+      body = document.getElementById("event-body");
+      tr = body.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td_event = tr[i].getElementsByTagName("td")[0];
+        td_location = tr[i].getElementsByTagName("td")[2];
+        td_date = tr[i].getElementsByTagName("td")[3];
+        console.log(td_event.innerHTML)
+          if (td_event.innerHTML.toUpperCase().indexOf(filter) > -1 || td_location.innerHTML.toUpperCase().indexOf(filter) > -1 || td_date.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+      }
+    }
+    document.getElementById("search").onkeyup = searchTable;
 
 
 })

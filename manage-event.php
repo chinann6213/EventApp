@@ -10,7 +10,7 @@
         </svg>
         <span>Manage Event</span>
     </p>
-    <input id="search" type="text" placeholder="search your event" />
+    <input id="search" type="text" placeholder="search event" />
   </div>
   <div id="me-container">
       <table id="table" cellspacing="0">
