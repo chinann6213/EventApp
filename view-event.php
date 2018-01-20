@@ -1,13 +1,12 @@
 <?php
 include_once 'header.php';
-
 session_start();
 
 $user = "ganqitze@gmail.com"; // $_SESSION['user'];
 
 $servername = "localhost";
 $username   = "root";
-$password   = "971127";
+$password   = "";
 $dbname     = "event_app";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -76,15 +75,9 @@ if (isset($_GET['event_id'])){
 
       <div id="event-organiser">
         <h1>Organised by: </h1>
-<<<<<<< HEAD
-        <span><?php echo $event_organiser_name; ?></span>
-        <span><?php echo $event_organiser_contact; ?></span>
-        <span><?php echo $event_organiser_email; ?></span>
-=======
         <i class="material-icons">contacts</i><?php echo $event_organiser_name; ?><p>
         <i class="material-icons">contact_mail</i><?php echo $event_organiser_contact; ?><p>
         <i class="material-icons">contact_phone</i><?php echo $event_organiser_email; ?><p> 
->>>>>>> origin/master
       </div>
 
       <div id="event-location">
