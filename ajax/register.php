@@ -42,11 +42,11 @@ session_start();
             $event_organiser_id = $event_data['organizer_id'];
           }
 
-         //  $sql2 = "SELECT * FROM registered_user WHERE ticket_id = '$ticket_id'";
-         //  $results2 = mysqli_query($conn, $sql2);
-         //  while($user_data = mysqli_fetch_assoc($results2)) {
-         //   $user_name = $user_data['name'];
-         // }
+          $sql2 = "SELECT * FROM registered_user WHERE ticket_id = '$ticket_id'";
+          $results2 = mysqli_query($conn, $sql2);
+          while($user_data = mysqli_fetch_assoc($results2)) {
+           $user_name = $user_data['name'];
+         }
 
           $sql3 = "SELECT * FROM organizer WHERE id = '$event_organiser_id'";
           $results3 = mysqli_query($conn, $sql3);
@@ -55,20 +55,21 @@ session_start();
             $event_organiser_contact = $organiser_data['contact'];
             $event_organiser_email = $organiser_data['email'];
           }
-          $to = $email;
-          // $to = "grammarly1718@gmail.com";
-          $subject = "Email from EventApp";
-          $message = "hello WOrld";
-          $headers = "MIME-Version: 1.0" . "\r\n";
-          $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-          $headers .= 'From: <webmaster@example.com>' . "\r\n";
+          
+          
+          // $to = $email;
+          // $subject = "Email from EventApp";
+          // $message = "hello WOrld";
+          // $headers = "MIME-Version: 1.0" . "\r\n";
+          // $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+          // $headers .= 'From: <webmaster@example.com>' . "\r\n";
 
-          if(mail($to,$subject,$message,$headers)) {
+          // if(mail($to,$subject,$message,$headers)) {
 
-            echo '<p>Your message has been sent!</p>';
-          } else { 
-            echo '<p>Something went wrong, go back and try again!</p>'; 
-          }
+          //   echo '<p>Your message has been sent!</p>';
+          // } else { 
+          //   echo '<p>Something went wrong, go back and try again!</p>'; 
+          // }
           
 
 
