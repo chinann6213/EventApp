@@ -17,9 +17,9 @@ if(isset($_FILES['image'])){
     }
 
     if ($isImage === true) {
-      $target_file = $target_dir . $_FILES["image"]["name"][$i];
+      $target_file = $target_dir . md5(time().uniqid()).$_FILES["image"]["name"][$i];
 
-      $file_name = $_FILES['image']['name'][$i];
+      $file_name = md5(time().uniqid()).$_FILES['image']['name'][$i];
       $file_size =$_FILES['image']['size'][$i];
       $file_tmp =$_FILES['image']['tmp_name'][$i];
       $file_type=$_FILES['image']['type'][$i];

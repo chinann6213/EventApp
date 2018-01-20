@@ -4,19 +4,7 @@
 #me-container { padding: 0rem; padding-bottom: 2rem; }
 
 /* Table Formatting */
-table { text-align: left; width: 100%; }
-thead tr { height: 48px; border-bottom: 1px solid #ddd; }
-th, td { padding: 0 1rem; }
-th { border-bottom: 1px solid #ddd; }
-td { vertical-align: top; padding: 1rem; border-bottom: 1px solid #ddd; }
-#check-table { width: 5%; padding-left: 32px; }
-#event-detail p { line-height: 99%; }
-#event-detail, .event-detail { width: 58%; }
-#event-location { width: 14%; }
-.select { padding-left: 32px; width: 5%; }
-td h4 { color: #673AB7; line-height: 1.4; margin: 0 0 1rem 0; }
-td h4:hover { text-decoration: underline; cursor: pointer;}
-td p { line-height: 1.5; font-size: 0.875rem; }
+
 td button { outline: none; border: none; background: #fff; }
 td button.edit { color: #673AB7; }
 td button.delete { color: red; }
@@ -63,4 +51,123 @@ td button:hover { text-decoration: underline; cursor: pointer; }
           box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
+}
+
+
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+table tr {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 999px) {
+    table { text-align: left; width: 100%; }
+    thead tr { height: 48px; border-bottom: 1px solid #ddd; }
+    table th, table td { padding: 0 1rem; text-align: left; }
+    th { border-bottom: 1px solid #ddd; }
+    table td { vertical-align: top; padding: 1rem; border-bottom: 1px solid #ddd; }
+    #event-detail p { line-height: 99%; }
+    #check-table { width: 5%; padding-left: 32px; }
+    #event-detail, .event-detail { width: 58%; }
+    #event-location { width: 14%; }
+    .select { padding-left: 32px; width: 5%; }
+    td .e_t { font-size: 1rem; font-weight: bold; color: #673AB7; line-height: 1.4; margin: 0 0 1rem 0; }
+    td .e_t:hover { text-decoration: underline; cursor: pointer;}
+    td p { line-height: 1.5; font-size: 0.875rem; }
+    table tr { background: #fff; }
+}
+@media screen and (max-width: 998px) {
+    #me-container { padding: 0 32px; }
+    #me-header { margin-bottom: 2rem; }
+  table {
+    border: 0;
+  }
+  table caption {
+    font-size: 1.3em;
+  }
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 1em;
+  }
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  table td:before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+    #nav-sidebar { display: none; }
+    #event-manager { margin-left: 0; }
+    #menu { display: initial; }
+    #slide-in { display: initial; }
+}
+@media only screen and (max-width: 480px) {
+    #nav-sidebar { display: none; }
+    #event-manager { margin-left: 0; }
+    #me-container { padding: 0 16px 32px 16px; }
+    #menu { margin-right: 0rem; }
+    #me-container, #me-header p { padding: 0 16px; }
+    #search { right: 1rem; width: 174px; }
+}
+@media only screen and (max-width: 420px) {
+    #search { width: 130px; font-size: 12px;}
+    #me-header p { font-size: 28px; }
+}
+@media only screen and (max-width: 320px) {
+    .e_t {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        clear: both;
+    }
+    #search { width: 130px; font-size: 12px; position: inherit; margin-bottom: 0.5rem; height: 24px; }
+    #me-header { margin-bottom: 0.5rem; }
+    #me-header p { font-size: 24px; }
 }
