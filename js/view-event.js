@@ -17,7 +17,11 @@ function inputValidation(name, email, phone) {
   var name_bool = [name.length > 0 ? true : false]
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   var regex2 = /^\d{3}-\d{7}$/;
-  return name_bool, regex.test(email), regex2.test(phone) 
+
+  if (name_bool[0] === false) return "Please insert your name";
+  else if (!regex.test(email)) return "Please insert a valid email. Eg JohnDoe@email.com";
+  else if (!regex2.test(phone)) return "Please insert a contact number. Eg 012-3456789 ";
+  else return true;
 }
 
 
@@ -67,7 +71,8 @@ $(document).ready(function() {
     var name = $("#name").val();
     var email = $("#email").val();
     var phone = $("#phone").val();
-    if(inputValidation(name, email, phone)) {
+    var validator = inputValidation(name, email, phone);
+    if(validator===true) {
       $.post("ajax/register.php", {
         action: "create",     
         id: id,
@@ -75,12 +80,15 @@ $(document).ready(function() {
         email: email,
         phone: phone,
       }, function(response) {
-      // redirect to ticket page
-      var ticket_id = response;
-      alert(response);
-      location.href = "../ticket.php?event_id="+event_id+"&ticket_id="+ticket_id;
-    })
+        // redirect to ticket page
+        var ticket_id = response;
+        // alert(response);
+        location.href = "../ticket.php?event_id="+event_id+"&ticket_id="+ticket_id;
+      })
+    } else {
+      alert(validator);  
     }
+
 
 
     
