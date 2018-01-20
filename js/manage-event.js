@@ -29,12 +29,16 @@ $(document).ready(function() {
          table_item += '</tr>'
      }
      $("#event-body").html("").append(table_item);
-     var x = document.getElementById("event-body").childNodes;
-     for (var i = 0; i < x.length; i ++) {
-         x[i].childNodes[0].getElementsByTagName("input")[0].checked = true
-         console.log(x[i].childNodes[0].getElementsByTagName("input")[0])
-     }
   })
+
+  // select all
+  document.getElementById("select-all").onclick  = function() {
+      alert(123)
+      var x = document.getElementById("event-body").childNodes;
+      for (var i = 0; i < x.length; i ++) {
+          x[i].childNodes[0].getElementsByTagName("input")[0].checked = true
+      }
+  }
 
   // edit event
   $(document).on("click", ".edit", function() {
