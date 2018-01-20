@@ -29,10 +29,13 @@ table th,table td { padding: .625em; text-align: center; }
 table th { font-size: .85em; letter-spacing: .1em; text-transform: uppercase; }
 
 /* modal */
+/* modal */
 .modal-mask { display: none; z-index: 2; background: rgba(0,0,0,0.8); position: fixed; left: 0; top: 0; width: 100%; height: 100%; }
-.modal-medium { display: none; z-index: 3; padding: 1.5em; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 720px; background: #fff; }
-.modal-header p { color: #673AB7; line-height: 100%; font-size: 2em; font-weight: bold; }
-.modal-body { margin: 1em 0 2em 0; }
+.modal-medium { display: none;; z-index: 3; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 720px; width: 100%; }
+.modal-header p { color: #673AB7; line-height: 100%; font-size: 2em; font-weight: bold; margin: 0; }
+.modal-header { background: #fff; padding: 1.5em 1.5em 0 1.5em; }
+.modal-body { background: #fff; padding: 1em 1.5em 2em 1.5em; }
+.modal-footer { background: #fff; padding: 0 1.5em 1.5em 1.5em; overflow: auto;}
 .modal-footer button { cursor: pointer; border: none; outline: none; line-height: 40px; float: right; background: #673AB7; width: 100px; height: 40px; font-size: 1em; color: #fff; }
 .modal-footer .modal-close { color: #673AB7; border: 2px solid #673AB7; background: #fff; }
 .modal-footer .modal-confirm { color: #fff;  margin-left: 1rem;}
