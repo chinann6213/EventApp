@@ -76,6 +76,21 @@
     </div>
 
     <div>
+        <p class="tell-event-detail">Set the your event category for searching here... (Optional)</p>
+        <span class="required">Note: Maximum of 4 categories available without <strong>spaces</strong> and <strong>symbols</strong>.</span>
+        <div id="event-category">
+            <div class="event-category">
+                <span>Category : </span>
+                <input type="text" /><svg class="remove-category" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
+                  <path d="M3 0c-.55 0-1 .45-1 1h-1c-.55 0-1 .45-1 1h7c0-.55-.45-1-1-1h-1c0-.55-.45-1-1-1h-1zm-2 3v4.81c0 .11.08.19.19.19h4.63c.11 0 .19-.08.19-.19v-4.81h-1v3.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-3.5h-1v3.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-3.5h-1z" />
+                </svg><svg class="add-category" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
+                  <path d="M3 0v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div>
       <p class="tell-event-detail">Add supporting images for your event here... </p>
       <div id="temp-upload"></div>
       <div style="clear:both;"></div>
@@ -98,9 +113,15 @@
 
 <div class="modal-mask"></div>
 <div id="inform-created-modal" class="modal modal-medium">
-  <div class="modal-header"><p>Event Created.</p></div>
-  <div class="modal-body"><p>Please proceed to <strong><a>Manage Event</a></strong> if you need to do any changes to the event created. Thank you.</p></div>
+  <div class="modal-header"><p>Event Created</p></div>
+  <div class="modal-body"><p>Please proceed to <strong><a href="manage-event.php">Manage Event</a></strong> if you need to do any further changes to the event created.</p></div>
   <div class="modal-footer"><button class="modal-close">Close</button></div>
+</div>
+
+<div id="alert-about-modal" class="modal modal-medium">
+  <div class="modal-header"><p>Alert</p></div>
+  <div class="modal-body"><p>Please fill up your company information at <strong><a target="blank" href="about-us.php">About Us</a></strong> section before creating any events.</p></div>
+  <div class="modal-footer"><a target="blank" href="about-us.php"><button class="modal-redirect">Fill Up</button></a><button class="modal-close">Cancel</button></div>
 </div>
 
 

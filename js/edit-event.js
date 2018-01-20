@@ -329,7 +329,13 @@ $(document).ready(function() {
     var end_date = $.datepicker.formatDate('dd-mm-yy', new Date(end_date));
     var time = $("#hour").val() + ":" + $("#minute").val() + $("#time-am-pm").html()
     var title = $("#title").val()
-    var content = $('#summernote').summernote('code');
+    var content;
+    if ($('#summernote').summernote('isEmpty')) {
+        content = "";
+    }
+    else {
+        content = $('#summernote').summernote('code')
+    }
     var event_images = [];
     var event_location = $("#location").val();
     var participant = $("#participant").val();

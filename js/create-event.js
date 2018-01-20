@@ -20,6 +20,34 @@ $(document).ready(function() {
       $(this).parent().removeClass("input-active");
   })
 
+  // check if about us has been filled up
+  $.post("ajax/save_event.php",{
+      action: "CHECK_AU"
+  }, function(response) {
+      if (response == "ERR_ORG_ID") {
+          $(".modal-mask").show();
+          $("#alert-about-modal").slideDown();
+      }
+  })
+
+  // add category
+  $(document).on("click", ".add-category", function() {
+      console.log(document.getElementById("event-category").children.length)
+      if (document.getElementById("event-category").children.length == 5) {
+          // no problem
+      }
+      else {
+          $('<div class="event-category"><span>Category : </span><input type="text" /><svg class="remove-category" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8"><path d="M3 0c-.55 0-1 .45-1 1h-1c-.55 0-1 .45-1 1h7c0-.55-.45-1-1-1h-1c0-.55-.45-1-1-1h-1zm-2 3v4.81c0 .11.08.19.19.19h4.63c.11 0 .19-.08.19-.19v-4.81h-1v3.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-3.5h-1v3.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-3.5h-1z" /></svg><svg class="add-category" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8"><path d="M3 0v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2z" /></svg></div>').insertAfter($(this).parent());
+      }
+  })
+
+  // remove a category
+  $(document).on("click", ".remove-category", function() {
+      if (document.getElementById("event-category").children.length > 1)
+        this.parentNode.remove();
+  })
+
+
   // event content editor
   $('#summernote').summernote({
     placeholder: 'Write your event details here...',
@@ -280,11 +308,24 @@ $(document).ready(function() {
     var end_date = $.datepicker.formatDate('dd-mm-yy', new Date(end_date));
     var time = $("#hour").val() + ":" + $("#minute").val() + $("#time-am-pm").html()
     var title = $("#title").val()
-    var content = $('#summernote').summernote('code');
+    var content;
+    if ($('#summernote').summernote('isEmpty')) {
+        content = "";
+    }
+    else {
+        content = $('#summernote').summernote('code')
+    }
+
     var event_images = [];
     var event_location = $("#location").val();
     var participant = $("#participant").val();
 
+    var x = document.getElementById("event-category").childNodes;
+    var category = "";
+    $(".event-category").each(function() {
+        category += $(this).find("input").val() + ","
+    })
+    console.log(category)
     $(".temp-img-card").each(function() {
       var img_src = $(this).find('img').attr('src');
       var img_alt = $(this).find('input.img-alt').val();
@@ -310,9 +351,25 @@ $(document).ready(function() {
       lat: latitude,
       lng: longitude,
       location: event_location,
-      participant: participant
+      participant: participant,
+      category: category
     }, function(response) {
-        alert(response);
+        if (response == "ERR_ORG_ID") {
+            $(".modal-mask").show();
+            $("#alert-about-modal").slideDown();
+
+        }else if (response == "SUCCESS") {
+            $(".modal-mask").show();
+            $("#inform-created-modal").slideDown();
+        } else if (response == "ERR_CATEGORY_TXT") {
+            alert("Category File Should Contain Only Alphabets and Numbers!");
+        }
+        else if (response == "ERR_CATEGORY_SPACE") {
+            alert("Category File Should Not Contain Spaces!");
+        }
+        else {
+            alert(response);
+        }
     })
   })
 })
