@@ -167,9 +167,10 @@ header nav ul li a {
   line-height: 60px;
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 1000px){
   header {
-    height: 100px;
+    height: 64px;
+    width: 100%;
   }
 
   header .header-brand {
@@ -183,9 +184,13 @@ header nav ul li a {
   header nav ul li a {
     display: none;
   }
+
+  main {
+    padding-top: 64px;
+  }
 }
 
-/* INDEX */
+/* INDEX BANNER */
 
 .index-banner {
   background-image: url('../img/index-banner.jpg');
@@ -257,6 +262,22 @@ input.search-bar input::-webkit-input-placeholder {
   background-color: rgba(255, 255, 255, 0.8);
   border: none;
 }
+
+@media only screen and (max-width: 1000px){
+  .search-container input.search-bar {
+    width: 50%;
+  }
+
+  .index-banner h1 {
+    font-size: 46px;
+  }
+
+  .index-banner h2 {
+    font-size: 20px;
+  }
+}
+
+/** INDEX EVENT LISTING **/
 
 .container {
   width: 1000px;
@@ -377,6 +398,47 @@ input.search-bar input::-webkit-input-placeholder {
   background-color: #3F51B5;
 }
 
+@media only screen and (max-width: 1000px){
+  .container {
+    width: 100%;
+  }
+
+  .row {
+    margin: 0;
+  }
+
+  .column {
+    width: calc(100% - 40px);
+    padding: 0 20px;
+    margin-bottom: 16px;
+  }
+
+  .index-event-list h1 {
+    text-align: center;
+    font-size: 28px;
+  }
+
+  #event-card h1 {
+    font-size: 17px;
+  }
+
+  #event-card h2 {
+    font-size: 13px;
+  }
+
+  #event-card h3 {
+    font-size: 13px;
+  }
+
+  #event-card button {
+    padding: 4px 6px;
+  }
+
+  .see-more-btn {
+    padding: 10px 10px;
+  }
+}
+
 /* PAGINATION */
 
 .center {
@@ -384,15 +446,15 @@ input.search-bar input::-webkit-input-placeholder {
 }
 
 .pagination {
-  display: inline-block;
   padding-top: 20px;
+  display: inline-block;
 }
 
 .pagination a {
   color: black;
   font-family: Catamaran;
-  float: left;
   padding: 8px 16px;
+  float: left;
   text-decoration: none;
   transition: background-color .3s;
   border: 1px solid #ddd;
