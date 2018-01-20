@@ -35,8 +35,12 @@ if (isset($_GET['event_id'])){
   $sql2 = "SELECT * FROM gallery WHERE event_id = '$event_id'";
   $results2 = mysqli_query($conn, $sql2);
   $img_srcs = array();
+  $img_alts = array();
+  $img_caps = array();
   while($gallery_data = mysqli_fetch_assoc($results2)) {
     $img_srcs[] = $gallery_data['img_src'];
+    $img_alts[] = $gallery_data['img_alt'];
+    $img_caps[] = $gallery_data['img_cap'];
   }
 
   $sql3 = "SELECT * FROM organizer WHERE id = '$event_organiser_id'";
@@ -89,7 +93,10 @@ if (isset($_GET['event_id'])){
       if (isset($img_srcs)){
         echo '<div id="event-img">';
         foreach ($img_srcs as $key => $value) {
-          echo '<span><img src="' .$img_srcs[$key]. '"/></span>';
+          echo '<span><figure>';
+          echo '<img src="' .$img_srcs[$key]. '" alt="' .$img_alts[$key]. '"/>';
+          // echo '<figcaption style="font-size: 16px;">' .$img_caps[$key]. '</figcaption>';
+          echo '</figure></span>';
         }
         echo '</div>';
       }
