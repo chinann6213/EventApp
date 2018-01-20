@@ -45,7 +45,13 @@
 
     if ($_POST['action'] == "create") {
 
-      $sql = "INSERT INTO event (event_title, event_content, event_start_date, event_end_date, event_start_time, event_longitude, event_latitude, location, event_author, event_meta_title, event_meta_description, event_featured_img, participant) VALUES ('$title', '$content', '$start_date', '$end_date', '$time', '$lng', '$lat', '$location', '$user', '$meta_title', '$meta_desc', '$featured_img', '$participant')";
+        $sql = "SELECT organizer_id FROM organizer WHERE account = '$users'";
+        $result = mysqli_connect($conn, $sql);
+        while ($oid = mysqli_fetch_assoc($result)) {
+            $organizer_id = $oid['organizer_id'];
+        }
+
+      $sql = "INSERT INTO event (event_title, event_content, event_start_date, event_end_date, event_start_time, event_longitude, event_latitude, location, event_author, event_meta_title, event_meta_description, event_featured_img, participant, organizer_id) VALUES ('$title', '$content', '$start_date', '$end_date', '$time', '$lng', '$lat', '$location', '$user', '$meta_title', '$meta_desc', '$featured_img', '$participant', '$organizer_id')";
       $status = "Success";
       if (mysqli_query($conn, $sql)) {
           if ($img != "") {
