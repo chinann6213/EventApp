@@ -1,7 +1,7 @@
 <?php
 
   DEFINE ('DB_USER', 'root');
-  DEFINE ('DB_PASSWORD', '971127');
+  DEFINE ('DB_PASSWORD', '');
   DEFINE ('DB_HOST', 'localhost');
   DEFINE ('DB_NAME', 'event_app');
 
