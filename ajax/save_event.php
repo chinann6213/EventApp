@@ -34,14 +34,10 @@
       $time = $_POST['time'];
       $title = $_POST['title'];
       $content = $_POST['content'];
-      $img = "";
+
       if (isset( $_POST['images'])) {
          $images = $_POST['images'];
          $featured_img = $images[0]['img_src'];
-         for ($i = 0; $i < count($images); $i ++) {
-           $img .= "('".$images[$i]['img_src']."', '".$images[$i]['img_alt']."', '".$images[$i]['img_cap']."', '".$user."'),";
-         }
-         $img = rtrim($img,",");
       }
       else {
           $images = null;
@@ -86,8 +82,19 @@
       $sql = "INSERT INTO event (event_title, event_content, event_start_date, event_end_date, event_start_time, event_longitude, event_latitude, location, event_author, event_meta_title, event_meta_description, event_featured_img, participant, organizer_id, category) VALUES ('$title', '$content', '$start_date', '$end_date', '$time', '$lng', '$lat', '$location', '$user', '$meta_title', '$meta_desc', '$featured_img', '$participant', '$organizer_id', '$category')";
       $status = "SUCCESS";
       if (mysqli_query($conn, $sql)) {
-          if ($img != "") {
-              $sql = "INSERT INTO gallery (img_src, img_alt, img_cap, img_owner) VALUES $img";
+          if ($images != null) {
+              $sql = "SELECT event_id FROM event WHERE event_author='$user' AND event_title='$title' ORDER BY event_id DESC LIMIT 1";
+              $result = mysqli_query($conn, $sql);
+              echo mysqli_error($conn);
+              while ($eid = mysqli_fetch_assoc($result)) {
+                  $event_id = $eid['event_id'];
+              }
+              $img = "";
+              for ($i = 0; $i < count($images); $i ++) {
+                $img .= "('".$images[$i]['img_src']."', '".$images[$i]['img_alt']."', '".$images[$i]['img_cap']."', '".$user."', '".$event_id."'),";
+              }
+              $img = rtrim($img,",");
+              $sql = "INSERT INTO gallery (img_src, img_alt, img_cap, img_owner, event_id) VALUES $img";
               if (mysqli_query($conn, $sql)) {
                 $status = "SUCCESS";
               }

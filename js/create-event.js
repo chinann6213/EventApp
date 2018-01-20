@@ -110,14 +110,13 @@ $(document).ready(function() {
   })
 
   $(".event-date").click(function() {
-    $(this).find(".calendar").slideToggle(100)
+      if ($(this).find(".calendar").attr("style") == "display: block;") {
+          $(this).find(".calendar").slideUp(100)
+      } else {
+          $(this).find(".calendar").slideDown(100)
+      }
   })
-  $(document).click(function (e) {
-    var target = e.target;
-    if (!$('.event-date').is(target) && $('.event-date').has(e.target).length === 0) {
-      $(this).find(".calendar").slideUp(100)
-    }
-  })
+
 
   // upload Images
   $(document).on("change", "#image-uploader", function() {

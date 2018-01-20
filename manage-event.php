@@ -29,4 +29,11 @@
   </div>
 </div>
 
+<div class="modal-mask"></div>
+<div id="warn-delete-modal" class="modal modal-medium">
+  <div class="modal-header"><p>Warning</p></div>
+  <div class="modal-body"><p>Delete selected event? Event that has been deleted <strong>cannot</strong> be recovered.</p></div>
+  <div class="modal-footer"><button class="modal-confirm">Confirm</button><button class="modal-close">Cancel</button></div>
+</div>
+
 <script type="text/javascript" src="js/manage-event.js"></script>

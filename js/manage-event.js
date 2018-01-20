@@ -72,5 +72,31 @@ $(document).ready(function() {
     }
     document.getElementById("search").onkeyup = searchTable;
 
+    // delete event
+    $(document).on("click", ".delete", function() {
+        var dom = $(this).parent().parent();
+        var eid = $(this).val();
+        $(".modal-mask").show();
+        $("#warn-delete-modal").slideDown();
+        $(".modal-confirm").click(function() {
+            $.post('ajax/delete_event.php', {
+                event_id: eid
+            }, function(response) {
+                if (response == "SUCCESS") {
+                    dom.remove();
+                }
+                else {
+
+                }
+            })
+        })
+    })
+
+    // modal
+    $(".modal-close, .modal-confirm").click(function() {
+      $(".modal").fadeOut();
+      $(".modal-mask").hide();
+    })
+
 
 })
