@@ -595,3 +595,18 @@ footer ul li a {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
 }
+
+.logout{
+  background:none;
+  font-family: Catamaran;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 200;
+  line-height: 60px;
+  border:none; 
+  float:right;
+  cursor: pointer;
+  margin-top: 0.6%;
+  margin-right:1.5%;
+}

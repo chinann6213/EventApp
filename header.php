@@ -23,15 +23,15 @@ session_start();
   </div>
   <div class="modal-body">
     <div id="register-box">
-    <form action="db1.php" method="post">
+    <form action="signinDB.php" method="post">
       <p>
-        <label>Username:
-          <input type="text" name="username">
+        <label>Email:
+          <input type="text" id="email" name="email">
         </label>
       </p>
       <p>
         <label>Password:
-          <input type="password" name="password">
+          <input type="password" id="password" name="password">
         </label>
       </p>
       <label class="register" id="btnSignup">Haven't register yet? <strong>Sign up here</strong></label>
@@ -56,7 +56,7 @@ session_start();
   <div class="modal-body">
 
     <div id="signup">
-      <form action="db.php" method="post">
+      <form action="signupDB.php" method="post">
             <div id="wrap">
               <p>
                 <label>First Name:
@@ -118,11 +118,22 @@ session_start();
   <header>
     <a href="index.php" class="header-brand">EventTap</a>
     <nav class="main-nav">
-      <ul>
-        <li><a href="">Create Event</a></li> <!-- if user logged in -->
-        <li><a href="">My Event</a></li> <!-- if use logged in -->
-        <li><label class="signin_btn" id="btnSignin">Sign In</label></li> <!-- if user hasn't login -->
-      </ul>
+      <?php
+        if(isset($_SESSION['u_username'])){
+          echo '<ul>
+          <li><a href="">Create Event</a></li> 
+          <li><a href="">Manage Event</a></li>
+          </ul>
+          <form action="logout.php" method="POST">
+          <button class="logout" type="submit" name="submit">Logout</button></form>';
+        }else{
+          echo '<ul>
+          <li><a href="#" onClick="checkbox()">Create Event</a></li> 
+          <li><a href="#" onClick="checkbox()">Manage Event</a></li> 
+          <li><label class="signin_btn" id="btnSignin">Sign In</label></li>
+          </ul>';
+        }
+      ?>
     </nav>
   </header>
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
@@ -172,7 +183,24 @@ session_start();
       modal_user.style.display = "block";
     }
 
+    function checkbox(){
+      var message = "Please log in first!";
+      alert(message);
+      modal_signIn.style.display = "block";
+    }
+
   </script>
   <style type="text/css">
     header { background-color: #111; z-index: 9999; }
   </style>
+
+<?php
+  if(isset($_COOKIE['username']) and isset($_COOKIE['password'])){
+    $username = $_COOKIE['username'];
+    $password = $_COOKIE['password'];
+    echo "<script>
+      document.getElementById('username').value = '$username';
+      document.getElementById('password').value = '$password';
+      </script>";
+  }
+?>

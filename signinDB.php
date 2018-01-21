@@ -1,22 +1,21 @@
 <?php
 session_start();
-
 if(isset($_POST['submit'])){
   include 'mysqli_connect.php';
-  $username = $_POST['username'];
+  $email = $_POST['email'];
   $password = $_POST['password'];
 
   if(empty($username) || empty($password)){
-    $loginEmpty = "Please enter your username and password";
+    $loginEmpty = "Please enter your email and password";
       echo "<script type='text/javascript'>alert('$loginEmpty');window.location.href='index.php';</script>";
       exit();
   }else{
-    $sql = "SELECT * FROM users WHERE username='$username'";
-    $result = mysqli_query($link, $sql);
+    $sql = "SELECT * FROM users WHERE email='$email'";
+    $result = mysqli_query($dbc, $sql);
     $resultCheck = mysqli_num_rows($result);
     if($resultCheck<1){
-      $usernameError = "Incorrect username or password";
-      echo "<script type='text/javascript'>alert('$usernameError');window.location.href='index.php';</script>";
+      $emailError = "Incorrect email or password";
+      echo "<script type='text/javascript'>alert('$emailError');window.location.href='index.php';</script>";
       exit();
     }else{
       if($row = mysqli_fetch_assoc($result)){
@@ -28,6 +27,11 @@ if(isset($_POST['submit'])){
           exit();
         }elseif($hashedPwdCheck == true){
           //Login if true
+          if(isset($_POST['rememberme'])){
+            setcookie('email',$email,time()+2678400);
+            setcookie('password',$password,time()+2678400);
+          }
+          session_start();
           $_SESSION['u_fname'] = $row['fname'];
           $_SESSION['u_lname'] = $row['lname'];
           $_SESSION['u_username'] = $row['username'];
