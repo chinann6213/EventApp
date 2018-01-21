@@ -42,7 +42,7 @@
           echo '<div id="event-card">';
           echo '<h1>' . $event['title'] . '</h1>';
           echo '<h2>' . $event['content'] . '</h2>';
-          echo '<h3> Date: ' . $event['startdate'] . ' - ' . $event['enddate']. '</h3>';
+          echo '<h3> Date: From ' . $event['startdate'] . ' To ' . $event['enddate']. '</h3>';
           echo '<a href="view-event.php?event_id=' . $event['eventid'] .  '"><button type="submit" value="Register">Register</button></a>';
           echo '</div> </div>';
 
