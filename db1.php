@@ -7,20 +7,24 @@ if(isset($_POST['submit'])){
   $password = $_POST['password'];
 
   if(empty($username) || empty($password)){
-    header("Location:sign-in.php?login=empty");
+    $loginEmpty = "Please enter your username and password";
+      echo "<script type='text/javascript'>alert('$loginEmpty');window.location.href='index.php';</script>";
+      exit();
   }else{
     $sql = "SELECT * FROM users WHERE username='$username'";
     $result = mysqli_query($link, $sql);
     $resultCheck = mysqli_num_rows($result);
     if($resultCheck<1){
-      header("Location:index.php?login=error1");
+      $usernameError = "Incorrect username or password";
+      echo "<script type='text/javascript'>alert('$usernameError');window.location.href='index.php';</script>";
       exit();
     }else{
       if($row = mysqli_fetch_assoc($result)){
         //dehash password
         $hashedPwdCheck = password_verify($password,$row['pwd']);
         if($hashedPwdCheck == false){
-          header("Location:index.php?login=error2");
+          $passwordError = "Incorrect username or password";
+          echo "<script type='text/javascript'>alert('$passwordError');window.location.href='index.php';</script>";
           exit();
         }elseif($hashedPwdCheck == true){
           //Login if true

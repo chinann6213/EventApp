@@ -14,25 +14,29 @@ session_start();
 
 	  //check empty field
 	  if(empty($first) || empty($last) || empty($username) || empty($password) || empty($email) || empty($birthdate) || empty($telnumber)){
-	  	header("Location: sign-up.php?signup=empty");
+	  	$emptyMessage = "Do not leave empty field";
+	  	echo "<script type='text/javascript'>alert('$emptyMessage');window.location.href='index.php';</script>";
 	  	exit();
+
 	  }else{
 	  	$sql = "SELECT * FROM users WHERE username='$username'";
 	  	$result = mysqli_query($link,$sql);
 	  	$resultCheck = mysqli_num_rows($result);
 
 	  	if ($resultCheck>0){
-	  		header("Location:sign-up.php?signup=usertaken");
+	  		$takenMessage = "Username has already been taken, please try again";
+	  		echo "<script type='text/javascript'>alert('$takenMessage');window.location.href='index.php';</script>";
 	  		exit();
 	  	}else{
 	  		//hash password
 	  		$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 	  		$sql = "INSERT INTO users (fname, lname, username, pwd, email, birthdate, tel) VALUES ('$first','$last','$username','$hashedPwd','$email','$birthdate','$telnumber');";
 	  		mysqli_query($link, $sql);
-	  		header("Location:sign-up.php?signup=success");
+	  		$registerMessage = "Registration success!";
+	  		echo "<script type='text/javascript'>alert('$registerMessage');window.location.href='index.php';</script>";
 	  	}
 	  }
   }else{
-  	  header("Location:sign-up.php");
+  	  header("Location:index.php");
   	  exit();
   }
