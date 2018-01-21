@@ -19,12 +19,12 @@ session_start();
 	  	exit();
 
 	  }else{
-	  	$sql = "SELECT * FROM users WHERE username='$username'";
-	  	$result = mysqli_query($link,$sql);
+	  	$sql = "SELECT * FROM users WHERE email='$email'";
+	  	$result = mysqli_query($dbc,$sql);
 	  	$resultCheck = mysqli_num_rows($result);
 
 	  	if ($resultCheck>0){
-	  		$takenMessage = "Username has already been taken, please try again";
+	  		$takenMessage = "Email has already been taken, please try again";
 	  		echo "<script type='text/javascript'>alert('$takenMessage');window.location.href='index.php';</script>";
 	  		exit();
 	  	}else{
