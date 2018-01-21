@@ -5,7 +5,7 @@ session_start();
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Event App</title>
+  <title>EventTap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/sign-up.css">
@@ -16,12 +16,12 @@ session_start();
 <body>
   <!-- sign in -->
   <div class="modal" id="signIn-modal">
-  <div class="modal modal-medium" style="width:30%;height:70%;display:block;">
+  <div class="modal modal-medium" style="display:block;">
+      <span class="close1">&times;</span>
   <div class="modal-header">
-    <span class="close1">&times;</span>
     <p>Sign in to see more events</p>
   </div>
-  <div class="modal-body" style="margin-top: 15%">
+  <div class="modal-body">
     <div id="register-box">
     <form action="db1.php" method="post">
       <p>
@@ -34,8 +34,10 @@ session_start();
           <input type="password" name="password">
         </label>
       </p>
-      <button type="submit" name='submit'>Log In</button>
-      <br><label class="register" id="btnSignup">Haven't register yet? Sign up here</label>
+      <label class="register" id="btnSignup">Haven't register yet? <strong>Sign up here</strong></label>
+
+      <br /><button type="submit" name='submit'>Log In</button>
+
     </form>
    </div>
       </div>
@@ -46,40 +48,40 @@ session_start();
     <!-- sign in end -->
     <!-- sign up -->
   <div class="modal" id="user-modal">
-  <div class="modal modal-medium" style="width:30%;top:75%;display:block">
+  <div class="modal modal-medium" style="height: 760px;width:500px;top:50%%;display:block">
+      <span class="close">&times;</span>
   <div class="modal-header">
-    <span class="close">&times;</span>
     <p>Fill your information</p>
   </div>
   <div class="modal-body">
 
     <div id="signup">
-      <form action="db.php" method="post" style="margin-top:15%">
+      <form action="db.php" method="post">
             <div id="wrap">
               <p>
                 <label>First Name:
-                  <input type="text" name="first" placeholder="First Name...">
+                  <input type="text" name="first">
                 </label>
               </p>
             </div>
             <div id="wrap">
               <p>
                 <label>Last Name:
-                  <input type="text" name="last" placeholder="Last Name...">
+                  <input type="text" name="last">
                 </label>
               </p>
             </div>
             <div id="wrap">
               <p>
                 <label>Username:
-                  <input type="text" name="username" placeholder="Username...">
+                  <input type="text" name="username">
                 </label>
               </p>
             </div>
             <div id="wrap">
               <p>
                 <label>Password:
-                  <input type="password" name="password" placeholder="Password...">
+                  <input type="password" name="password">
                 </label>
               </p>
             </div>
@@ -100,7 +102,7 @@ session_start();
             <div id="wrap">
               <p>
                 <label>Phone Number:
-                  <input type="text" name="telnumber" placeholder="Phone Number...">
+                  <input type="text" name="telnumber" placeholder="+6 012 - 3456 789">
                 </label>
               </p>
             </div>
@@ -114,7 +116,7 @@ session_start();
     </
     <!-- sign up end-->
   <header>
-    <a href="index.php" class="header-brand">EventApp</a>
+    <a href="index.php" class="header-brand">EventTap</a>
     <nav class="main-nav">
       <ul>
         <li><a href="">Create Event</a></li> <!-- if user logged in -->
@@ -140,7 +142,7 @@ session_start();
 
     var span1 = document.getElementsByClassName('close1')[0];
 
-    // When the user clicks on the button, open the modal 
+    // When the user clicks on the button, open the modal
     btn_signIn.onclick = function() {
       modal_signIn.style.display = "block";
     }
