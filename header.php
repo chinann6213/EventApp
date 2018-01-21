@@ -174,5 +174,5 @@ session_start();
 
   </script>
   <style type="text/css">
-    header { background-color: black; z-index: 9999; }
+    header { background-color: #111; z-index: 9999; }
   </style>
