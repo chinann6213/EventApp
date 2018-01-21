@@ -5,14 +5,19 @@
 
 #register-box p{
   font-family: Catamaran;
-  color:#858b96;
+  color:#673AB7;
   text-transform: uppercase;
   font-weight: bold;
   margin-top:3%;
+  text-align: left;
+}
+
+#register-box p:nth-child(odd) {
+    margin-bottom: 2em;
 }
 
 #register-box input{
-  margin:auto;
+
   margin-top:5px;
   display:block;
   border:2px solid #673AB7;
@@ -21,20 +26,25 @@
   font-size:14px;
   font-weight: bold;
   font-family: Catamaran;
-  width:65%;
+  width: calc(100% - 24px);
   padding:5px 10px;
   color:#673AB7;
   transition:border-color .25s ease, box-shadow .25s ease;
+  border-radius: 2px;
 
 }
-
+#register-box input:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px 0px #673AB7;
+}
 #register-box input:focus{
-  background-color:#bebdc1;
+  background-color:#fff;
 }
 
 #register-box button{
   margin-top:3%;
-  width:65%;
+  margin-bottom: 2em;
+  width:148px;
   border:0;
   outline:none;
   border-radius:0;
@@ -45,9 +55,17 @@
   text-transform:uppercase;
   background:#673AB7;
   color:#ffffff;
+  float: right;
+  margin-top: 2em;
 }
 
 #register-box button:hover{
-  background:#32087c;
+  box-shadow: 0px 0px 8px 0px #673AB7;
+  cursor: pointer;
 }
 
+.register {
+    float: left;
+    padding: 5px 0;
+    font-size: 14px;
+}
