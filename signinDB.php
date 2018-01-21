@@ -1,11 +1,11 @@
 <?php
 session_start();
 if(isset($_POST['submit'])){
-  include 'mysqli_connect.php';
+  require_once('sql/mysqli_connect.php');
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-  if(empty($username) || empty($password)){
+  if(empty($email) || empty($password)){
     $loginEmpty = "Please enter your email and password";
       echo "<script type='text/javascript'>alert('$loginEmpty');window.location.href='index.php';</script>";
       exit();

@@ -2,7 +2,7 @@
 session_start();
 
   if(isset($_POST['submit'])){
-  	  include_once'mysqli_connect.php';
+  	  require_once('sql/mysqli_connect.php');
   	  $first = $_POST['first'];
 	  $last = $_POST['last'];
 	  $username = $_POST['username'];
@@ -31,7 +31,7 @@ session_start();
 	  		//hash password
 	  		$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 	  		$sql = "INSERT INTO users (fname, lname, username, pwd, email, birthdate, tel) VALUES ('$first','$last','$username','$hashedPwd','$email','$birthdate','$telnumber');";
-	  		mysqli_query($link, $sql);
+	  		mysqli_query($dbc, $sql);
 	  		$registerMessage = "Registration success!";
 	  		echo "<script type='text/javascript'>alert('$registerMessage');window.location.href='index.php';</script>";
 	  	}

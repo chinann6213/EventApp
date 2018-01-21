@@ -35,7 +35,11 @@ session_start();
         </label>
       </p>
       <label class="register" id="btnSignup">Haven't register yet? <strong>Sign up here</strong></label>
-
+      <p>
+        <label>Remember Me:
+          <input type="checkbox" name="rememberme" value="1">
+        </label>
+      </p>
       <br /><button type="submit" name='submit'>Log In</button>
 
     </form>
