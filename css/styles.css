@@ -122,7 +122,8 @@ main {
 header {
   width: 100%;
   height: 80px;
-  background-color: #111;
+  background-color: black;
+  z-index: 9999;
   position: fixed;
   top: 0;
   right: 0;
@@ -175,9 +176,14 @@ header nav ul li label {
   line-height: 60px;
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 1000px){
   header {
-    height: 100px;
+    height: 64px;
+    width: 100%;
+  }
+
+  main {
+    padding-top: 64px;
   }
 
   header .header-brand {
@@ -193,7 +199,7 @@ header nav ul li label {
   }
 }
 
-/* INDEX */
+/* INDEX BANNER */
 
 .index-banner {
   background-image: url('../img/index-banner.jpg');
@@ -234,7 +240,7 @@ header nav ul li label {
   text-align: center;
 }
 
-.search-container form input {
+.search-container input.search-bar {
   height: 30px;
   width: 25%;
   background-color:rgba(255, 255, 255, 0.8);
@@ -247,7 +253,7 @@ header nav ul li label {
   padding-left: 5px;
 }
 
-.search-container form input::-webkit-input-placeholder {
+.input.search-bar input::-webkit-input-placeholder {
   font-family: Catamaran;
   font-size: 26px;
   line-height: 30px;
@@ -255,12 +261,33 @@ header nav ul li label {
   color: #111;
 }
 
-.search-container form button {
+.search-container input.search-button {
+  background-image: url(../img/search-button.png); /* 16px x 16px */
+  background-color: transparent; /* make the button transparent */
+  background-repeat: no-repeat;  /* make the background image appear only once */
+  background-position: center;
   height: 31px;
   width: 31px;
-  background-color:rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   border: none;
 }
+
+@media only screen and (max-width: 1000px){
+   .search-container input.search-bar {
+     width: 50%;
+   }
+
+  .index-banner h1 {
+    font-size: 46px;
+  }
+
+  .index-banner h2 {
+    font-size: 20px;
+    }
+  }
+
+ /** INDEX EVENT LISTING **/
+
 
 .container {
   width: 1000px;
@@ -325,7 +352,7 @@ header nav ul li label {
   color: #111;
   text-transform: uppercase;
   position: absolute;
-  bottom: 88px;
+  bottom: 90px;
 }
 
 #event-card h3 {
@@ -335,7 +362,7 @@ header nav ul li label {
   text-transform: uppercase;
   position: absolute;
   font-weight: 900;
-  bottom: 70px;
+  bottom: 75px;
 }
 
 #event-card button {
@@ -343,43 +370,113 @@ header nav ul li label {
   font-size: 16px;
   font-family: Catamaran;
   margin: 0 auto;
-  background-color: #5C6BC0;
+  background-color: #673AB7;
   color: #fff;
   font-weight: 400;
   margin-top: 15px;
   text-decoration: none;
   display: block;
   padding: 6px 8px;
-  box-shadow: 1.5px 5px 10px #888888;
   text-transform: uppercase;
-  border: 1.5px solid #283593;
+  border: none;
   bottom: 14px;
   left: calc(50% - 40px);
 }
 
 #event-card button:hover {
-  background-color: #3F51B5;
-  box-shadow: 2px 7px 12px #888888;
+  box-shadow: 0px 0px 4px 0px #673AB7;
 }
 
 .see-more-btn {
-  border: 1.5px solid #273583;
+  border: none;
   padding: 12px 12px;
   display: block;
   width: fit-content;
   align-items: center;
   justify-content: center;
   color: #fff;
-  background-color: #5C6BC0;
+  background-color: #673AB7;
   margin: 0 auto;
   text-transform: uppercase;
 }
 
 .see-more-btn:hover {
   color: #fff;
-  background-color: #3F51B5;
+  box-shadow: 0px 0px 4px 0px #673AB7;
 }
 
+@media only screen and (max-width: 1000px){
+ .container {
+   width: 100%;
+ }
+
+ .row {
+   margin: 0;
+ }
+
+ .column {
+   width: calc(100% - 40px);
+   padding: 0 20px;
+   margin-bottom: 16px;
+ }
+
+ .index-event-list h1 {
+   text-align: center;
+   font-size: 28px;
+ }
+
+ #event-card h1 {
+  font-size: 17px;
+ }
+
+ #event-card h2 {
+   font-size: 13px;
+ }
+
+ #event-card h3 {
+   font-size: 13px;
+ }
+
+ #event-card button {
+   padding: 4px 6px;
+ }
+
+ .see-more-btn {
+   padding: 10px 10px;
+ }
+}
+
+/* PAGINATION */
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+   padding-top: 20px;
+   display: inline-block;
+   margin: 0 auto;
+}
+
+.pagination a {
+   color: black;
+   font-family: Catamaran;
+   padding: 8px 16px;
+   float: left;
+   text-decoration: none;
+   transition: background-color .3s;
+   border: 1px solid #ddd;
+}
+
+.pagination a.active {
+   background-color: #4CAF50;
+   color: white;
+   border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
 
 /* FOOTER */
 
@@ -430,6 +527,7 @@ footer ul li a {
   margin-bottom: 10px;
 }
 
+/*register and signin modal*/
 .close {
   color: #fff;
   float: right;
@@ -480,5 +578,25 @@ footer ul li a {
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
+<<<<<<< HEAD
   background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
 }
+=======
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.logout{
+  background:none;
+  font-family: Catamaran;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 200;
+  line-height: 60px;
+  border:none; 
+  float:right;
+  cursor: pointer;
+  margin-top: 0.6%;
+  margin-right:1.5%;
+}
+>>>>>>> 52652f87396bad20ef16cd905cb6e4d27567e2fd
