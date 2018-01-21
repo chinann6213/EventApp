@@ -34,12 +34,9 @@ session_start();
           <input type="password" id="password" name="password">
         </label>
       </p>
+      <input id="check-rmb" type="checkbox" name="rememberme"><label for="check-rmb" id="rmb-me"><span>Remember Me</span></label>
+      <div style="clear:both;"></div>
       <label class="register" id="btnSignup">Haven't register yet? <strong>Sign up here</strong></label>
-      <p>
-        <label>Remember Me:
-          <input type="checkbox" name="rememberme" value="1">
-        </label>
-      </p>
       <br /><button type="submit" name='submit'>Log In</button>
 
     </form>
@@ -125,15 +122,15 @@ session_start();
       <?php
         if(isset($_SESSION['u_username'])){
           echo '<ul>
-          <li><a href="">Create Event</a></li> 
+          <li><a href="">Create Event</a></li>
           <li><a href="">Manage Event</a></li>
           </ul>
           <form action="logout.php" method="POST">
           <button class="logout" type="submit" name="submit">Logout</button></form>';
         }else{
           echo '<ul>
-          <li><a href="#" onClick="checkbox()">Create Event</a></li> 
-          <li><a href="#" onClick="checkbox()">Manage Event</a></li> 
+          <li><a href="#" onClick="checkbox()">Create Event</a></li>
+          <li><a href="#" onClick="checkbox()">Manage Event</a></li>
           <li><label class="signin_btn" id="btnSignin">Sign In</label></li>
           </ul>';
         }
