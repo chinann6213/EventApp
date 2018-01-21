@@ -3,7 +3,7 @@
     <li><p>Use EventApp</p></li>
     <li><a href="index.php">Home</a></li>
     <li><a href="#">Create Event</a></li>
-    <li><a href="#">My Event</a></li>
+    <li><a href="#">Manage Event</a></li>
   </ul>
 
   <div class="footer-sm">
