@@ -1,5 +1,5 @@
 <?php include_once "sidebar.php" ?>
-
+<title>Create Event @EventTap</title>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
 <link rel="stylesheet" href="css/create-event.css">
 <div id="create-event">

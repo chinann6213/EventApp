@@ -1,5 +1,5 @@
 <?php include_once "sidebar.php" ?>
-
+<title>About Us @EventTap</title>
 <link rel="stylesheet" href="css/about-us.css">
 
 <div id="about-us-wrapper">

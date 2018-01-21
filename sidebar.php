@@ -1,5 +1,10 @@
 <?php
-    // check user login code here
+
+    session_start();
+    if (!isset($_SESSION['eventtap_usr'])) {
+        header('Location: index.php');
+        die();
+    }
 ?>
 
 <html>

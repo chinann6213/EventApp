@@ -1,5 +1,5 @@
 <?php include_once "sidebar.php" ?>
-
+<title>Manage Event @EventTap</title>
 <link rel="stylesheet" href="css/manage-event.css">
 
 <div id="event-manager">
