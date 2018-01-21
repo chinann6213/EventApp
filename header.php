@@ -5,7 +5,7 @@ session_start();
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Event App</title>
+  <title>EventTap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/sign-up.css">
@@ -116,7 +116,7 @@ session_start();
     </
     <!-- sign up end-->
   <header>
-    <a href="index.php" class="header-brand">EventApp</a>
+    <a href="index.php" class="header-brand">EventTap</a>
     <nav class="main-nav">
       <ul>
         <li><a href="">Create Event</a></li> <!-- if user logged in -->
