@@ -17,7 +17,7 @@ if (!$conn) {
 if (isset($_POST['action'])) {
     if ($_POST['action'] == "view") {
         $event_id = $_POST['event_id'];
-        $sql = "SELECT email, ticket_id FROM registered_user WHERE event_id=38";
+        $sql = "SELECT email, ticket_id FROM registered_user WHERE event_id='$event_id'";
         $result = mysqli_query($conn, $sql);
         $attendant = '<div class="att-header"><span>Attendant Email</span><span class="tid-header">Ticket ID</span></div>';
         if (mysqli_num_rows($result) > 0) {

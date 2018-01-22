@@ -39,7 +39,7 @@
 <div id="attendant-modal" class="modal modal-medium">
   <div class="modal-header"><p>Attendant List</p></div>
   <div class="modal-body"></div>
-  <div class="modal-footer"><button class="modal-confirm">Confirm</button><button class="modal-close">Cancel</button></div>
+  <div class="modal-footer"><button class="modal-close">Cancel</button></div>
 </div>
 
 <script type="text/javascript" src="js/manage-event.js"></script>
