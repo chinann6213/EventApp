@@ -19,21 +19,23 @@ $result = mysqli_query($conn, $sql);
 if ($result) {
     $event = [];
     while ($data = mysqli_fetch_assoc($result)) {
-        $today = date("Y-m-d");
+
         $start_day = $data['event_start_date'];
         $end_day = $data['event_end_date'];
 
+        date_default_timezone_set('Asia/Kuala_Lumpur');
+        $today = date("Y-m-d");
         $today_time = strtotime($today);
         $start_time = strtotime($start_day);
         $end_time = strtotime($end_day);
-
+        // echo $today_time;
         if ($start_time < $today_time) {
             $status = '<span style="color: red;">Expired</span>';
         }
         else if ($start_time > $today_time) {
             $status = '<span style="color: blue;">Upcoming</span>';
         }
-        else if ($today_time > $start_time && $end_time > $start_time) {
+        else if ($today_time >= $start_time && $end_time >= $start_time) {
             $status = '<span style="color: green;">Ongoing</span>';
         }
 

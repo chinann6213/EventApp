@@ -33,7 +33,7 @@
       $end_date = date("Y-m-d", strtotime($_POST['end_date']));
       $time = $_POST['time'];
       $title = $_POST['title'];
-      $content = $_POST['content'];
+      $content = mysqli_real_escape_string($conn, $_POST['content']);
 
       if (isset( $_POST['images'])) {
          $images = $_POST['images'];

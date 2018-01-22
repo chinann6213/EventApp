@@ -23,7 +23,7 @@ if ($result) {
     while ($data = mysqli_fetch_assoc($result)) {
         $event_id = $data['event_id'];
         $event_title = $data['event_title'];
-        $event_content = $data['event_content'];
+        $event_content = mysqli_real_escape_string($conn, $data['event_content']);
         $event_start_date = $data['event_start_date'];
         $event_end_date = $data['event_end_date'];
         $event_start_time = $data['event_start_time'];

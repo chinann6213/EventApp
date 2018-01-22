@@ -95,7 +95,7 @@ $(document).ready(function() {
                     dom.remove();
                 }
                 else {
-
+                    alert("Unable to delete, please try again later or contact us.");
                 }
             })
         })
@@ -107,5 +107,16 @@ $(document).ready(function() {
       $(".modal-mask").hide();
     })
 
+    $(document).on("click", ".view-attendee", function() {
+        var eid = $(this).val();
+        $.post('ajax/view_attendant.php', {
+            action: "view",
+            event_id: eid
+        }, function(response) {
+            $("#attendant-modal").find(".modal-body").html("").append(response);
+            $(".modal-mask").show();
+            $("#attendant-modal").slideDown();
+        })
+    })
 
 })
