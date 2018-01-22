@@ -28,7 +28,7 @@
   ?>
   <div class="container">
     <section class="index-event-list">
-      <h1>Events for you</h1>
+      <h1>Upcoming Events</h1>
 
       <?php
         $loopCount = 0; // loopcount to create new row and enclosed row.

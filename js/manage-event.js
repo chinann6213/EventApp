@@ -23,8 +23,8 @@ $(document).ready(function() {
          table_item += '<p class="event-date">From '+data[i]['event_start_date']+' to '+data[i]['event_end_date']+'</p>';
          table_item += '<p class="event-content">'+data[i]['event_content']+'</p>';
          table_item += '</td>'
-         table_item += '<td data-label="Location">'+data[i]['event_location']+'</td>'
-         table_item += '<td data-label="Created">'+data[i]['event_created_time']+'</td>'
+         table_item += '<td class="event-location" data-label="Location">'+data[i]['event_location']+'</td>'
+         table_item += '<td class="event-time" data-label="Created">'+data[i]['event_created_time']+"<br>"+data[i]['event_status']+'</td>'
          table_item += '<td data-label="Action"><button class="edit" value="'+data[i]['event_id']+'">Edit</button><span> | </span><button class="delete" value="'+data[i]['event_id']+'">Delete</button></td>'
          table_item += '</tr>'
      }

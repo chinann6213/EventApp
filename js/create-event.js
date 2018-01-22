@@ -138,8 +138,8 @@ $(document).ready(function() {
         }
         else {
           for (var i = 0; i < data.length; i ++){
-            if (data[i]['img_width'] < data[i]['img_height']) dim = 'style="height: 100%;"';
-            else if (data[i]['img_width'] > data[i]['img_height']) dim = 'style="width: 100%;"';
+            if (data[i]['img_width'] > data[i]['img_height']) dim = 'style="height: 100%;"';
+            else if (data[i]['img_width'] < data[i]['img_height']) dim = 'style="width: 100%;"';
             else dim = 'style="height: 100%;"';
 
             $("#temp-upload").append('<div class="temp-img-card"><div class="temp-img"><img '+dim+' src="'+ data[i]['img_src'] +'" /></div><div class="temp-img-details"><div class="form-input"><label class="input-lbl">Image Alt </label><input type="text" class="event-input img-alt" /></div><div class="form-input"><label class="input-lbl">Image Caption </label><input type="text" class="event-input img-cap" /></div><button class="delete-img">Delete</button></div></div>');

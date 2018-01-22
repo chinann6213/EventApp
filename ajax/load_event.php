@@ -19,13 +19,32 @@ $result = mysqli_query($conn, $sql);
 if ($result) {
     $event = [];
     while ($data = mysqli_fetch_assoc($result)) {
+        $today = date("Y-m-d");
+        $start_day = $data['event_start_date'];
+        $end_day = $data['event_end_date'];
+
+        $today_time = strtotime($today);
+        $start_time = strtotime($start_day);
+        $end_time = strtotime($end_day);
+
+        if ($start_time < $today_time) {
+            $status = '<span style="color: red;">Expired</span>';
+        }
+        else if ($start_time > $today_time) {
+            $status = '<span style="color: blue;">Upcoming</span>';
+        }
+        else if ($today_time > $start_time && $end_time > $start_time) {
+            $status = '<span style="color: green;">Ongoing</span>';
+        }
+
         $e = array(
             "event_id" => $data['event_id'],
             "event_title" => $data['event_title'],
             "event_content" => shorten_string(strip_tags($data['event_content']), 50),
-            "event_start_date" => $data['event_start_date'],
-            "event_end_date" => $data['event_end_date'],
+            "event_start_date" => $start_day,
+            "event_end_date" => $end_day,
             "event_created_time" => $data['event_created_date'],
+            "event_status" => $status,
             "event_location" => $data['location']
         );
         $event[] = $e;

@@ -404,7 +404,7 @@ header nav ul li label {
 
 .see-more-btn {
   border: none;
-  padding: 12px 12px;
+  padding: 16px 32px;
   display: block;
   width: fit-content;
   align-items: center;
@@ -604,7 +604,7 @@ footer ul li a {
   text-transform: uppercase;
   font-weight: 200;
   line-height: 60px;
-  border:none; 
+  border:none;
   float:right;
   cursor: pointer;
   margin-top: 0.6%;
