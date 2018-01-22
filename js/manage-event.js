@@ -9,6 +9,12 @@ $(document).ready(function() {
   $("#manage").addClass("active");
   $(".manage-event").slideDown();
 
+  $(document).on("click", "ul", function() {
+      $(this).find("li").slideToggle();
+  })
+  $(document).on("click", "li", function() {
+      $("ul li:first-child").html($(this).html())
+  })
   // load event
   var table_item = "";
 
@@ -25,7 +31,7 @@ $(document).ready(function() {
          table_item += '</td>'
          table_item += '<td class="event-location" data-label="Location">'+data[i]['event_location']+'</td>'
          table_item += '<td class="event-time" data-label="Created">'+data[i]['event_created_time']+"<br>"+data[i]['event_status']+'</td>'
-         table_item += '<td data-label="Action"><button class="edit" value="'+data[i]['event_id']+'">Edit</button><span> | </span><button class="delete" value="'+data[i]['event_id']+'">Delete</button></td>'
+         table_item += '<td data-label="Action"><ul class="action-dropdown"><li value="">Select…</li><li value="">Select…</li><li class="edit" value="'+data[i]['event_id']+'">Edit</li><li class="delete" value="'+ data[i]['event_id'] +'">Delete</li><li class="view-attendee" value="'+ data[i]['event_id'] +'">View Attendee</li></ul></td>'
          table_item += '</tr>'
      }
      $("#event-body").html("").append(table_item);
@@ -77,7 +83,7 @@ $(document).ready(function() {
 
     // delete event
     $(document).on("click", ".delete", function() {
-        var dom = $(this).parent().parent();
+        var dom = $(this).parent().parent().parent();
         var eid = $(this).val();
         $(".modal-mask").show();
         $("#warn-delete-modal").slideDown();
