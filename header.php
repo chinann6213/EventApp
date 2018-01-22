@@ -16,12 +16,12 @@ session_start();
 <body>
   <!-- sign in -->
   <div class="modal" id="signIn-modal">
-  <div class="modal modal-medium" style="display:block;">
+  <div class="signin-modal-medium">
       <span class="close1">&times;</span>
-  <div class="modal-header">
+  <div class="signin-modal-header">
     <p>Sign in to see more events</p>
   </div>
-  <div class="modal-body">
+  <div class="signin-modal-body">
     <div id="register-box">
     <form action="signinDB.php" method="post">
       <p>
@@ -42,14 +42,14 @@ session_start();
     </form>
    </div>
       </div>
-      <div class="modal-footer"></div>
+      <div class="signin-modal-footer"></div>
     </div>
   </div>
     </div>
     <!-- sign in end -->
     <!-- sign up -->
   <div class="modal" id="user-modal">
-  <div class="modal modal-medium" style="height: 760px;width:500px;top:50%%;display:block">
+  <div class="modal modal-medium">
       <span class="close">&times;</span>
   <div class="modal-header">
     <p>Fill your information</p>

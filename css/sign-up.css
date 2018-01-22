@@ -65,8 +65,8 @@
 	box-shadow: 0px 0px 8px 0px #673AB7;
     cursor: pointer;
 }
-.modal-mask { display: block; z-index: 2; background: rgba(0,0,0,0.8); position: fixed; left: 0; top: 0; width: 100%; height: 100%; }
-.modal-medium { height: 500px; display: block; z-index: 3; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 480px; background: #fff; }
+
+.modal-medium { height: 760px; display: block; z-index: 3; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; background: #fff; }
 .modal-header { background: #673AB7; padding: 5em 2em 1.5em 2em; }
 .modal-header p {
 	font-family: Catamaran;
@@ -78,3 +78,40 @@
 }
 .modal-body{ padding: 1em 2em 2em 2em; }
 .modal-footer button { line-height: 40px; float: right; background: #673AB7; width: 100px; height: 40px; font-size: 1rem; color: #fff; }
+
+@media only screen and (max-width: 1000px){
+	.modal-medium { height: 760px; display: block; z-index: 3; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 65%; background: #fff; }
+	.modal-header { background: #673AB7; padding: 5em 2em 1.5em 2em; }
+	.modal-header p {
+		font-family: Catamaran;
+		color: #fff;
+		font-size: 1.5em;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align:center;
+	}
+	.modal-body{ padding: 1em 2em 2em 2em; }
+	#signup button {
+		float:none;
+		text-align: center;
+		width:50%;
+		border:0;
+		outline:none;
+	    border-radius:0;
+		padding:5px 0;
+		font-family: Catamaran;
+		font-size: 1em;
+		font-weight:bold;
+		text-transform:uppercase;
+		letter-spacing:.1em;
+		background:#673AB7;
+		color:#ffffff;
+		transition:all.5s ease;
+		-webkit-appearance: none;
+		margin-top:3%;
+	    margin-bottom: 2em;
+	    white-space: nowrap;
+    	overflow: hidden;
+    	margin-left: 26%
+	}
+}
