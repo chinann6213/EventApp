@@ -120,10 +120,10 @@ session_start();
     <a href="index.php" class="header-brand">EventTap</a>
     <nav class="main-nav">
       <?php
-        if(isset($_SESSION['u_username'])){
+        if(isset($_SESSION['u_email'])){
           echo '<ul>
-          <li><a href="">Create Event</a></li>
-          <li><a href="">Manage Event</a></li>
+          <li><a href="create-event.php">Create Event</a></li>
+          <li><a href="manage-event.php">Manage Event</a></li>
           </ul>
           <form action="logout.php" method="POST">
           <button class="logout" type="submit" name="submit">Logout</button></form>';
@@ -196,11 +196,11 @@ session_start();
   </style>
 
 <?php
-  if(isset($_COOKIE['username']) and isset($_COOKIE['password'])){
-    $username = $_COOKIE['username'];
+  if(isset($_COOKIE['email']) and isset($_COOKIE['password'])){
+    $email = $_COOKIE['email'];
     $password = $_COOKIE['password'];
     echo "<script>
-      document.getElementById('username').value = '$username';
+      document.getElementById('email').value = '$email';
       document.getElementById('password').value = '$password';
       </script>";
   }

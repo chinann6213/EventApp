@@ -112,7 +112,7 @@ $(document).ready(function() {
 
       img.onload = function() {
           if (this.width > this.height) dim = 'style="height: 100%;"';
-          else if (this.width > this.height) dim = 'style="width: 100%;"';
+          else if (this.width < this.height) dim = 'style="width: 100%;"';
           else dim = 'style="height: 100%;"';
           $("#temp-upload").append('<div class="temp-img-card"><div class="temp-img"><img '+dim+' src="'+ img.src +'" /></div><div class="temp-img-details"><div class="form-input"><label class="input-lbl">Image Alt </label><input type="text" class="event-input img-alt" /></div><div class="form-input"><label class="input-lbl">Image Caption </label><input type="text" class="event-input img-cap" /></div><button class="delete-img">Delete</button></div></div>');
           if (i < imgarr.length - 1) {
