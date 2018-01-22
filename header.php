@@ -122,8 +122,8 @@ session_start();
       <?php
         if(isset($_SESSION['u_email'])){
           echo '<ul>
-          <li><a href="">Create Event</a></li>
-          <li><a href="">Manage Event</a></li>
+          <li><a href="create-event.php">Create Event</a></li>
+          <li><a href="manage-event.php">Manage Event</a></li>
           </ul>
           <form action="logout.php" method="POST">
           <button class="logout" type="submit" name="submit">Logout</button></form>';
