@@ -1,8 +1,7 @@
 <?php
 include_once 'header.php';
-session_start();
 
-$user = "ganqitze@gmail.com"; // $_SESSION['user'];
+// $user = $_SESSION['eventtap_usr'];
 
 $servername = "localhost";
 $username   = "root";
@@ -54,9 +53,9 @@ if (isset($_GET['event_id'])){
 
 ?>
 
-
 <link rel="stylesheet" href="css/view-event.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <main>
 
   <div class="container">
@@ -78,8 +77,8 @@ if (isset($_GET['event_id'])){
       <div id="event-organiser">
         <h1>Organised by: </h1>
         <p><i class="material-icons">contacts</i><span><?php echo $event_organiser_name; ?></span></p>
-        <p><i class="material-icons">contact_mail</i><?php echo $event_organiser_contact; ?></p>
-        <p><i class="material-icons">contact_phone</i><?php echo $event_organiser_email; ?></p>
+        <p><i class="material-icons">contact_mail</i><span><?php echo $event_organiser_contact; ?></span></p>
+        <p><i class="material-icons">contact_phone</i><span><?php echo $event_organiser_email; ?></span></p>
       </div>
 
       <div id="event-location">
@@ -119,8 +118,8 @@ if (isset($_GET['event_id'])){
        echo '<input type="text" class="event-input" id="name" required>';
        echo '</div>';
        echo '<div class="form-input" id="reg-info">';
-       echo '<label for="email" class="input-lbl">E-mail Address </label>';
-       echo '<input type="email" class="event-input" id="emaill" required/>';
+       echo '<label for="reg-email" class="input-lbl">E-mail Address </label>';
+       echo '<input type="email" class="event-input" id="reg-email" required/>';
        echo '</div>';
        echo '<div class="form-input" id="reg-info">';
        echo '<label for="phone" class="input-lbl">Contact Number </label>';

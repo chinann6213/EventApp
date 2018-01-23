@@ -32,10 +32,9 @@ $(document).ready(function() {
   });
 
   var category = event_categories.split(',');
-  console.log(category);
   $("#event-categories").html(function() {
     var categories = "";
-    for (var i = 0; i < category.length; i++) {
+    for (var i = 0; i < category.length - 1; i++) {
       categories += '<span id="event-category">#' + category[i] + '</span>';
     }
     return categories;
@@ -47,7 +46,7 @@ $(document).ready(function() {
     $("#reg-modal").css("display", "block");
     $(".modal-mask").css("display", "block");
     $('html, body').animate({
-      scrollTop: $(".container").offset().top
+      scrollTop: $("head").offset().top
     }, 700);
   })
 
@@ -79,7 +78,7 @@ $(document).ready(function() {
   $("#reg-submit").click(function() {
     var id = event_id;
     var name = $("#name").val();
-    var email = $("#email").val();
+    var email = $("#reg-email").val();
     var phone = $("#phone").val();
     var validator = inputValidation(name, email, phone);
     if(validator===true) {
@@ -117,9 +116,8 @@ $(document).ready(function() {
   $(document).on("click", "#event-img img", function() {
       var img = this;
       var img_src = $(this).attr("src");
-      console.log(img_src)
       $.post("ajax/load_large_image.php", {
-          img_src:img_src
+          img_src: img_src
       }, function(response) {
           var data = JSON.parse(response);
           var img = '<figure><img src="' +img_src+ '" alt="' +data['alt']+ '"/><figcaption>' +data['cap']+ '</figcaption></figure>';

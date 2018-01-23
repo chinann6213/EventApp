@@ -1,9 +1,8 @@
 <?php
 include_once 'header.php';
 
-session_start();
 
-$user = "ganqitze@gmail.com"; // $_SESSION['user'];
+// $user = $_SESSION['eventtap_usr'];
 
 $servername = "localhost";
 $username   = "root";
@@ -37,6 +36,7 @@ if (isset($_GET['event_id']) and isset($_GET['ticket_id'])){
 ?>
 
 <link rel="stylesheet" href="css/ticket.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <main>
   <div class="container">
     <div id="ticket-card">
