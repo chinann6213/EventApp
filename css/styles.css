@@ -196,6 +196,10 @@ header nav ul li label {
   header nav ul li a {
     display: none;
   }
+
+  header nav ul li label{
+    display: none;
+  }
 }
 
 /* INDEX BANNER */

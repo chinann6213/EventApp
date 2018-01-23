@@ -72,6 +72,19 @@
     font-size: 14px;
 }
 
+.signin-modal-medium { height: 500px; display: block; z-index: 3; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 480px; background: #fff; }
+.signin-modal-header { background: #673AB7; padding: 5em 2em 1.5em 2em; }
+.signin-modal-header p {
+  font-family: Catamaran;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align:left;
+}
+.signin-modal-body{ padding: 1em 2em 2em 2em; }
+.signin-modal-footer button { line-height: 40px; float: right; background: #673AB7; width: 100px; height: 40px; font-size: 1rem; color: #fff; }
+
 /* #rmb-me { float: left; } */
 #register-box input#check-rmb { width: auto; }
 #check-rmb:focus { box-shadow: none; }
@@ -84,3 +97,42 @@
 #check-rmb:hover + label:before { background: #673AB7; }
 #check-rmb:checked + label:before { background: #673AB7; }
 #check-rmb:checked + label:after { content: ''; position: absolute; left: 4px; top: 8px; background: white; width: 2px; height: 2px; -webkit-box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white; box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white; -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+
+@media only screen and (max-width: 1000px){
+  .signin-modal-medium { height: 500px; display: block; z-index: 3; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 65%; background: #fff; }
+  .signin-modal-header { background: #673AB7; padding: 5em 2em 1.5em 2em; }
+  .signin-modal-header p {
+    font-family: Catamaran;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align:center;
+  }
+  .signin-modal-body{ padding: 1em 2em 2em 2em; }
+
+  .register {
+    float:none;
+    text-align:center;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  #register-box button{
+    width:50%;
+    float:none;
+    margin:auto;
+    border:0;
+    outline:none;
+    border-radius:0;
+    font-family: Catamaran;
+    font-size:0.7rem;
+    font-weight:bold;
+    text-transform:uppercase;
+    background:#673AB7;
+    color:#ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top:0.5em;
+  }
+}
