@@ -52,6 +52,7 @@
         </svg>
       <div id="user-login-details" class="main-item">
           Hi, <?php echo $first_name; ?>
+          <img src="img/profile.jpg" />
           <a href="ajax/logout.php">Logout</a>
       </div>
       <div class="main-item" id="manage-event">
