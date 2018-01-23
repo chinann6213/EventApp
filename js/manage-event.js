@@ -73,7 +73,7 @@ $(document).ready(function() {
 
       // Loop through all table rows, and hide those who don't match the search query
       for (i = 0; i < tr.length; i++) {
-        td_event = tr[i].getElementsByTagName("td")[0];
+        td_event = tr[i].getElementsByTagName("td")[1];
         td_location = tr[i].getElementsByTagName("td")[2];
         td_date = tr[i].getElementsByTagName("td")[3];
           if (td_event.innerHTML.toUpperCase().indexOf(filter) > -1 || td_location.innerHTML.toUpperCase().indexOf(filter) > -1 || td_date.innerHTML.toUpperCase().indexOf(filter) > -1) {
