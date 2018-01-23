@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// $user = $_SESSION['eventtap_usr'];
+$user = $_SESSION['eventtap_usr'];
 
 $servername = "localhost";
 $username   = "root";

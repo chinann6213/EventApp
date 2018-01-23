@@ -129,8 +129,9 @@ if (isset($_GET['event_id'])){
 
        echo '<br><br>';
        echo '<div class="modal-footer">';
-       echo '<button class="modal-close">Close</button>';
        echo '<button id="reg-submit">Submit</button>';
+       echo '<button class="modal-close">Close</button>';
+       
        // echo '</form>';
        echo '</div>';
        echo '</div>';

@@ -182,6 +182,7 @@ session_start();
     btn_user.onclick = function(){
       modal_signIn.style.display = "none";
       modal_user.style.display = "block";
+      $("#user-modal").find(".modal-medium").show();
     }
 
     function checkbox(){

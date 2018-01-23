@@ -27,14 +27,16 @@
 }
 
 .modal-mask { display: none; z-index: 10000; background: rgba(0,0,0,0.8); position: fixed; left: 0; top: 0; width: 100%; height: 100%; }
-.modal-medium { display: none; z-index: 10001; padding: 1.5rem;  position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); width: 40%; background: #fff; }
-.modal-header p { color: #673AB7; line-height: 100%; font-size: 2rem; font-weight: bold; }
-.modal-body { margin: 1rem 0 2rem 0; }
-.modal-footer button { float: right; background: #673AB7; width: 100px; height: 40px; font-size: 1rem; color: #fff; }
+.modal-medium { height: 760px; display: none; z-index: 10001; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; background: #fff; }
+.modal-header p { color: #fff; line-height: 100%; font-size: 1.5rem; font-weight: bold; }
+/* .modal-body { margin: 1rem 0 2rem 0; } */
+.modal-footer button { border: none; outline: none; float: right; background: #673AB7; width: 100px; height: 40px; font-size: 1rem; color: #fff; }
 .modal-full { text-align: center; height: 90%; position: fixed; max-width: 80%; display: none; z-index: 10001; padding: 1.5rem; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; background: transparent; }
 .modal-full img { width: auto; height: auto; }
 .modal-full .modal-body, .modal-full figure { margin: 0; padding: 0; width: 100%; height: 100%; }
-
+#reg-modal { height: 468px; }
+#reg-submit { margin-left: 16px; }
+.modal-footer button:hover { cursor: pointer; box-shadow: 0px 0px 4px 0px #673ab7; }
 figcaption { color: #fff; font-size: 1em; }
 
 .form-input { padding: 1rem 0 0 0; position: relative; }

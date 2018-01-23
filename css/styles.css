@@ -148,6 +148,7 @@ header nav ul {
   float: left;
   width: fit-content;
   margin: 10px 0 0 10px;
+  float: right;
 }
 
 header nav ul li {

@@ -44,7 +44,7 @@ $(document).ready(function() {
   google.maps.event.addDomListener(window, 'load', initMap);
   // When the user clicks on the button, open the modal
   $("#regBtn").click(function() {
-    $(".modal").css("display", "block");
+    $("#reg-modal").css("display", "block");
     $(".modal-mask").css("display", "block");
     $('html, body').animate({
       scrollTop: $(".container").offset().top
