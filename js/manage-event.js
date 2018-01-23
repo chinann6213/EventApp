@@ -41,7 +41,12 @@ $(document).ready(function() {
   document.getElementById("select-all").onclick  = function() {
       var x = document.getElementById("event-body").childNodes;
       for (var i = 0; i < x.length; i ++) {
-          x[i].childNodes[0].getElementsByTagName("input")[0].checked = true
+          if (x[i].childNodes[0].getElementsByTagName("input")[0].checked == true) {
+              x[i].childNodes[0].getElementsByTagName("input")[0].checked = false
+          }
+          else {
+              x[i].childNodes[0].getElementsByTagName("input")[0].checked = true
+          }
       }
   }
 
@@ -71,7 +76,6 @@ $(document).ready(function() {
         td_event = tr[i].getElementsByTagName("td")[0];
         td_location = tr[i].getElementsByTagName("td")[2];
         td_date = tr[i].getElementsByTagName("td")[3];
-        console.log(td_event.innerHTML)
           if (td_event.innerHTML.toUpperCase().indexOf(filter) > -1 || td_location.innerHTML.toUpperCase().indexOf(filter) > -1 || td_date.innerHTML.toUpperCase().indexOf(filter) > -1) {
             tr[i].style.display = "";
           } else {
