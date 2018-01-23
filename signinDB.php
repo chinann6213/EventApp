@@ -29,7 +29,6 @@ if(isset($_POST['submit'])){
           //Login if true
           if(isset($_POST['rememberme'])){
             setcookie('email',$email,time()+2678400);
-            setcookie('password',$password,time()+2678400);
           }
           session_start();
           $_SESSION['u_fname'] = $row['fname'];
