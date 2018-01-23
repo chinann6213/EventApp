@@ -66,8 +66,8 @@
         </a>
       </div>
       <div class="manage-event">
-        <div class="sub-item" id="create"><a href="create-event.php">Create Event</a></div>
-        <div class="sub-item" id="manage"><a href="manage-event.php">Manage Event</a></div>
+        <a href="create-event.php"><div class="sub-item" id="create">Create Event</div></a>
+        <a href="manage-event.php"><div class="sub-item" id="manage">Manage Event</div></a>
       </div>
       <div class="main-item" id="about-us">
         <a href="about-us.php">
