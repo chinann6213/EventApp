@@ -1,18 +1,38 @@
 <?php
     session_start();
+
+    $servername = "localhost";
+    $username   = "root";
+    $password   = "";
+    $dbname     = "event_app";
+
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
     if (isset($_COOKIE['eventtap_usr_hashed'])) {
         $cookie = $_COOKIE['eventtap_usr_hashed'];
-        $sql = "SELECT username, email FROM users WHERE hashed_cookie='$cookie'";
+        $sql = "SELECT fname, username, email FROM users WHERE hashed_cookie='$cookie'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($u = mysqli_fetch_assoc($result)) {
+                $first_name = $u['fname'];
                 $_SESSION['eventtap_usr'] = $u['email'];
             }
         }
+    }
+    else {
+        if (!isset($_SESSION['eventtap_usr'])) {
+            header('Location: index.php');
+            die();
+        }
         else {
-            if (!isset($_SESSION['eventtap_usr'])) {
-                header('Location: index.php');
-                die();
+            $email = $_SESSION['eventtap_usr'];
+            $sql = "SELECT fname FROM users WHERE email='$email'";
+            $result = mysqli_query($conn, $sql);
+            while ($name = mysqli_fetch_assoc($result)) {
+                $first_name = $name['fname'];
             }
         }
     }
@@ -30,7 +50,10 @@
         <svg id="slide-in" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
           <path d="M3 0v1h4v5h-4v1h5v-7h-5zm-1 2l-2 1.5 2 1.5v-1h4v-1h-4v-1z" />
         </svg>
-      <div id="user-login-details" class="main-item">Hi, Batman</div>
+      <div id="user-login-details" class="main-item">
+          Hi, <?php echo $first_name; ?>
+          <a href="ajax/logout.php">Logout</a>
+      </div>
       <div class="main-item" id="manage-event">
         <a href="create-event.php">
           <p>
