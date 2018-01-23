@@ -121,16 +121,19 @@ session_start();
     <nav class="main-nav">
       <?php
         if(isset($_SESSION['eventtap_usr'])){
-          echo '<ul>
+          echo '
+          <ul>
           <li><a href="create-event.php">Create Event</a></li>
           <li><a href="manage-event.php">Manage Event</a></li>
-          </ul>
-          <form action="logout.php" method="POST">
-          <button class="logout" type="submit" name="submit">Logout</button></form>';
+          <li>
+            <form action="logout.php" method="POST">
+            <button class="logout" type="submit" name="submit">Logout</button></form>
+          </li>
+          </ul>';
         }else{
           echo '<ul>
-          <li><a href="#" onClick="checkbox()">Create Event</a></li>
-          <li><a href="#" onClick="checkbox()">Manage Event</a></li>
+          <li><a href="create-event.php" onClick="checkbox()">Create Event</a></li>
+          <li><a href="manage-event.php" onClick="checkbox()">Manage Event</a></li>
           <li><label class="signin_btn" id="btnSignin">Sign In</label></li>
           </ul>';
         }
@@ -182,7 +185,6 @@ session_start();
     btn_user.onclick = function(){
       modal_signIn.style.display = "none";
       modal_user.style.display = "block";
-      $("#user-modal").find(".modal-medium").show();
     }
 
     function checkbox(){
@@ -197,12 +199,10 @@ session_start();
   </style>
 
 <?php
-  if(isset($_COOKIE['email']) and isset($_COOKIE['password'])){
-    $email = $_COOKIE['email'];
-    $password = $_COOKIE['password'];
+  if(isset($_COOKIE['eventtap_usr_hashed'])){
+    $email = $_COOKIE['eventtap_usr_hashed'];
     echo "<script>
       document.getElementById('email').value = '$email';
-      document.getElementById('password').value = '$password';
       </script>";
   }
 ?>

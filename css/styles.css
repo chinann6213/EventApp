@@ -612,7 +612,11 @@ footer ul li a {
   line-height: 60px;
   border:none;
   float:right;
-  cursor: pointer;
   margin-top: 0.6%;
   margin-right:1.5%;
+}
+
+.logout:hover{
+  cursor: pointer;
+  color: #BDBDBD;
 }
