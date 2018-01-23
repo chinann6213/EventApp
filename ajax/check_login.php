@@ -13,7 +13,7 @@ if (action = "login") {
         // if user tick remember me
         if ($_POST['remember_me'] === true) {
 
-            $hashed_pw = password_hash($password, PASSWORD_BCRYPT, ["cost" => $cost]);
+            $hashed_pw = password_hash($username, PASSWORD_BCRYPT, ["cost" => $cost]);
             // store the hashed_pw into db
 
             // setting up cookies

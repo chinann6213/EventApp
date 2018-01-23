@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-  $user = "ganqitze@gmail.com"; // $_SESSION['user'];
+  $user = $_SESSION['eventtap_usr'];
 
   $servername = "localhost";
   $username   = "root";
@@ -55,8 +55,8 @@ session_start();
             $event_organiser_contact = $organiser_data['contact'];
             $event_organiser_email = $organiser_data['email'];
           }
-          
-          
+
+
           // $to = $email;
           // $subject = "Email from EventApp";
           // $message = "hello WOrld";
@@ -67,10 +67,10 @@ session_start();
           // if(mail($to,$subject,$message,$headers)) {
 
           //   echo '<p>Your message has been sent!</p>';
-          // } else { 
-          //   echo '<p>Something went wrong, go back and try again!</p>'; 
+          // } else {
+          //   echo '<p>Something went wrong, go back and try again!</p>';
           // }
-          
+
 
 
           echo $ticket_id;

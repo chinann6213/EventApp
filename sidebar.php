@@ -1,10 +1,22 @@
 <?php
+    session_start();
+    if (isset($_COOKIE['eventtap_usr_hashed'])) {
+        $cookie = $_COOKIE['eventtap_usr_hashed'];
+        $sql = "SELECT username, email FROM users WHERE hashed_cookie='$cookie'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            while ($u = mysqli_fetch_assoc($result)) {
+                $_SESSION['eventtap_usr'] = $u['email'];
+            }
+        }
+        else {
+            if (!isset($_SESSION['eventtap_usr'])) {
+                header('Location: index.php');
+                die();
+            }
+        }
+    }
 
-    // session_start();
-    // if (!isset($_SESSION['eventtap_usr'])) {
-    //     header('Location: index.php');
-    //     die();
-    // }
 ?>
 
 <html>

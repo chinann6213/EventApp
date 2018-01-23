@@ -29,7 +29,7 @@ if (isset($_GET['event_id'])){
     $event_location = $event_data['location'];
     $event_ticket = $event_data['participant'];
     $event_organiser_id = $event_data['organizer_id'];
-    $event_categories = $event_data['event_category'];
+    $event_categories = $event_data['category'];
   }
 
   $sql2 = "SELECT * FROM gallery WHERE event_id = '$event_id'";
@@ -48,7 +48,7 @@ if (isset($_GET['event_id'])){
   while($organiser_data = mysqli_fetch_assoc($results3)) {
     $event_organiser_name = $organiser_data['name'];
     $event_organiser_email = $organiser_data['email'];
-    $event_organiser_contact = $organiser_data['contact'];    
+    $event_organiser_contact = $organiser_data['contact'];
   }
 }
 
@@ -77,9 +77,9 @@ if (isset($_GET['event_id'])){
 
       <div id="event-organiser">
         <h1>Organised by: </h1>
-        <p><i class="material-icons">contacts</i><?php echo $event_organiser_name; ?></p>
+        <p><i class="material-icons">contacts</i><span><?php echo $event_organiser_name; ?></span></p>
         <p><i class="material-icons">contact_mail</i><?php echo $event_organiser_contact; ?></p>
-        <p><i class="material-icons">contact_phone</i><?php echo $event_organiser_email; ?></p> 
+        <p><i class="material-icons">contact_phone</i><?php echo $event_organiser_email; ?></p>
       </div>
 
       <div id="event-location">
@@ -120,7 +120,7 @@ if (isset($_GET['event_id'])){
        echo '</div>';
        echo '<div class="form-input" id="reg-info">';
        echo '<label for="email" class="input-lbl">E-mail Address </label>';
-       echo '<input type="email" class="event-input" id="email" required/>';
+       echo '<input type="email" class="event-input" id="emaill" required/>';
        echo '</div>';
        echo '<div class="form-input" id="reg-info">';
        echo '<label for="phone" class="input-lbl">Contact Number </label>';
@@ -141,6 +141,11 @@ if (isset($_GET['event_id'])){
     }
     ?>
 
+  </div>
+
+  <div class="modal-mask"></div>
+  <div id="view-img-modal" class="modal modal-full">
+    <div class="modal-body"></div>
   </div>
 </main>
 <script>

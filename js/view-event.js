@@ -39,10 +39,10 @@ $(document).ready(function() {
       categories += '<span id="event-category">#' + category[i] + '</span>';
     }
     return categories;
-  })  
+  })
 
   google.maps.event.addDomListener(window, 'load', initMap);
-  // When the user clicks on the button, open the modal 
+  // When the user clicks on the button, open the modal
   $("#regBtn").click(function() {
     $(".modal").css("display", "block");
     $(".modal-mask").css("display", "block");
@@ -84,7 +84,7 @@ $(document).ready(function() {
     var validator = inputValidation(name, email, phone);
     if(validator===true) {
       $.post("ajax/register.php", {
-        action: "create",     
+        action: "create",
         id: id,
         name: name,
         email: email,
@@ -96,13 +96,44 @@ $(document).ready(function() {
         location.href = "../ticket.php?event_id="+event_id+"&ticket_id="+ticket_id;
       })
     } else {
-      alert(validator);  
+      alert(validator);
     }
 
 
 
-    
+
+  })
+
+  $("#event-img img").each(function() {
+    var img = this;
+    //or however you get a handle to the IMG
+    var width = img.clientWidth;
+    var height = img.clientHeight;
+    if (width >height) img.style.height = "100%";
+    else if (width < height) img.style.width = "100%";
+    else img.style.height = "100%";
+  })
+
+  $(document).on("click", "#event-img img", function() {
+      var img = this;
+      var img_src = $(this).attr("src");
+      console.log(img_src)
+      $.post("ajax/load_large_image.php", {
+          img_src:img_src
+      }, function(response) {
+          var data = JSON.parse(response);
+          var img = '<figure><img src="' +img_src+ '" alt="' +data['alt']+ '"/><figcaption>' +data['cap']+ '</figcaption></figure>';
+          var width = img.clientWidth;
+          var height = img.clientHeight;
+
+          $("#view-img-modal .modal-body").html("").append(img);
+          if (width >height) $("#view-img-modal .modal-body img").css('height', '100%');
+          else if (width < height) $("#view-img-modal .modal-body img").css('width', '100%');
+          else $("#view-img-modal .modal-body img").css('height', '100%');
+          $("#view-img-modal").show();
+          $(".modal-mask").show();
+      })
+
   })
 
 })
-
