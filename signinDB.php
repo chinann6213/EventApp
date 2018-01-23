@@ -22,13 +22,13 @@ if(isset($_POST['submit'])){
         //dehash password
         $hashedPwdCheck = password_verify($password,$row['pwd']);
         if($hashedPwdCheck == false){
-          $passwordError = "Incorrect username or password";
+          $passwordError = "Incorrect email or password";
           echo "<script type='text/javascript'>alert('$passwordError');window.location.href='index.php';</script>";
           exit();
         }elseif($hashedPwdCheck == true){
           //Login if true
           if(isset($_POST['rememberme'])){
-            $hashed_cookie = password_hash($username, PASSWORD_BCRYPT, ["cost" => 8]);
+            $hashed_cookie = password_hash($email, PASSWORD_BCRYPT, ["cost" => 8]);
             $email = $row['email'];
             $sql = "UPDATE users SET hashed_cookie='$hashed_cookie' WHERE email='$email'";
             mysqli_query($dbc, $sql);

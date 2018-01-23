@@ -120,7 +120,7 @@ session_start();
     <a href="index.php" class="header-brand">EventTap</a>
     <nav class="main-nav">
       <?php
-        if(isset($_SESSION['u_email'])){
+        if(isset($_SESSION['eventtap_usr'])){
           echo '<ul>
           <li><a href="create-event.php">Create Event</a></li>
           <li><a href="manage-event.php">Manage Event</a></li>
