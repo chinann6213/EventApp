@@ -411,7 +411,8 @@ header nav ul li label {
   border: none;
   padding: 16px 32px;
   display: block;
-  width: fit-content;
+  width: 104px;
+  text-align: center;
   align-items: center;
   justify-content: center;
   color: #fff;
