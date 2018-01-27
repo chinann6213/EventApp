@@ -121,21 +121,23 @@ session_start();
     <nav class="main-nav">
       <?php
         if(isset($_SESSION['eventtap_usr'])){
-          echo '
+          $fname = isset($_SESSION['u_fname'])? $_SESSION['u_fname']:"Guest";
+          echo "
           <ul>
-          <li><a href="create-event.php">Create Event</a></li>
-          <li><a href="manage-event.php">Manage Event</a></li>
+          <li><p>Hi, $fname </p></li>
+          <li><a href='create-event.php'>Create Event</a></li>
+          <li><a href='manage-event.php'>Manage Event</a></li>
           <li>
-            <form action="logout.php" method="POST">
-            <button class="logout" type="submit" name="submit">Logout</button></form>
+            <form action='logout.php' method='POST'>
+            <button class='logout' type='submit' name='submit'>Logout</button></form>
           </li>
-          </ul>';
+          </ul>";
         }else{
-          echo '<ul>
-          <li><a href="create-event.php" onClick="checkbox()">Create Event</a></li>
-          <li><a href="manage-event.php" onClick="checkbox()">Manage Event</a></li>
-          <li><label class="signin_btn" id="btnSignin">Sign In</label></li>
-          </ul>';
+          echo "<ul>
+          <li><a href='create-event.php' onClick='checkbox()'>Create Event</a></li>
+          <li><a href='manage-event.php' onClick='checkbox()'>Manage Event</a></li>
+          <li><label class='signin_btn' id='btnSignin'>Sign In</label></li>
+          </ul>";
         }
       ?>
     </nav>
