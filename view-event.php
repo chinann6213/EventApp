@@ -105,64 +105,64 @@ if (isset($_GET['event_id'])){
       <!-- Check if tickets left -->
       <?php
       if ($event_ticket > 0) {
-       echo '<button id="regBtn" value="Register">Register</button>';
-       echo '<div class="modal-mask"></div>';
-       echo '<div id="reg-modal" class="modal modal-medium">';
-       echo '<div class="modal-header"><p>Register Information</p></div>';
-       echo '<div class="modal-body">';
+        echo '<button id="regBtn" value="Register">Register</button>';
+        echo '<div class="modal-mask"></div>';
+        echo '<div id="reg-modal" class="modal modal-medium">';
+        echo '<div class="modal-header"><p>Register Information</p></div>';
+        echo '<div class="modal-body">';
 
        // echo '<form id="form">';
-       echo '<input type="hidden" id="event_id"/>';
-       echo '<div class="form-input" id="reg-info">';
-       echo '<label for="name" class="input-lbl">Name </label>';
-       echo '<input type="text" class="event-input" id="name" required>';
-       echo '</div>';
-       echo '<div class="form-input" id="reg-info">';
-       echo '<label for="reg-email" class="input-lbl">E-mail Address </label>';
-       echo '<input type="email" class="event-input" id="reg-email" required/>';
-       echo '</div>';
-       echo '<div class="form-input" id="reg-info">';
-       echo '<label for="phone" class="input-lbl">Contact Number </label>';
-       echo '<input type="tel" class="event-input" id="phone" pattern="^\d{3}-\d{7}$" required/></label>';
-       echo '</div>';
+        echo '<input type="hidden" id="event_id"/>';
+        echo '<div class="form-input" id="reg-info">';
+        echo '<label for="name" class="input-lbl">Name </label>';
+        echo '<input type="text" class="event-input" id="name" required>';
+        echo '</div>';
+        echo '<div class="form-input" id="reg-info">';
+        echo '<label for="reg-email" class="input-lbl">E-mail Address </label>';
+        echo '<input type="email" class="event-input" id="reg-email" required/>';
+        echo '</div>';
+        echo '<div class="form-input" id="reg-info">';
+        echo '<label for="phone" class="input-lbl">Contact Number </label>';
+        echo '<input type="tel" class="event-input" id="phone" pattern="^\d{3}-\d{7}$" required/></label>';
+        echo '</div>';
 
-       echo '<br><br>';
-       echo '<div class="modal-footer">';
-       echo '<button id="reg-submit">Submit</button>';
-       echo '<button class="modal-close">Close</button>';
-       
+        echo '<br><br>';
+        echo '<div class="modal-footer">';
+        echo '<button id="reg-submit">Submit</button>';
+        echo '<button class="modal-close">Close</button>';
+
        // echo '</form>';
-       echo '</div>';
-       echo '</div>';
-       echo '</div>';
-     }
-     else {
-      echo '<div id="no-ticket">Sold Out!</div>';
-    }
-    ?>
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+      }
+      else {
+        echo '<div id="no-ticket">Sold Out!</div>';
+      }
+      ?>
 
-  </div>
+    </div>
 
-  <div class="modal-mask"></div>
-  <div id="view-img-modal" class="modal modal-full">
-    <div class="modal-body"></div>
-  </div>
-</main>
-<script>
-  var event_id = "<?php echo $event_id?>";
-  var event_categories = "<?php echo $event_categories?>";
-  var startdate = "<?php echo $event_start_date?>";
-  var starttime = "<?php echo $event_start_time?>";
-  var enddate = "<?php echo $event_end_date?>";
-  var mylat = "<?php echo $event_latitude?>";
-  var mylng = "<?php echo $event_longitude?>";
-</script>
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
-<script type="text/javascript" src="js/view-event.js"></script>
-<script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script>
+    <div class="modal-mask"></div>
+    <div id="view-img-modal" class="modal modal-full">
+      <div class="modal-body"></div>
+    </div>
+  </main>
+  <script>
+    var event_id = "<?php echo $event_id?>";
+    var event_categories = "<?php echo $event_categories?>";
+    var startdate = "<?php echo $event_start_date?>";
+    var starttime = "<?php echo $event_start_time?>";
+    var enddate = "<?php echo $event_end_date?>";
+    var mylat = "<?php echo $event_latitude?>";
+    var mylng = "<?php echo $event_longitude?>";
+  </script>
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+  <script type="text/javascript" src="js/view-event.js"></script>
+  <script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script>
 
-<?php
+  <?php
 // print phpinfo();
-include_once 'footer.php';
-?>
+  include_once 'footer.php';
+  ?>
