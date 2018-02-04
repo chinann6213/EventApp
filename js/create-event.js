@@ -324,7 +324,7 @@ $(document).ready(function() {
     $(".event-category").each(function() {
         category += $(this).find("input").val() + ","
     })
-    console.log(category)
+    
     $(".temp-img-card").each(function() {
       var img_src = $(this).find('img').attr('src');
       var img_alt = $(this).find('input.img-alt').val();
