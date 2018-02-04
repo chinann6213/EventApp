@@ -12,7 +12,7 @@ $(document).ready(function() {
   })
 
     window.addEventListener("beforeunload", function (e) {
-        var confirmationMessage = "\o/";
+        var confirmationMessage = "You have unsaved changes. Confirm exit?";
 
         (e || window.event).returnValue = confirmationMessage;     //Gecko + IE
         return confirmationMessage;                                //Webkit, Safari, Chrome etc.
