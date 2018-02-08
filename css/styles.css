@@ -194,13 +194,11 @@ header nav ul li label {
     float: none;
   }
 
-  header nav ul li a {
+  header nav ul li{
     display: none;
   }
 
-  header nav ul li label{
-    display: none;
-  }
+  
 }
 
 /* INDEX BANNER */
@@ -540,6 +538,14 @@ footer ul li a {
   line-height: 22px;
 }
 
+footer ul li label {
+  font-family: Catamaran;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
 .footer-sm {
   width: 50px;
   float: right;
@@ -629,4 +635,21 @@ header nav ul li p {
   color: #fff;
   font-weight: 200;
   line-height: 60px;
+}
+
+.logout1{
+  background:none;
+  font-family: Catamaran;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 200;
+  border:none;
+  margin-top: -3%;
+  margin-left:-5%;
+}
+
+.logout1:hover{
+  cursor: pointer;
+  color: #BDBDBD;
 }
