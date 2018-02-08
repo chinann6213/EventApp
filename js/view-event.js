@@ -90,16 +90,15 @@ $(document).ready(function() {
         phone: phone,
       }, function(response) {
         // redirect to ticket page
+        console.log(response);
         var ticket_id = response;
         // alert(response);
-        location.href = "../ticket.php?event_id="+event_id+"&ticket_id="+ticket_id;
+        window.location.replace("../ticket.php?event_id="+event_id+"&ticket_id="+ticket_id);
+        console.log(location);
       })
     } else {
       alert(validator);
     }
-
-
-
 
   })
 

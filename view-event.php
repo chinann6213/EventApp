@@ -163,6 +163,5 @@ if (isset($_GET['event_id'])){
   <script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWAtE05RIq6Wd1xmHsLd2BXbC2fd0xhs&callback=initMap"></script>
 
   <?php
-// print phpinfo();
   include_once 'footer.php';
   ?>

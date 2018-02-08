@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-  $user = $_SESSION['eventtap_usr'];
+  // $user = $_SESSION['eventtap_usr'];
 
   $servername = "localhost";
   $username   = "root";
@@ -31,30 +31,31 @@ session_start();
             $ticket_id = $user_data['ticket_id'];
           }
 
-          $sql = "SELECT * FROM event WHERE event_id = '$event_id'";
-          $results = mysqli_query($conn, $sql);
-          while($event_data = mysqli_fetch_assoc($results)) {
-            $event_title = $event_data['event_title'];
-            $event_start_date = $event_data['event_start_date'];
-            $event_start_time = $event_data['event_start_time'];
-            $event_end_date = $event_data['event_end_date'];
-            $event_location = $event_data['location'];
-            $event_organiser_id = $event_data['organizer_id'];
-          }
 
-          $sql2 = "SELECT * FROM registered_user WHERE ticket_id = '$ticket_id'";
-          $results2 = mysqli_query($conn, $sql2);
-          while($user_data = mysqli_fetch_assoc($results2)) {
-           $user_name = $user_data['name'];
-         }
+         //  $sql = "SELECT * FROM event WHERE event_id = '$event_id'";
+         //  $results = mysqli_query($conn, $sql);
+         //  while($event_data = mysqli_fetch_assoc($results)) {
+         //    $event_title = $event_data['event_title'];
+         //    $event_start_date = $event_data['event_start_date'];
+         //    $event_start_time = $event_data['event_start_time'];
+         //    $event_end_date = $event_data['event_end_date'];
+         //    $event_location = $event_data['location'];
+         //    $event_organiser_id = $event_data['organizer_id'];
+         //  }
 
-          $sql3 = "SELECT * FROM organizer WHERE id = '$event_organiser_id'";
-          $results3 = mysqli_query($conn, $sql3);
-          while($organiser_data = mysqli_fetch_assoc($results3)) {
-            $event_organiser_name = $organiser_data['name'];
-            $event_organiser_contact = $organiser_data['contact'];
-            $event_organiser_email = $organiser_data['email'];
-          }
+         //  $sql2 = "SELECT * FROM registered_user WHERE ticket_id = '$ticket_id'";
+         //  $results2 = mysqli_query($conn, $sql2);
+         //  while($user_data = mysqli_fetch_assoc($results2)) {
+         //   $user_name = $user_data['name'];
+         // }
+
+         //  $sql3 = "SELECT * FROM organizer WHERE id = '$event_organiser_id'";
+         //  $results3 = mysqli_query($conn, $sql3);
+         //  while($organiser_data = mysqli_fetch_assoc($results3)) {
+         //    $event_organiser_name = $organiser_data['name'];
+         //    $event_organiser_contact = $organiser_data['contact'];
+         //    $event_organiser_email = $organiser_data['email'];
+         //  }
 
 
           // $to = $email;
@@ -74,6 +75,7 @@ session_start();
 
 
           echo $ticket_id;
+          // die($ticket_id);
           exit();
           // echo "success";
 

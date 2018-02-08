@@ -1,7 +1,6 @@
 <?php
 include_once 'header.php';
 
-
 // $user = $_SESSION['eventtap_usr'];
 
 $servername = "localhost";
@@ -43,11 +42,11 @@ if (isset($_GET['event_id']) and isset($_GET['ticket_id'])){
       <p>Holla, <label><?php echo $user_name; ?></label></p>
       <p>Ref No.: #<label><?php echo $ticket_id; ?></label></p>
       <p>Thank you for registering <label><?php echo $event_title; ?></label>.</p> 
-      <p><p>The order confirmation ticket has been sent to <a href="mailto:$user_email"><?php echo $user_email?></label>.</p>
-      </div>
+      <p><p>The order confirmation ticket has been sent to <a href="mailto:$user_email"><?php echo $user_email?></a></label>.</p></p>
     </div>
-  </main>
+  </div>
+</main>
 
-  <?php
-  include_once 'footer.php';
-  ?>
+<?php
+include_once 'footer.php';
+?>
