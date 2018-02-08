@@ -460,10 +460,12 @@ header nav ul li label {
 
  #event-card button {
    padding: 4px 6px;
+   font-size: 14px;
  }
 
  .see-more-btn {
    padding: 10px 10px;
+   font-size: 14px;
  }
 }
 
