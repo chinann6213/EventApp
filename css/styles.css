@@ -424,6 +424,30 @@ header nav ul li label {
   box-shadow: 0px 0px 4px 0px #111;
 }
 
+#no-ticket {
+  position: absolute;
+  font-size: 16px;
+  font-family: Catamaran;
+  margin: 0 auto;
+  background-color: #f3f3f3 !important; 
+  color: red !important;
+  font-weight: 400;
+  margin-top: 15px;
+  text-decoration: none;
+  display: block;
+  padding: 6px 8px;
+  text-transform: uppercase;
+  border: none;
+  bottom: 14px;
+  left: calc(50% - 40px);
+  cursor: default !important;
+}
+
+#no-ticket:hover {
+  box-shadow: 0px 0px 0px 0px #f3f3f3 !important;
+}
+
+
 @media only screen and (max-width: 1000px){
  .container {
    width: 100%;
