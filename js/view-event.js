@@ -93,7 +93,7 @@ $(document).ready(function() {
         console.log(response);
         var ticket_id = response;
         // alert(response);
-        window.location.replace("../ticket.php?event_id="+event_id+"&ticket_id="+ticket_id);
+        window.location.replace("../eventapp/ticket.php?event_id="+event_id+"&ticket_id="+ticket_id);
         console.log(location);
       })
     } else {
