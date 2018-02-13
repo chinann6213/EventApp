@@ -198,7 +198,7 @@ header nav ul li label {
     display: none;
   }
 
-  
+
 }
 
 /* INDEX BANNER */
@@ -429,7 +429,7 @@ header nav ul li label {
   font-size: 16px;
   font-family: Catamaran;
   margin: 0 auto;
-  background-color: #f3f3f3 !important; 
+  background-color: #f3f3f3 !important;
   color: red !important;
   font-weight: 400;
   margin-top: 15px;
@@ -531,6 +531,7 @@ footer {
   padding: 40px 40px;
   overflow: hidden;
   margin-top: 20px;
+  position: absolute;
 }
 
 footer ul {
@@ -566,6 +567,7 @@ footer ul li label {
   font-family: Catamaran;
   font-size: 16px;
   color: #fff;
+  color: #e8e8e8;
   text-transform: uppercase;
   font-weight: 200;
 }

@@ -31,6 +31,8 @@
         $query = 'SELECT event_id, event_title, event_content, event_start_date, event_end_date FROM event ORDER BY event_start_date DESC LIMIT ' . $this_page_first_result . ',' . $result_per_page;
         $response = mysqli_query($dbc, $query);
 
+        $events = [];
+
         while ($row = mysqli_fetch_assoc($response)){
           $event = array("eventid" => $row['event_id'],
                           "title" => $row['event_title'],
@@ -43,6 +45,11 @@
 
         $loopCount = 0; // loopcount to create new row and enclosed row.
         $date = date("Y-m-d");
+
+        if(empty($events)){
+          echo '<h2 style="text-align: center; margin-top: 20px; font-family: Catamaran; font-size:22px;
+          "> No upcoming events <h2>';
+        }
 
         foreach($events as $event){
           if (($loopCount % 2) == 0){
